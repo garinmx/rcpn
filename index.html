@@ -5,416 +5,145 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>RCPN — Resistencia Civil Pacífica</title>
 
-<!-- Canonical -->
-<link rel="canonical" href="https://rcpn.me/" />
-
-<!-- Open Graph / Twitter cards -->
-<meta property="og:locale" content="es_MX" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="RCPN" />
-<meta property="og:url" content="https://rcpn.me/" />
-<meta property="og:title" content="Resistencia Civil Pacífica Nacional — RCPN" />
-<meta property="og:description" content="Un espacio de memoria y acción pacífica. Únete, comparte y preserva la verdad." />
-<meta property="og:image" content="https://rcpn.me/images/preview-og.jpg?v=2" />
-<meta property="og:image:secure_url" content="https://rcpn.me/images/preview-og.jpg?v=2" />
-<meta property="og:image:type" content="image/jpeg" />
-<meta property="og:image:alt" content="Imagen de vista previa" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:updated_time" content="1758425739" />
-
-<!-- Facebook App ID -->
-<meta property="fb:app_id" content="789855517295300" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Resistencia Civil Pacífica Nacional — RCPN" />
-<meta name="twitter:description" content="Un espacio de memoria y acción pacífica. Únete, comparte y preserva la verdad." />
-<meta name="twitter:image" content="https://rcpn.me/images/preview-og.jpg?v=2" />
-
-<!-- SEO / robots -->
-<meta name="robots" content="index, follow" />
-
-<!-- JSON-LD (Organization) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Resistencia Civil Pacífica Nacional (RCPN)",
-  "url": "https://rcpn.me/",
-  "logo": "https://rcpn.me/images/icon-512.png",
-  "sameAs": []
-}
-</script>
-
-<link rel="manifest" href="/manifest.json" />
-<link rel="stylesheet" href="/styles.css" />
+<!-- Open Graph básico (opcional) -->
+<meta property="og:title" content="Resistencia Civil Pacífica Nacional — RCPN">
+<meta property="og:description" content="Un espacio de memoria y acción pacífica. Únete y comparte.">
+<meta property="og:image" content="https://rcpn.me/images/preview-og.jpg">
 
 <style>
-  /* Theme variables (dark default) */
-  :root{
-    --bg: #0b1216;
-    --card: #0f1720;
-    --text: #e6eef3;
-    --muted: #9aa6b2;
-    --accent: #f97316;
-    --glass: rgba(255,255,255,0.03);
-    --focus: 2px solid rgba(249,115,22,0.25);
-  }
-
-  /* light theme */
-  [data-theme="light"]{
-    --bg: #ffffff;
-    --card: #f7f7f9;
-    --text: #0b1216;
-    --muted: #5b6b73;
-    --accent: #c85f02;
-    --glass: rgba(0,0,0,0.04);
-    --focus: 2px solid rgba(200,95,2,0.18);
-  }
-
-  /* Basic layout */
-  html,body{height:100%;margin:0}
-  body{
-    font-family:Inter,system-ui,Segoe UI,Arial,Helvetica;
-    background:linear-gradient(180deg,var(--bg) 0%, #071019 100%);
-    color:var(--text);
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .wrap{width:100%;max-width:980px;padding:28px;text-align:center;position:relative}
-  .hero{width:100%;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.7);display:block;margin:0 auto 18px}
-  .cta{background:linear-gradient(180deg,var(--accent),#c65e10);border:0;color:white;padding:14px 22px;border-radius:10px;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.35)}
-  .hint{color:var(--muted);margin-top:12px}
-
-  /* Theme toggle */
-  #themeToggle{
-    position:absolute;
-    right:18px;
-    top:18px;
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.04);
-    color:var(--text);
-    padding:8px 10px;
-    border-radius:8px;
-    cursor:pointer;
-    backdrop-filter: blur(4px);
-  }
-  #themeToggle:focus{ outline: var(--focus); }
-
+  /* Simple, mobile-first */
+  :root{--bg:#061018;--card:#0f1720;--text:#eef6f8;--muted:#9aa6b2;--accent:#ff7a59}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;}
+  body{background:linear-gradient(180deg,var(--bg),#041018);color:var(--text);display:flex;align-items:center;justify-content:center;padding:20px;}
+  .wrap{width:100%;max-width:520px;text-align:center;}
+  .hero{width:92%;max-width:420px;border-radius:12px;display:block;margin:0 auto 18px;box-shadow:0 8px 30px rgba(0,0,0,0.6);background:#fff;padding:8px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 20px;border-radius:12px;border:0;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
+  .hint{color:var(--muted);margin-top:14px;font-size:15px}
   /* Modal */
-  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.6));backdrop-filter: blur(6px);z-index:1200}
-  .modal[aria-hidden="false"]{display:flex}
-  .modal-inner{width:92%;max-width:760px;background:linear-gradient(180deg,var(--card), rgba(0,0,0,0.02));padding:22px;border-radius:12px;box-shadow:0 20px 60px rgba(2,8,16,0.7);border:1px solid rgba(255,255,255,0.03)}
-  .modal-inner h1{margin:0 0 8px;font-size:22px}
-  .manifesto{color:var(--muted);margin-bottom:14px}
-  .share-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
-  .share-btn{background:var(--glass);color:var(--text);border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:8px;cursor:pointer;text-decoration:none}
-  .share-btn:hover{transform:translateY(-2px)}
-  .share-btn:focus{ outline: var(--focus); }
-  .qrwrap{display:flex;justify-content:center;margin:10px 0}
-  #qrimg{width:128px;height:128px;border-radius:8px;background:#fff;padding:8px}
-  .media-row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;justify-content:center;margin-top:10px}
-  .preview-block, .qr-block{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-  .preview-block img{width:220px;height:auto;border-radius:8px;display:block}
-  .preview-actions, .qr-actions{display:flex;gap:8px;justify-content:center;margin-top:8px;flex-wrap:wrap}
-  .small-btn{padding:8px 10px;border-radius:8px;border:0;background:#111827;color:var(--text);cursor:pointer}
-  .close{margin-top:12px;background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03);padding:8px 12px;border-radius:8px;cursor:pointer}
-  .close:focus{ outline: var(--focus); }
-
-  /* toast */
-  #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;background:var(--card);color:var(--text);padding:8px 12px;border-radius:8px;display:none;box-shadow:0 6px 14px rgba(0,0,0,0.4)}
-  #toast.show{display:block;animation:fade 2.2s ease forwards}
-  @keyframes fade{0%{opacity:0;transform:translateX(-50%) translateY(8px)}10%{opacity:1;transform:translateX(-50%) translateY(0)}90%{opacity:1}100%{opacity:0}}
-
-  /* reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important}
-  }
-  @media (max-width:600px){ .preview-block img{width:160px} #qrimg{width:110px;height:110px} .modal-inner{padding:14px} .modal-inner h1{font-size:18px} }
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);padding:18px;z-index:999;}
+  .modal[aria-hidden="false"]{display:flex;}
+  .card{width:100%;max-width:420px;background:linear-gradient(180deg,#0b1418,#071018);border-radius:14px;padding:20px;color:var(--text);box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+  h1{margin:0 0 8px;font-size:20px}
+  p.manifesto{color:var(--muted);margin:0 0 14px;font-size:15px;line-height:1.4}
+  .btn-row{display:flex;flex-direction:column;gap:10px;margin:10px 0}
+  .share-btn{background:#12202a;border:0;color:var(--text);padding:12px;border-radius:10px;cursor:pointer;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+  .share-btn:active{transform:translateY(1px)}
+  .qrwrap{display:flex;justify-content:center;margin:14px 0}
+  #qrimg{width:140px;height:140px;border-radius:8px;background:#fff;padding:8px;object-fit:contain}
+  .small{font-size:14px;padding:10px}
+  .close{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:10px 12px;border-radius:8px;cursor:pointer;margin-top:6px}
+  @media(min-width:600px){ .btn-row{flex-direction:row;flex-wrap:wrap;justify-content:center} .share-btn{min-width:160px} }
 </style>
 </head>
 <body>
-  <main class="wrap">
-    <!-- Theme toggle -->
-    <button id="themeToggle" aria-pressed="false" aria-label="Cambiar tema">🌓</button>
-
-    <img id="art" src="/images/art.png" alt="RCPN — Resistencia Civil Pacífica" class="hero" />
+  <main class="wrap" id="main">
+    <!-- hero image (usa tu art.png) -->
+    <img id="art" class="hero" src="/images/art.png" alt="RCPN — Resistencia Civil Pacífica" />
     <button id="open" class="cta" aria-controls="modal">Toca para unirnos</button>
     <p class="hint">Comparte este enlace para difundir la voz pacífica y solidaria.</p>
   </main>
 
-  <!-- Modal principal -->
+  <!-- modal simple -->
   <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-inner">
+    <div class="card" role="document">
       <h1 id="modalTitle">Resistencia Civil Pacífica Nacional</h1>
-      <p class="manifesto">
-        Somos una red de ciudadanos que exige memoria, respeto y soluciones pacíficas.
-        Si apoyas la paz y la justicia, comparte y difunde este mensaje.
-      </p>
+      <p class="manifesto">Somos una red de ciudadanos que exige memoria, respeto y soluciones pacíficas. Si apoyas la paz y la justicia, comparte y difunde este mensaje.</p>
 
-      <div class="share-row" role="toolbar" aria-label="Opciones de compartir">
+      <div class="btn-row" role="toolbar" aria-label="Opciones de compartir">
         <a id="wa" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en WhatsApp</a>
-        <a id="fb" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en Facebook</a>
         <a id="tw" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en X</a>
-        <a id="tg" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en Telegram</a>
-        <a id="email" class="share-btn" href="#" title="Enviar por correo" rel="noopener noreferrer">Enviar por email</a>
-        <button id="copy" class="share-btn" title="Copiar enlace">Copiar enlace</button>
-        <button id="nativeShare" class="share-btn" title="Compartir desde el sistema">Compartir (nativo)</button>
+        <button id="copy" class="share-btn">Copiar enlace</button>
       </div>
 
-      <div class="media-row" aria-hidden="false">
-        <div class="preview-block" aria-label="Imagen para compartir">
-          <!-- sincronizado con og:image?v=2 -->
-          <img id="previewImg" alt="Imagen de vista previa" src="/images/preview-og.jpg?v=2" loading="lazy" />
-          <div class="preview-actions">
-            <button id="openPreview" class="small-btn">Abrir imagen</button>
-            <button id="downloadPreview" class="small-btn">Descargar imagen</button>
-            <button id="copyPreviewImg" class="small-btn" title="Copiar imagen al portapapeles">Copiar imagen</button>
-          </div>
-        </div>
+      <div class="qrwrap">
+        <img id="qrimg" src="/images/qr.png" alt="QR — escanea para abrir" />
+      </div>
 
-        <div class="qr-block" aria-label="Código QR">
-          <div class="qrwrap"><img id="qrimg" src="/images/qr.png" alt="QR — escanea para abrir" /></div>
-          <div class="qr-actions">
-            <button id="openQR" class="small-btn">Abrir QR</button>
-            <button id="downloadQR" class="small-btn">Descargar QR</button>
-            <button id="shareQR" class="small-btn" title="Compartir QR (móviles)">Compartir QR</button>
-          </div>
-        </div>
+      <div class="btn-row" style="margin-top:6px;">
+        <button id="openQR" class="share-btn small">Abrir QR</button>
+        <button id="downloadQR" class="share-btn small">Descargar QR</button>
       </div>
 
       <div style="text-align:center"><button id="close" class="close">Cerrar</button></div>
     </div>
   </div>
 
-  <div id="toast" role="status" aria-live="polite"></div>
-
 <script>
-(() => {
-  const pageUrl = 'https://rcpn.me/';
-  const pageTitle = 'Resistencia Civil Pacífica Nacional — RCPN';
-  const encodedText = encodeURIComponent(pageTitle + ' — Únete: ' + pageUrl);
+/* VARIABLES */
+const pageUrl = 'https://rcpn.me/';
+const pageTitle = 'Resistencia Civil Pacífica Nacional — RCPN';
+const encodedText = encodeURIComponent(pageTitle + ' — Únete: ' + pageUrl);
 
-  // DOM references
-  const openBtn = document.getElementById('open');
-  const modal = document.getElementById('modal');
-  const closeBtn = document.getElementById('close');
-  const wa = document.getElementById('wa');
-  const fb = document.getElementById('fb');
-  const tw = document.getElementById('tw');
-  const tg = document.getElementById('tg');
-  const email = document.getElementById('email');
-  const copyBtn = document.getElementById('copy');
-  const nativeShareBtn = document.getElementById('nativeShare');
-  const toast = document.getElementById('toast');
+/* ELEMENTOS */
+const openBtn = document.getElementById('open');
+const modal = document.getElementById('modal');
+const closeBtn = document.getElementById('close');
 
-  const previewImg = document.getElementById('previewImg');
-  const openPreviewBtn = document.getElementById('openPreview');
-  const downloadPreviewBtn = document.getElementById('downloadPreview');
-  const copyPreviewImgBtn = document.getElementById('copyPreviewImg');
+const wa = document.getElementById('wa');
+const tw = document.getElementById('tw');
+const copyBtn = document.getElementById('copy');
 
-  const qrImg = document.getElementById('qrimg');
-  const openQRBtn = document.getElementById('openQR');
-  const downloadQRBtn = document.getElementById('downloadQR');
-  const shareQRBtn = document.getElementById('shareQR');
+const qrImg = document.getElementById('qrimg');
+const openQRBtn = document.getElementById('openQR');
+const downloadQRBtn = document.getElementById('downloadQR');
 
-  const themeToggle = document.getElementById('themeToggle');
+/* ABRIR MODAL */
+openBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden','false');
 
-  // Toast helper
-  function showToast(msg, time=2200){
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(()=> toast.classList.remove('show'), time);
+  // enlaces
+  wa.href = 'https://wa.me/?text=' + encodedText;
+  tw.href = 'https://twitter.com/intent/tweet?text=' + encodedText;
+
+  // foco accesible en cerrar
+  closeBtn.focus();
+});
+
+/* CERRAR MODAL */
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
+modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+
+function closeModal(){
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden','true');
+  openBtn.focus();
+}
+
+/* COPIAR ENLACE */
+copyBtn.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(pageUrl);
+    alert('Enlace copiado: ' + pageUrl);
+  } catch (err) {
+    // fallback simple
+    const tmp = document.createElement('input');
+    document.body.appendChild(tmp);
+    tmp.value = pageUrl;
+    tmp.select();
+    document.execCommand('copy');
+    tmp.remove();
+    alert('Enlace copiado (fallback): ' + pageUrl);
   }
+});
 
-  // THEME: apply / persist
-  function applyTheme(t){
-    document.documentElement.setAttribute('data-theme', t);
-    themeToggle.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
-    localStorage.setItem('rcpn_theme', t);
-  }
-  // init theme: prefers or saved
-  const saved = localStorage.getItem('rcpn_theme');
-  if(saved) applyTheme(saved);
-  else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) applyTheme('light');
-  else applyTheme('dark');
+/* ABRIR QR */
+openQRBtn.addEventListener('click', () => {
+  window.open(qrImg.src, '_blank', 'noopener');
+});
 
-  themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    applyTheme(current === 'light' ? 'dark' : 'light');
-  });
+/* DESCARGAR QR */
+downloadQRBtn.addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.href = qrImg.src;
+  a.download = 'rcpn-qr.png';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
 
-  // Focus trap utilities
-  let currentTrapCleanup = null;
-  let lastFocusedBeforeModal = null;
-
-  function getFocusableElements(container){
-    const selector = 'a[href], area[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
-    return Array.from(container.querySelectorAll(selector)).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length);
-  }
-
-  function trapFocus(container){
-    const focusables = getFocusableElements(container);
-    if(focusables.length === 0) return () => {};
-    let first = focusables[0];
-    let last = focusables[focusables.length -1];
-
-    function handleKey(e){
-      if(e.key === 'Tab'){
-        if(e.shiftKey){
-          if(document.activeElement === first){
-            e.preventDefault();
-            last.focus();
-          }
-        } else {
-          if(document.activeElement === last){
-            e.preventDefault();
-            first.focus();
-          }
-        }
-      } else if(e.key === 'Escape'){
-        // let existing escape handler handle closing, but ensure default prevented if needed
-      }
-    }
-
-    container.addEventListener('keydown', handleKey);
-    return () => { container.removeEventListener('keydown', handleKey); };
-  }
-
-  // Open modal
-  openBtn.addEventListener('click', () => {
-    lastFocusedBeforeModal = document.activeElement;
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden','false');
-
-    // Set share links
-    wa.href = `https://wa.me/?text=${encodedText}`;
-    fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
-    tw.href = `https://twitter.com/intent/tweet?text=${encodedText}`;
-    tg.href = 'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(pageTitle);
-    email.href = 'mailto:?subject=' + encodeURIComponent(pageTitle) + '&body=' + encodeURIComponent(pageTitle + ' — ' + pageUrl);
-
-    // ensure QR loaded
-    if(!qrImg.src || qrImg.src.endsWith('/images/qr.png')) qrImg.src = '/images/qr.png';
-
-    // focus management
-    // focus close button first
-    setTimeout(()=> closeBtn.focus(), 30);
-
-    // activate trap
-    currentTrapCleanup = trapFocus(modal);
-  });
-
-  // Close modal
-  closeBtn.addEventListener('click', closeModal);
-  window.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
-  modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-
-  function closeModal(){
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden','true');
-    // remove trap
-    if(typeof currentTrapCleanup === 'function') currentTrapCleanup();
-    currentTrapCleanup = null;
-    // restore focus
-    try { if(lastFocusedBeforeModal) lastFocusedBeforeModal.focus(); }
-    catch(e){ openBtn.focus(); }
-  }
-
-  // Copy link
-  copyBtn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(pageUrl);
-      showToast('Enlace copiado en el portapapeles');
-    } catch (err) {
-      showToast('No se pudo copiar automáticamente. Selecciona y copia manualmente.');
-    }
-  });
-
-  // Native Web Share
-  nativeShareBtn.addEventListener('click', async () => {
-    if(navigator.share){
-      try {
-        await navigator.share({ title: pageTitle, text: pageTitle, url: pageUrl });
-      } catch (err) {
-        console.log('share error', err);
-      }
-    } else {
-      showToast('Compartir nativo no soportado en este navegador');
-    }
-  });
-
-  // Preview: abrir en nueva pestaña
-  openPreviewBtn.addEventListener('click', () => window.open(previewImg.src, '_blank', 'noopener'));
-
-  // Descargar preview
-  downloadPreviewBtn.addEventListener('click', () => {
-    const a = document.createElement('a');
-    a.href = previewImg.src;
-    a.download = 'rcpn-preview.jpg';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  });
-
-  // Copiar preview al clipboard (image)
-  copyPreviewImgBtn.addEventListener('click', async () => {
-    try {
-      if(!navigator.clipboard || !window.ClipboardItem) throw new Error('Clipboard image not supported');
-      const res = await fetch(previewImg.src);
-      const blob = await res.blob();
-      await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
-      showToast('Imagen copiada al portapapeles');
-    } catch (err) {
-      console.warn(err);
-      showToast('No soportado: descarga la imagen y compártela manualmente');
-    }
-  });
-
-  // QR: abrir grande
-  openQRBtn.addEventListener('click', () => window.open(qrImg.src, '_blank', 'noopener'));
-
-  // QR: download
-  downloadQRBtn.addEventListener('click', () => {
-    const a = document.createElement('a');
-    a.href = qrImg.src;
-    a.download = 'rcpn-qr.png';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  });
-
-  // QR: share via Web Share API with file (mobile)
-  shareQRBtn.addEventListener('click', async () => {
-    try {
-      const res = await fetch(qrImg.src);
-      const blob = await res.blob();
-      const file = new File([blob], 'rcpn-qr.png', { type: blob.type });
-      if(navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share){
-        await navigator.share({ files: [file], title: 'QR RCPN', text: 'Escanea para unirte: ' + pageUrl });
-      } else {
-        // fallback: descargar y mostrar toast
-        downloadQRBtn.click();
-        showToast('Compartir QR no soportado: se descargó el archivo');
-      }
-    } catch (err) {
-      console.error(err);
-      downloadQRBtn.click();
-      showToast('Error compartiendo QR, se descargó el archivo');
-    }
-  });
-
-  // Register service worker (if exists)
-  if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('/service-worker.js').catch(console.error);
-  }
-
-})();
+/* PRECAUCIÓN: si el QR no carga, asegúrate de que /images/qr.png exista en tu repo. */
 </script>
 </body>
 </html>
-
-
