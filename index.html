@@ -21,6 +21,26 @@
   html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif}
   body{background:linear-gradient(180deg,var(--bg),#041018);color:var(--text);display:flex;align-items:center;justify-content:center;padding:20px}
 
+  /* ===== Banner versión (pública) ===== */
+  #update-banner {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1400;
+    display: inline-flex;
+    gap:8px;
+    align-items:center;
+    padding:8px 12px;
+    border-radius:999px;
+    background: rgba(3,7,10,0.82);
+    color: #e6eef3;
+    font-size:13px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+  }
+  #update-banner .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  #update-banner .label { font-weight:600; margin-right:6px; }
+
   /* ===== Layout ===== */
   .wrap{width:100%;max-width:980px;text-align:center}
   .hero-box{width:92%;max-width:520px;margin:0 auto 18px;border-radius:12px;background:#fff;padding:8px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
@@ -43,25 +63,25 @@
   .close{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:10px 12px;border-radius:8px;cursor:pointer;margin-top:6px}
   .close:focus{outline:var(--focus)}
 
-  /* ===== Carousel (galería) ===== */
-  .gallery{margin:36px auto 0;max-width:760px;text-align:center;color:var(--text)}
-  .gallery h2{font-size:20px;margin-bottom:12px}
-  .carousel{display:flex;align-items:center;justify-content:center;position:relative}
-  .carousel-track{display:flex;overflow:hidden;width:320px;max-width:90vw;border-radius:12px;transition:transform .34s ease}
-  .carousel-item{min-width:320px;box-sizing:border-box;padding:8px;background:var(--card);display:flex;flex-direction:column;align-items:center}
-  .carousel-item img{width:100%;max-height:240px;object-fit:cover;border-radius:10px;margin-bottom:8px}
-  .caption{font-size:15px;color:var(--muted);margin:0 0 10px}
-  .carousel-btn{background:var(--accent);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:22px;cursor:pointer;margin:0 10px;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-  .carousel-btn:active{transform:translateY(1px)}
-  @media(min-width:600px){ .btn-row{flex-direction:row;flex-wrap:wrap;justify-content:center} .share-btn{min-width:160px} .carousel-track{width:640px} .carousel-item{min-width:640px} }
-  @media (max-width:400px){ .carousel-track, .carousel-item { min-width:240px } }
-
-  /* ===== Toast ===== */
+  /* ===== Toast (oculto por defecto) ===== */
   #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;background:#0b1318;color:var(--text);padding:8px 12px;border-radius:8px;display:none;z-index:1200}
   #toast.show{display:block;opacity:1}
+
+  /* ===== Pequeños ajustes responsive ===== */
+  @media(min-width:600px){
+    .btn-row{flex-direction:row;flex-wrap:wrap;justify-content:center}
+    .share-btn{min-width:160px}
+  }
 </style>
 </head>
 <body>
+  <!-- BANNER PÚBLICO: se actualizará leyendo /version.json -->
+  <div id="update-banner" aria-live="polite" data-build="v1.0 — placeholder">
+    <span class="dot" style="background:#f59e0b"></span>
+    <span class="label">Versión</span>
+    <span id="update-text">verificando…</span>
+  </div>
+
   <main class="wrap" id="main">
     <!-- hero: usa picture para fallback + webp si lo tienes -->
     <div class="hero-box" aria-hidden="false">
@@ -103,38 +123,6 @@
   <!-- Toast -->
   <div id="toast" role="status" aria-live="polite"></div>
 
-  <!-- Galería / carrusel -->
-  <section class="gallery" id="gallery" aria-label="Galería de momentos">
-    <h2>Galería de momentos</h2>
-    <div class="carousel" aria-roledescription="carousel">
-      <button class="carousel-btn" id="prev" aria-label="Imagen anterior">‹</button>
-      <div class="carousel-track" id="carousel-track" role="list">
-        <div class="carousel-item" role="listitem">
-          <picture>
-            <source srcset="/images/gallery1.webp" type="image/webp">
-            <img src="/images/gallery1.jpg" alt="Marcha pacífica en CDMX" loading="lazy">
-          </picture>
-          <p class="caption">Marcha pacífica en CDMX</p>
-        </div>
-        <div class="carousel-item" role="listitem">
-          <picture>
-            <source srcset="/images/gallery2.webp" type="image/webp">
-            <img src="/images/gallery2.jpg" alt="Ciudadanos en solidaridad" loading="lazy">
-          </picture>
-          <p class="caption">Ciudadanos en solidaridad</p>
-        </div>
-        <div class="carousel-item" role="listitem">
-          <picture>
-            <source srcset="/images/gallery3.webp" type="image/webp">
-            <img src="/images/gallery3.jpg" alt="Mensaje de apoyo colectivo" loading="lazy">
-          </picture>
-          <p class="caption">Mensaje de apoyo colectivo</p>
-        </div>
-      </div>
-      <button class="carousel-btn" id="next" aria-label="Imagen siguiente">›</button>
-    </div>
-  </section>
-
 <script>
 /* ===== Variables y helpers ===== */
 const pageUrl = 'https://rcpn.me/';
@@ -151,6 +139,55 @@ const qrImg = document.getElementById('qrimg');
 const openQRBtn = document.getElementById('openQR');
 const downloadQRBtn = document.getElementById('downloadQR');
 const toast = document.getElementById('toast');
+
+const banner = document.getElementById('update-banner');
+const bannerText = document.getElementById('update-text');
+const bannerDot = banner.querySelector('.dot');
+
+/* ===== Banner público: lee /version.json y muestra estado ===== */
+(async function bannerCheck(){
+  function formatDate(iso){ try{ return new Date(iso).toLocaleString(); }catch(e){ return iso; } }
+  function setColorByAge(iso){
+    try{
+      const days = (Date.now() - new Date(iso).getTime())/(1000*60*60*24);
+      if(isNaN(days)){ bannerDot.style.background='#f59e0b'; return; }
+      if(days < 1) bannerDot.style.background = '#10b981';       // verde
+      else if(days < 7) bannerDot.style.background = '#f59e0b';  // amarillo
+      else bannerDot.style.background = '#ef4444';               // rojo
+    }catch(e){ bannerDot.style.background='#f59e0b'; }
+  }
+
+  try{
+    const r = await fetch('/version.json?v=' + Date.now(), { cache: 'no-store' });
+    if(r.ok){
+      const j = await r.json();
+      const ver = j.version || j.sha || j.time || 'actualizado';
+      const time = j.time || j.date || j.updated || null;
+      if(time){
+        bannerText.textContent = `${ver} — ${formatDate(time)}`;
+        setColorByAge(time);
+      } else {
+        bannerText.textContent = ver;
+        bannerDot.style.background = '#10b981';
+      }
+      return;
+    }
+  }catch(e){
+    // ignore
+  }
+
+  // fallback: usa data-build
+  const data = banner.getAttribute('data-build') || '';
+  if(data){
+    bannerText.textContent = data;
+    if(data.includes('T')) setColorByAge(data);
+    return;
+  }
+
+  // si no hay info
+  bannerText.textContent = 'sin versión';
+  bannerDot.style.background = '#ef4444';
+})();
 
 /* ===== Toast (mejor UX que alert) ===== */
 function showToast(msg, ms=1800){
@@ -228,48 +265,7 @@ downloadQRBtn.addEventListener('click', ()=>{
   document.body.appendChild(a); a.click(); a.remove();
 });
 
-/* ===== Carousel ===== */
-const track = document.getElementById('carousel-track');
-const items = track ? Array.from(track.children) : [];
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-let currentIdx = 0;
-let itemWidth = items[0] ? items[0].clientWidth : 0;
-
-function updateDimensions(){
-  // recomputa itemWidth (responsive)
-  if(items.length === 0) return;
-  itemWidth = items[0].clientWidth;
-  updateCarousel(currentIdx);
-}
-function updateCarousel(idx){
-  if(items.length === 0) return;
-  const maxIdx = items.length - 1;
-  if(idx < 0) idx = 0;
-  if(idx > maxIdx) idx = maxIdx;
-  currentIdx = idx;
-  track.style.transform = `translateX(-${idx * itemWidth}px)`;
-}
-function goPrev(){ if(items.length === 0) return; currentIdx = (currentIdx === 0) ? items.length - 1 : currentIdx - 1; updateCarousel(currentIdx); }
-function goNext(){ if(items.length === 0) return; currentIdx = (currentIdx === items.length - 1) ? 0 : currentIdx + 1; updateCarousel(currentIdx); }
-
-if(prevBtn) prevBtn.addEventListener('click', goPrev);
-if(nextBtn) nextBtn.addEventListener('click', goNext);
-
-// touch swipe
-let startX = 0;
-track.addEventListener('touchstart', (e)=> { startX = e.touches[0].clientX; }, {passive:true});
-track.addEventListener('touchend', (e)=> {
-  const dx = e.changedTouches[0].clientX - startX;
-  if(dx > 40) goPrev();
-  else if(dx < -40) goNext();
-});
-
-// ensure dimensions after load / resize
-window.addEventListener('load', updateDimensions);
-window.addEventListener('resize', updateDimensions);
-
-/* ===== Optional: register service worker (if lo subes) ===== */
+/* ===== Optional: register service worker (si lo subes) ===== */
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/service-worker.js').catch(()=>{/* no crítico */});
 }
