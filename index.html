@@ -145,5 +145,126 @@ downloadQRBtn.addEventListener('click', () => {
 
 /* PRECAUCIÓN: si el QR no carga, asegúrate de que /images/qr.png exista en tu repo. */
 </script>
+  <section class="gallery" id="gallery">
+  <h2>Galería de momentos</h2>
+  <div class="carousel">
+    <button class="carousel-btn" id="prev" aria-label="Imagen anterior">‹</button>
+    <div class="carousel-track" id="carousel-track">
+      <!-- Ejemplo de imágenes, puedes cambiar src y texto -->
+      <div class="carousel-item">
+        <img src="/images/gallery1.jpg" alt="Marcha pacífica en CDMX" />
+        <p class="caption">Marcha pacífica en CDMX</p>
+      </div>
+      <div class="carousel-item">
+        <img src="/images/gallery2.jpg" alt="Ciudadanos en solidaridad" />
+        <p class="caption">Ciudadanos en solidaridad</p>
+      </div>
+      <div class="carousel-item">
+        <img src="/images/gallery3.jpg" alt="Mensaje de apoyo colectivo" />
+        <p class="caption">Mensaje de apoyo colectivo</p>
+      </div>
+    </div>
+    <button class="carousel-btn" id="next" aria-label="Imagen siguiente">›</button>
+  </div>
+</section>
+
+<style>
+.gallery {
+  margin: 48px auto 0;
+  max-width: 540px;
+  text-align: center;
+  color: var(--text);
+}
+.gallery h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.carousel-track {
+  display: flex;
+  overflow: hidden;
+  width: 320px;
+  max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+}
+.carousel-item {
+  min-width: 320px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel-item img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+.caption {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.carousel-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 0 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+.carousel-btn:active {
+  background: #ff5a34;
+}
+@media (max-width: 400px) {
+  .carousel-track, .carousel-item { min-width: 240px; }
+}
+</style>
+
+<script>
+// Carrusel básico
+const track = document.getElementById('carousel-track');
+const items = Array.from(track.children);
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let currentIdx = 0;
+
+function updateCarousel(idx) {
+  track.style.transform = `translateX(-${idx * items[0].clientWidth}px)`;
+}
+function goPrev() {
+  currentIdx = (currentIdx === 0) ? items.length - 1 : currentIdx - 1;
+  updateCarousel(currentIdx);
+}
+function goNext() {
+  currentIdx = (currentIdx === items.length - 1) ? 0 : currentIdx + 1;
+  updateCarousel(currentIdx);
+}
+prevBtn.addEventListener('click', goPrev);
+nextBtn.addEventListener('click', goNext);
+
+// Opcional: deslizar con dedo en móvil
+let startX = 0;
+track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
+track.addEventListener('touchend', (e) => {
+  let dx = e.changedTouches[0].clientX - startX;
+  if (dx > 40) goPrev();
+  else if (dx < -40) goNext();
+});
+</script>
 </body>
 </html>
