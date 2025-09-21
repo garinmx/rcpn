@@ -90,8 +90,11 @@
       </p>
 
       <div class="share-row" role="toolbar" aria-label="Opciones de compartir">
-        <a id="wa" class="share-btn" target="_blank" rel="noopener">Compartir en WhatsApp</a>
-        <a id="tw" class="share-btn" target="_blank" rel="noopener">Compartir en X</a>
+        <a id="wa" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en WhatsApp</a>
+        <a id="fb" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en Facebook</a>
+        <a id="tw" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en X</a>
+        <a id="tg" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en Telegram</a>
+        <a id="email" class="share-btn" href="#" title="Enviar por correo" rel="noopener noreferrer">Enviar por email</a>
         <button id="copy" class="share-btn" title="Copiar enlace">Copiar enlace</button>
         <button id="nativeShare" class="share-btn" title="Compartir desde el sistema">Compartir (nativo)</button>
       </div>
@@ -134,7 +137,10 @@
   const modal = document.getElementById('modal');
   const closeBtn = document.getElementById('close');
   const wa = document.getElementById('wa');
+  const fb = document.getElementById('fb');
   const tw = document.getElementById('tw');
+  const tg = document.getElementById('tg');
+  const email = document.getElementById('email');
   const copyBtn = document.getElementById('copy');
   const nativeShareBtn = document.getElementById('nativeShare');
   const toast = document.getElementById('toast');
@@ -161,9 +167,15 @@
     modal.style.display = 'flex';
     modal.setAttribute('aria-hidden','false');
     closeBtn.focus();
+
     // Set share links
     wa.href = `https://wa.me/?text=${encodedText}`;
+    fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+    // X (Twitter) - intent URL works for X as well in most cases
     tw.href = `https://twitter.com/intent/tweet?text=${encodedText}`;
+    tg.href = 'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(pageTitle);
+    email.href = 'mailto:?subject=' + encodeURIComponent(pageTitle) + '&body=' + encodeURIComponent(pageTitle + ' — ' + pageUrl);
+
     // Ensure QR image source is set (lazy support)
     if(!qrImg.src || qrImg.src.endsWith('/images/qr.png')){
       qrImg.src = '/images/qr.png';
