@@ -4,7 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>RCPN — Resistencia Civil Pacífica</title>
-<!-- Open Graph / Twitter cards — -->
+
+<!-- Canonical -->
+<link rel="canonical" href="https://rcpn.me/" />
+
+<!-- Open Graph / Twitter cards — bloque único y consistente -->
 <meta property="og:locale" content="es_MX" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="RCPN" />
@@ -13,21 +17,27 @@
 <meta property="og:description" content="Un espacio de memoria y acción pacífica. Únete, comparte y preserva la verdad." />
 <meta property="og:image" content="https://rcpn.me/images/preview-og.jpg?v=2" />
 <meta property="og:image:secure_url" content="https://rcpn.me/images/preview-og.jpg?v=2" />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:alt" content="Imagen de vista previa" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:updated_time" content="1758425739" />
+
+<!-- Facebook App ID -->
 <meta property="fb:app_id" content="789855517295300" />
 
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Resistencia Civil Pacífica Nacional — RCPN" />
 <meta name="twitter:description" content="Un espacio de memoria y acción pacífica. Únete, comparte y preserva la verdad." />
 <meta name="twitter:image" content="https://rcpn.me/images/preview-og.jpg?v=2" />
 
-
+<!-- SEO / robots -->
+<meta name="robots" content="index, follow" />
 
 <link rel="manifest" href="/manifest.json" />
 <link rel="stylesheet" href="/styles.css" />
+
 <style>
   /* Minimal styles para modal y botones (ajusta a tu theme) */
   :root{
@@ -88,7 +98,8 @@
 
       <div class="media-row" aria-hidden="false">
         <div class="preview-block" aria-label="Imagen para compartir">
-          <img id="previewImg" alt="Imagen de vista previa" src="/images/preview-og.jpg?v=1" loading="lazy" />
+          <!-- sincronizado con og:image?v=2 -->
+          <img id="previewImg" alt="Imagen de vista previa" src="/images/preview-og.jpg?v=2" loading="lazy" />
           <div class="preview-actions">
             <button id="openPreview" class="small-btn">Abrir imagen</button>
             <button id="downloadPreview" class="small-btn">Descargar imagen</button>
