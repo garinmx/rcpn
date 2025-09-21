@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RCPN — Resistencia Civil Pacífica</title>
+
+<!-- Open Graph / preview -->
+<meta property="og:title" content="Resistencia Civil Pacífica Nacional — RCPN" />
+<meta property="og:description" content="Un espacio de memoria y acción pacífica. Únete, comparte y preserva la verdad." />
+<meta property="og:image" content="https://rcpn.me/images/preview-og.jpg" />
+<meta property="og:url" content="https://rcpn.me/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <img id="art" src="/images/art.png" alt="RCPN — Resistencia Civil Pacífica" class="hero" />
+    <button id="open" class="cta">Toca para unirnos</button>
+    <p class="hint">Comparte este enlace para difundir la voz pacífica y solidaria.</p>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-inner">
+      <h1>Resistencia Civil Pacífica Nacional</h1>
+      <p class="manifesto">
+        Somos una red de ciudadanos que exige memoria, respeto y soluciones pacíficas.  
+        Si apoyas la paz y la justicia, comparte y difunde este mensaje.
+      </p>
+
+      <div class="share-row">
+        <a id="wa" class="share-btn" target="_blank" rel="noopener">Compartir en WhatsApp</a>
+        <a id="tw" class="share-btn" target="_blank" rel="noopener">Compartir en X</a>
+        <button id="copy" class="share-btn">Copiar enlace</button>
+      </div>
+
+      <div class="qrwrap"><img id="qrimg" src="/images/qr.png" alt="QR — abrir" /></div>
+      <button id="close" class="close">Cerrar</button>
+    </div>
+  </div>
+
+<script>
+const pageUrl = "https://rcpn.me/";
+document.getElementById('open').onclick = () => {
+  const m = document.getElementById('modal'); m.style.display='flex'; m.setAttribute('aria-hidden','false');
+  const text = encodeURIComponent("Resistencia Civil Pacífica Nacional — Únete y comparte: "+pageUrl);
+  document.getElementById('wa').href = "https://wa.me/?text="+text;
+  document.getElementById('tw').href = "https://twitter.com/intent/tweet?text="+text;
+  document.getElementById('qrimg').src = '/images/qr.png';
+};
+document.getElementById('close').onclick = () => { const m=document.getElementById('modal'); m.style.display='none'; m.setAttribute('aria-hidden','true'); };
+document.getElementById('copy').onclick = async ()=>{ await navigator.clipboard.writeText(pageUrl); alert('Enlace copiado: ' + pageUrl); };
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').catch(console.error); }
+</script>
+</body>
+</html>
