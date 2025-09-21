@@ -5,50 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>RCPN — Resistencia Civil Pacífica</title>
 
-<!-- Preload / Open Graph -->
-<link rel="preload" as="image" href="/images/preview-og.jpg?v=2">
+<!-- Open Graph básico -->
+<link rel="preload" as="image" href="images/preview-og.jpg?v=2">
 <meta property="og:title" content="Resistencia Civil Pacífica Nacional — RCPN">
 <meta property="og:description" content="Un espacio de memoria y acción pacífica. Únete y comparte.">
 <meta property="og:image" content="https://rcpn.me/images/preview-og.jpg?v=2">
 <meta property="og:type" content="website">
 
 <style>
-  /* ===== Global / variables ===== */
-  :root{
-    --bg:#061018; --card:#0f1720; --text:#eef6f8; --muted:#9aa6b2; --accent:#ff7a59;
-    --focus: 3px solid rgba(255,122,89,0.18);
-  }
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif}
+  :root{--bg:#061018;--card:#0f1720;--text:#eef6f8;--muted:#9aa6b2;--accent:#ff7a59;--focus:3px solid rgba(255,122,89,0.18)}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial}
   body{background:linear-gradient(180deg,var(--bg),#041018);color:var(--text);display:flex;align-items:center;justify-content:center;padding:20px}
-
-  /* ===== Banner versión (pública) ===== */
-  #update-banner {
-    position: fixed;
-    top: 12px;
-    right: 12px;
-    z-index: 1400;
-    display: inline-flex;
-    gap:8px;
-    align-items:center;
-    padding:8px 12px;
-    border-radius:999px;
-    background: rgba(3,7,10,0.82);
-    color: #e6eef3;
-    font-size:13px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
-    backdrop-filter: blur(6px);
-  }
-  #update-banner .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
-  #update-banner .label { font-weight:600; margin-right:6px; }
-
-  /* ===== Layout ===== */
+  /* Banner de versión */
+  #update-banner{position:fixed;top:12px;right:12px;z-index:1400;display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(3,7,10,0.82);color:#e6eef3;font-size:13px;box-shadow:0 6px 20px rgba(0,0,0,0.45);backdrop-filter:blur(6px)}
+  #update-banner .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
   .wrap{width:100%;max-width:980px;text-align:center}
   .hero-box{width:92%;max-width:520px;margin:0 auto 18px;border-radius:12px;background:#fff;padding:8px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
   .hero{display:block;width:100%;height:auto;border-radius:8px}
   .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 22px;border-radius:12px;border:0;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
   .hint{color:var(--muted);margin-top:12px;font-size:15px}
-
-  /* ===== Modal ===== */
+  /* Modal */
   .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.62);padding:18px;z-index:999}
   .modal[aria-hidden="false"]{display:flex}
   .card{width:100%;max-width:520px;background:linear-gradient(180deg,#0b1418,#071018);border-radius:14px;padding:18px;color:var(--text);box-shadow:0 20px 60px rgba(0,0,0,0.6)}
@@ -62,20 +38,14 @@
   .small{font-size:14px;padding:10px}
   .close{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:10px 12px;border-radius:8px;cursor:pointer;margin-top:6px}
   .close:focus{outline:var(--focus)}
-
-  /* ===== Toast (oculto por defecto) ===== */
+  /* Toast */
   #toast{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;background:#0b1318;color:var(--text);padding:8px 12px;border-radius:8px;display:none;z-index:1200}
-  #toast.show{display:block;opacity:1}
-
-  /* ===== Pequeños ajustes responsive ===== */
-  @media(min-width:600px){
-    .btn-row{flex-direction:row;flex-wrap:wrap;justify-content:center}
-    .share-btn{min-width:160px}
-  }
+  #toast.show{display:block}
+  @media(min-width:600px){ .btn-row{flex-direction:row;flex-wrap:wrap;justify-content:center} .share-btn{min-width:160px} }
 </style>
 </head>
 <body>
-  <!-- BANNER PÚBLICO: se actualizará leyendo /version.json -->
+  <!-- Banner visible -->
   <div id="update-banner" aria-live="polite" data-build="v1.0 — placeholder">
     <span class="dot" style="background:#f59e0b"></span>
     <span class="label">Versión</span>
@@ -83,11 +53,10 @@
   </div>
 
   <main class="wrap" id="main">
-    <!-- hero: usa picture para fallback + webp si lo tienes -->
     <div class="hero-box" aria-hidden="false">
       <picture>
-        <source srcset="/images/art.webp" type="image/webp">
-        <img id="art" class="hero" src="/images/art.png" alt="RCPN — Resistencia Civil Pacífica" loading="eager">
+        <source srcset="images/art.webp" type="image/webp">
+        <img id="art" class="hero" src="images/art.png" alt="RCPN — Resistencia Civil Pacífica" loading="eager">
       </picture>
     </div>
 
@@ -95,40 +64,40 @@
     <p class="hint">Comparte este enlace para difundir la voz pacífica y solidaria.</p>
   </main>
 
-  <!-- modal simple -->
+  <!-- Modal (sin carrusel) -->
   <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="card" role="document">
       <h1 id="modalTitle">Resistencia Civil Pacífica Nacional</h1>
       <p class="manifesto">Somos una red de ciudadanos que exige memoria, respeto y soluciones pacíficas. Si apoyas la paz y la justicia, comparte y difunde este mensaje.</p>
 
       <div class="btn-row" role="toolbar" aria-label="Opciones de compartir">
-        <a id="wa" class="share-btn" target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp">Compartir en WhatsApp</a>
-        <a id="tw" class="share-btn" target="_blank" rel="noopener noreferrer" aria-label="Compartir en X">Compartir en X</a>
-        <button id="copy" class="share-btn" aria-label="Copiar enlace">Copiar enlace</button>
+        <a id="wa" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en WhatsApp</a>
+        <a id="tw" class="share-btn" target="_blank" rel="noopener noreferrer">Compartir en X</a>
+        <button id="copy" class="share-btn">Copiar enlace</button>
       </div>
 
       <div class="qrwrap">
-        <img id="qrimg" src="/images/qr.png" alt="Código QR para escanear y unirse" onerror="this.style.opacity=.35">
+        <img id="qrimg" src="images/qr.png" alt="Código QR para escanear y unirse">
       </div>
 
       <div class="btn-row" style="margin-top:6px;">
-        <button id="openQR" class="share-btn small" aria-label="Abrir código QR">Abrir QR</button>
-        <button id="downloadQR" class="share-btn small" aria-label="Descargar código QR">Descargar QR</button>
+        <button id="openQR" class="share-btn small">Abrir QR</button>
+        <button id="downloadQR" class="share-btn small">Descargar QR</button>
       </div>
 
-      <div style="text-align:center"><button id="close" class="close" aria-label="Cerrar diálogo">Cerrar</button></div>
+      <div style="text-align:center"><button id="close" class="close">Cerrar</button></div>
     </div>
   </div>
 
-  <!-- Toast -->
   <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
-/* ===== Variables y helpers ===== */
+/* Variables */
 const pageUrl = 'https://rcpn.me/';
 const pageTitle = 'Resistencia Civil Pacífica Nacional — RCPN';
 const encodedText = encodeURIComponent(pageTitle + ' — Únete: ' + pageUrl);
 
+/* Elementos */
 const openBtn = document.getElementById('open');
 const modal = document.getElementById('modal');
 const closeBtn = document.getElementById('close');
@@ -144,131 +113,77 @@ const banner = document.getElementById('update-banner');
 const bannerText = document.getElementById('update-text');
 const bannerDot = banner.querySelector('.dot');
 
-/* ===== Banner público: lee /version.json y muestra estado ===== */
+/* Banner: lee version.json si existe */
 (async function bannerCheck(){
   function formatDate(iso){ try{ return new Date(iso).toLocaleString(); }catch(e){ return iso; } }
   function setColorByAge(iso){
     try{
       const days = (Date.now() - new Date(iso).getTime())/(1000*60*60*24);
       if(isNaN(days)){ bannerDot.style.background='#f59e0b'; return; }
-      if(days < 1) bannerDot.style.background = '#10b981';       // verde
-      else if(days < 7) bannerDot.style.background = '#f59e0b';  // amarillo
-      else bannerDot.style.background = '#ef4444';               // rojo
+      if(days < 1) bannerDot.style.background = '#10b981';
+      else if(days < 7) bannerDot.style.background = '#f59e0b';
+      else bannerDot.style.background = '#ef4444';
     }catch(e){ bannerDot.style.background='#f59e0b'; }
   }
-
   try{
-    const r = await fetch('/version.json?v=' + Date.now(), { cache: 'no-store' });
+    const r = await fetch('version.json?v=' + Date.now(), { cache:'no-store' });
     if(r.ok){
       const j = await r.json();
       const ver = j.version || j.sha || j.time || 'actualizado';
       const time = j.time || j.date || j.updated || null;
-      if(time){
-        bannerText.textContent = `${ver} — ${formatDate(time)}`;
-        setColorByAge(time);
-      } else {
-        bannerText.textContent = ver;
-        bannerDot.style.background = '#10b981';
-      }
+      bannerText.textContent = time ? `${ver} — ${formatDate(time)}` : ver;
+      if(time) setColorByAge(time);
       return;
     }
-  }catch(e){
-    // ignore
-  }
-
-  // fallback: usa data-build
+  }catch(e){}
   const data = banner.getAttribute('data-build') || '';
-  if(data){
-    bannerText.textContent = data;
-    if(data.includes('T')) setColorByAge(data);
-    return;
-  }
-
-  // si no hay info
-  bannerText.textContent = 'sin versión';
-  bannerDot.style.background = '#ef4444';
+  if(data){ bannerText.textContent = data; if(data.includes('T')) setColorByAge(data); return; }
+  bannerText.textContent = 'sin versión'; bannerDot.style.background = '#ef4444';
 })();
 
-/* ===== Toast (mejor UX que alert) ===== */
-function showToast(msg, ms=1800){
-  toast.textContent = msg;
-  toast.classList.add('show');
-  toast.style.display = 'block';
-  clearTimeout(toast._t);
-  toast._t = setTimeout(()=> { toast.style.display = 'none'; }, ms);
-}
+/* Toast helper */
+function showToast(msg, ms=1600){ toast.textContent = msg; toast.classList.add('show'); toast.style.display='block'; clearTimeout(toast._t); toast._t=setTimeout(()=>{ toast.style.display='none'; }, ms); }
 
-/* ===== Focus trap (accesibilidad) ===== */
-let cleanupTrap = null;
-let lastFocused = null;
-function getFocusable(container){
-  const sel = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-  return Array.from(container.querySelectorAll(sel)).filter(el => el.offsetParent !== null);
-}
-function trapFocus(container){
-  const nodes = getFocusable(container);
-  if(nodes.length === 0) return ()=>{};
-  const first = nodes[0], last = nodes[nodes.length-1];
-  function handler(e){
-    if(e.key !== 'Tab') return;
-    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-  }
-  container.addEventListener('keydown', handler);
-  return ()=> container.removeEventListener('keydown', handler);
-}
-
-/* ===== Modal open/close ===== */
-openBtn.addEventListener('click', () => {
-  lastFocused = document.activeElement;
+/* Modal open/close + focus */
+openBtn.addEventListener('click', ()=>{
   modal.style.display = 'flex';
   modal.setAttribute('aria-hidden','false');
-
   wa.href = 'https://wa.me/?text=' + encodedText;
   tw.href = 'https://twitter.com/intent/tweet?text=' + encodedText;
-
-  // focus management
   setTimeout(()=> closeBtn.focus(), 20);
-  cleanupTrap = trapFocus(modal);
+});
+closeBtn.addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); openBtn.focus(); });
+window.addEventListener('keydown',(e)=> { if(e.key==='Escape' && modal.getAttribute('aria-hidden')==='false') { modal.style.display='none'; modal.setAttribute('aria-hidden','true'); openBtn.focus(); } });
+
+/* Copiar enlace */
+copyBtn.addEventListener('click', async ()=>{
+  try{ await navigator.clipboard.writeText(pageUrl); showToast('Enlace copiado'); }
+  catch(e){ const tmp=document.createElement('input'); document.body.appendChild(tmp); tmp.value=pageUrl; tmp.select(); document.execCommand('copy'); tmp.remove(); showToast('Enlace copiado (fallback)'); }
 });
 
-function closeModal(){
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
-  if(typeof cleanupTrap === 'function') cleanupTrap();
-  cleanupTrap = null;
-  try{ if(lastFocused) lastFocused.focus(); else openBtn.focus(); }catch(e){ openBtn.focus(); }
+/* Abrir / descargar QR */
+openQRBtn.addEventListener('click', ()=> window.open(qrImg.src,'_blank'));
+downloadQRBtn.addEventListener('click', ()=> { const a=document.createElement('a'); a.href = qrImg.src; a.download = 'rcpn-qr.png'; document.body.appendChild(a); a.click(); a.remove(); });
+
+/* Fallback por si imagen rota */
+function attachImageFallback(img){
+  img.addEventListener('error', () => {
+    console.warn('Imagen no encontrada:', img.src);
+    const svg = encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="100%" height="100%" fill="#0b1318"/><text x="50%" y="50%" fill="#9aa6b2" font-size="20" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Imagen no encontrada</text></svg>');
+    img.src = 'data:image/svg+xml;charset=utf-8,' + svg;
+    img.style.opacity = '0.7';
+  }, {once:true});
 }
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('keydown', (e)=> { if(e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
-modal.addEventListener('click', (e)=> { if(e.target === modal) closeModal(); });
+['art','qrimg'].forEach(id => { const el=document.getElementById(id); if(el) attachImageFallback(el); });
 
-/* ===== Copy link (Clipboard API) ===== */
-copyBtn.addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(pageUrl);
-    showToast('Enlace copiado');
-  } catch (err) {
-    // fallback
-    const tmp = document.createElement('input');
-    document.body.appendChild(tmp);
-    tmp.value = pageUrl; tmp.select();
-    document.execCommand('copy'); tmp.remove();
-    showToast('Enlace copiado (fallback)');
-  }
+/* Debug carga de imágenes */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('load', ()=> console.log('img loaded:', img.src));
+  img.addEventListener('error', ()=> console.warn('img error:', img.src));
 });
 
-/* ===== QR open / download ===== */
-openQRBtn.addEventListener('click', ()=> window.open(qrImg.src, '_blank', 'noopener'));
-downloadQRBtn.addEventListener('click', ()=>{
-  const a = document.createElement('a'); a.href = qrImg.src; a.download = 'rcpn-qr.png';
-  document.body.appendChild(a); a.click(); a.remove();
-});
-
-/* ===== Optional: register service worker (si lo subes) ===== */
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/service-worker.js').catch(()=>{/* no crítico */});
-}
+/* Registrador opcional de service worker */
+if('serviceWorker' in navigator){ navigator.serviceWorker && navigator.serviceWorker.register('service-worker.js').catch(()=>{}); }
 </script>
 </body>
 </html>
