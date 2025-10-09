@@ -15,7 +15,7 @@ import Base from "../layouts/Base.astro";
       </div>
     </header>
 
-    <!-- Hero: SVG responsivo sin recortes -->
+    <!-- Hero ÚNICO: SVG responsivo sin recortes -->
     <section aria-label="Imagen de portada" class="hero-box">
       <svg
         class="hero-svg"
@@ -53,45 +53,7 @@ import Base from "../layouts/Base.astro";
       </svg>
     </section>
 
-    <!-- Hero: imagen principal -->
-    <section aria-label="Imagen de portada" class="hero-box">
-      <picture>
-        <source
-          type="image/webp"
-          srcset="/images/hero.webp 1x, /images/hero@2x.webp 2x"
-          sizes="(max-width: 900px) 92vw, 1100px" />
-        <img
-          class="hero"
-          src="/images/hero.jpg"
-          alt="RCPN — Resistencia Civil Pacífica Nacional"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async" />
-      </picture>
-    </section>
-
-    <!-- ===== CONTADOR DE VISITAS (CounterAPI) ===== -->
-    <p style="text-align:center; margin-top:1.5rem; color:#9aa6b2;">
-      👁️ <strong id="contador-visitas">—</strong> visitas al sitio
-    </p>
-
-    <script>
-      async function updateCounter() {
-        const el = document.getElementById('contador-visitas');
-        try {
-          const r = await fetch('https://api.counterapi.dev/v1/rcpn/rcpn-page-views/incr');
-          if (!r.ok) throw new Error('fetch failed');
-          const data = await r.json();
-          const count = data.count ?? data.value ?? data.total ?? null;
-          if (count === null) throw new Error('unexpected response');
-          el.textContent = Number(count).toLocaleString('es-MX');
-        } catch (err) {
-          console.warn('CounterAPI error:', err);
-          el.textContent = '—';
-        }
-      }
-      updateCounter();
-    </script>
+    <!-- (Se eliminó la segunda sección de hero con <picture>) -->
   </main>
 
   <style>
@@ -100,59 +62,30 @@ import Base from "../layouts/Base.astro";
       --text:#eef6f8; --muted:#9aa6b2; --accent:#ff7a59;
     }
 
-    .home {
+    .home{
       width:min(1100px, 96vw);
       margin-inline:auto;
       padding: clamp(16px, 2.5vw, 32px);
     }
+    .home__header{ text-align:center; margin-block: 12px 16px; }
+    .title{ font-size: clamp(28px, 4.5vw, 46px); color:var(--accent); margin:0 0 8px; }
+    .lede{ color:var(--muted); margin:0; }
+    .cta{ display:flex; gap:12px; justify-content:center; margin-top:16px; }
 
-    .home__header {
-      text-align:center;
-      margin-block: 12px 16px;
-    }
-
-    .title {
-      font-size: clamp(28px, 4.5vw, 46px);
-      color:var(--accent);
-      margin:0 0 8px;
-    }
-
-    .lede {
-      color:var(--muted);
-      margin:0;
-    }
-
-    .cta {
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      margin-top:16px;
-    }
-
-    .btn {
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:12px;
-      background:var(--accent);
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      box-shadow:0 8px 24px rgba(0,0,0,.35);
+    .btn{
+      display:inline-block; padding:12px 18px; border-radius:12px;
+      background:var(--accent); color:#fff; text-decoration:none;
+      font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,.35);
       transition:transform .08s ease;
     }
-
-    .btn:hover {
-      transform:translateY(-1px);
-    }
-
-    .btn.ghost {
-      background:transparent;
-      color:var(--accent);
+    .btn:hover{ transform:translateY(-1px); }
+    .btn.ghost{
+      background:transparent; color:var(--accent);
       border:2px solid var(--accent);
     }
 
-    /* ===== HERO ===== */
-    .hero-box {
+    /* ======== HERO (contenedor) ======== */
+    .hero-box{
       width: min(1100px, 96vw);
       margin: 18px auto 0;
       border-radius: 16px;
@@ -162,25 +95,17 @@ import Base from "../layouts/Base.astro";
       padding: clamp(8px, 2vw, 16px);
     }
 
-    .hero {
+    /* SVG responsivo, altura acotada similar a la imagen */
+    .hero-svg{
       display:block;
       width:100%;
       height:auto;
       max-height: clamp(260px, 55vw, 560px);
-      margin-inline:auto;
-      object-fit: contain;
-      object-position: center;
     }
 
     @media (max-width: 640px){
-      .cta {
-        flex-direction:column;
-        align-items:center;
-      }
-      .btn, .btn.ghost {
-        width: min(340px, 92vw);
-        text-align:center;
-      }
+      .cta{ flex-direction:column; align-items:center; }
+      .btn, .btn.ghost{ width: min(340px, 92vw); text-align:center; }
     }
   </style>
 </Base>
