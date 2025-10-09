@@ -53,8 +53,25 @@ import Base from "../layouts/Base.astro";
       </svg>
     </section>
 
-    <!-- (Se eliminó la segunda sección de hero con <picture>) -->
+    <!-- Contador de visitas (CounterAPI, sin API key) -->
+    <p class="visits">
+      👁️ <strong id="contador-visitas">—</strong> visitas al sitio
+    </p>
   </main>
+
+  <script>
+    async function updateCounter() {
+      const el = document.getElementById('contador-visitas');
+      try {
+        const r = await fetch('https://api.counterapi.dev/v1/rcpn/rcpn-page-views/incr');
+        const data = await r.json();
+        el.textContent = (data?.count ?? 0).toLocaleString('es-MX');
+      } catch {
+        el.textContent = '—';
+      }
+    }
+    updateCounter();
+  </script>
 
   <style>
     :root {
@@ -101,6 +118,13 @@ import Base from "../layouts/Base.astro";
       width:100%;
       height:auto;
       max-height: clamp(260px, 55vw, 560px);
+    }
+
+    /* Contador */
+    .visits{
+      text-align:center;
+      margin: 1.2rem auto 0;
+      color: var(--muted);
     }
 
     @media (max-width: 640px){
