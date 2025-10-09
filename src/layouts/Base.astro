@@ -1,7 +1,9 @@
 ---
 import "../styles/base.css";
-const { title = 'RCPN — Resistencia Civil Pacífica',
-        description = 'Memoria y acción pacífica. Únete y comparte.' } = Astro.props;
+const {
+  title = 'RCPN — Resistencia Civil Pacífica',
+  description = 'Memoria y acción pacífica. Únete y comparte.'
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="es">
@@ -11,21 +13,100 @@ const { title = 'RCPN — Resistencia Civil Pacífica',
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="theme-color" content="#08121a" />
-  <!-- CSP mínima (por meta): -->
+
+  <!-- CSP: habilitamos fetch a CounterAPI -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests" />
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      script-src 'self';
+      style-src 'self' 'unsafe-inline';
+      connect-src 'self' https://api.counterapi.dev;
+      object-src 'none';
+      base-uri 'self';
+      upgrade-insecure-requests
+    " />
   <meta name="referrer" content="no-referrer" />
+
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="icon" href="/images/icon-192.png" />
 </head>
 <body>
   <header><slot name="header" /></header>
-  <main id="contenido"><slot /></main>
-  <footer><slot name="footer" /></footer>
+
+  <main><slot /></main>
+
+  <!-- Footer global con contador -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="brand-dot" aria-hidden="true">●</span>
+      <span>Visitas totales: <strong id="contador-visitas">—</strong></span>
+    </div>
+  </footer>
+
+  <!-- SW (opcional) -->
   <script>
     if ('serviceWorker' in navigator) {
-      addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+      addEventListener('load', () =>
+        navigator.serviceWorker.register('/sw.js').catch(()=>{})
+      );
     }
   </script>
+
+  <!-- Contador (CounterAPI) - 1 vez por sesión -->
+  <script>
+    (async () => {
+      const el = document.getElementById('contador-visitas');
+      if (!el) return;
+
+      const KEY = 'rcpn_counter_counted_session';
+      const API = 'https://api.counterapi.dev/v1/rcpn/rcpn-page-views';
+      try {
+        const already = sessionStorage.getItem(KEY) === '1';
+        const url = API + (already ? '' : '/incr');
+        const r = await fetch(url, { method: 'GET', cache: 'no-store' });
+        if (!r.ok) throw new Error('counter fetch failed');
+        const data = await r.json();
+        const count = data.count ?? data.value ?? data.total ?? null;
+        if (count == null) throw new Error('unexpected response');
+        if (!already) sessionStorage.setItem(KEY, '1');
+        el.textContent = Number(count).toLocaleString('es-MX');
+      } catch (e) {
+        console.warn('CounterAPI error:', e);
+        el.textContent = '—';
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --text:#eef6f8; --muted:#9aa6b2; --accent:#ff7a59;
+      --card:#0f1720;
+    }
+    .site-footer{
+      margin-top: 28px;
+      padding: 14px 0;
+      background: var(--card);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-inner{
+      width:min(1100px, 96vw);
+      margin:0 auto;
+      color: var(--muted);
+      font-size: .95rem;
+      display:flex;
+      gap:.6rem;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-dot{
+      color: var(--accent);
+      font-weight: 900;
+      line-height: 1;
+    }
+    .footer-inner strong{
+      color: var(--accent);
+    }
+  </style>
 </body>
 </html>
