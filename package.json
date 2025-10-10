@@ -1,12 +1,20 @@
 {
-  "name": "rcpn-secure-site",
+  "name": "rcpn.me",
+  "version": "1.0.0",
   "type": "module",
-  "version": "0.0.1",
+  "description": "Sitio oficial de la Resistencia Civil Pacífica Nacional (RCPN). Movimiento ciudadano por la memoria, el respeto y la acción no violenta en México.",
+  "author": "RCPN — Resistencia Civil Pacífica Nacional",
+  "license": "MIT",
+  "homepage": "https://rcpn.me/",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "clean": "rm -rf dist .astro",
+    "deploy": "astro build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "gh-pages": "^6.1.1"
   },
   "devDependencies": {
     "astro": "^5.14.1"
