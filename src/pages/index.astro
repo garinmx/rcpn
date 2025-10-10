@@ -1,13 +1,16 @@
 ---
 import Base from "../layouts/Base.astro";
 ---
-<Base title="RCPN — Resistencia Civil Pacífica">
+
+<Base
+  title="Resistencia Civil Pacífica Nacional (RCPN) | Movimiento ciudadano por la acción pacífica en México"
+>
   <main class="home">
     <header class="home__header">
       <h1 class="title">Resistencia Civil Pacífica Nacional</h1>
       <p class="lede">
-        Somos una red de ciudadanos que exige memoria, respeto y soluciones pacíficas.
-        Únete y comparte.
+        Somos una red de ciudadanos que exige memoria, respeto y soluciones
+        pacíficas. Únete y comparte.
       </p>
       <div class="cta">
         <a class="btn" href="/kit/">Kit de acción</a>
@@ -22,34 +25,48 @@ import Base from "../layouts/Base.astro";
         viewBox="0 0 1600 900"
         preserveAspectRatio="xMidYMid meet"
         role="img"
-        aria-label="RCPN — Resistencia Civil Pacífica. Memoria, Respeto, Acción no violenta.">
+        aria-label="RCPN — Resistencia Civil Pacífica. Memoria, Respeto, Acción no violenta."
+      >
         <defs>
           <radialGradient id="g1" cx="50%" cy="30%" r="70%">
-            <stop offset="0%"  stop-color="#101b24" />
-            <stop offset="60%" stop-color="#0c131a" />
-            <stop offset="100%" stop-color="#0a1117" />
+            <stop offset="0%" stop-color="#101b24"></stop>
+            <stop offset="60%" stop-color="#0c131a"></stop>
+            <stop offset="100%" stop-color="#0a1117"></stop>
           </radialGradient>
         </defs>
-        <rect width="1600" height="900" fill="url(#g1)" />
+        <rect width="1600" height="900" fill="url(#g1)"></rect>
         <!-- Título -->
-        <text x="50%" y="45%"
-              text-anchor="middle"
-              font-size="74"
-              font-weight="800"
-              fill="#ff7a59"
-              style="letter-spacing:.02em;">
+        <text
+          x="50%"
+          y="45%"
+          text-anchor="middle"
+          font-size="74"
+          font-weight="800"
+          fill="#ff7a59"
+          style="letter-spacing:.02em;"
+        >
           RCPN — Resistencia Civil Pacífica Nacional
         </text>
         <!-- Subtítulo -->
-        <text x="50%" y="55%"
-              text-anchor="middle"
-              font-size="30"
-              fill="#e9f2f5"
-              opacity=".90">
+        <text
+          x="50%"
+          y="55%"
+          text-anchor="middle"
+          font-size="30"
+          fill="#e9f2f5"
+          opacity=".90"
+        >
           Memoria • Respeto • Acción no violenta
         </text>
         <!-- Línea decorativa -->
-        <rect x="520" y="57%" width="560" height="6" fill="#ff7a59" rx="3" opacity=".85" />
+        <rect
+          x="520"
+          y="57%"
+          width="560"
+          height="6"
+          fill="#ff7a59"
+          rx="3"
+          opacity=".85"></rect>
       </svg>
     </section>
 
@@ -58,78 +75,127 @@ import Base from "../layouts/Base.astro";
       👁️ <strong id="contador-visitas">—</strong> visitas al sitio
     </p>
   </main>
-
   <script>
     async function updateCounter() {
-      const el = document.getElementById('contador-visitas');
+      // buscamos el elemento en el DOM
+      const el = document.getElementById("contador-visitas");
+
+      // si no existe, salimos y no hacemos nada (esto evita el error)
+      if (!el) return;
+
       try {
-        const r = await fetch('https://api.counterapi.dev/v1/rcpn/rcpn-page-views/incr');
+        const r = await fetch(
+          "https://api.counterapi.dev/v1/rcpn/rcpn-page-views/incr",
+        );
         const data = await r.json();
-        el.textContent = (data?.count ?? 0).toLocaleString('es-MX');
+
+        // si todo sale bien, mostramos el número
+        el.textContent = (data?.count ?? 0).toLocaleString("es-MX");
       } catch {
-        el.textContent = '—';
+        // si algo falla (por ejemplo, sin internet), mostramos "—"
+        el.textContent = "—";
       }
     }
-    updateCounter();
+
+    // ejecutamos la función una vez cargado el DOM
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", updateCounter);
+    } else {
+      updateCounter();
+    }
   </script>
 
   <style>
     :root {
-      --bg-00:#041018; --bg-10:#071219; --card:#0f1720;
-      --text:#eef6f8; --muted:#9aa6b2; --accent:#ff7a59;
+      --bg-00: #041018;
+      --bg-10: #071219;
+      --card: #0f1720;
+      --text: #eef6f8;
+      --muted: #9aa6b2;
+      --accent: #ff7a59;
     }
 
-    .home{
-      width:min(1100px, 96vw);
-      margin-inline:auto;
+    .home {
+      width: min(1100px, 96vw);
+      margin-inline: auto;
       padding: clamp(16px, 2.5vw, 32px);
     }
-    .home__header{ text-align:center; margin-block: 12px 16px; }
-    .title{ font-size: clamp(28px, 4.5vw, 46px); color:var(--accent); margin:0 0 8px; }
-    .lede{ color:var(--muted); margin:0; }
-    .cta{ display:flex; gap:12px; justify-content:center; margin-top:16px; }
-
-    .btn{
-      display:inline-block; padding:12px 18px; border-radius:12px;
-      background:var(--accent); color:#fff; text-decoration:none;
-      font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,.35);
-      transition:transform .08s ease;
+    .home__header {
+      text-align: center;
+      margin-block: 12px 16px;
     }
-    .btn:hover{ transform:translateY(-1px); }
-    .btn.ghost{
-      background:transparent; color:var(--accent);
-      border:2px solid var(--accent);
+    .title {
+      font-size: clamp(28px, 4.5vw, 46px);
+      color: var(--accent);
+      margin: 0 0 8px;
+    }
+    .lede {
+      color: var(--muted);
+      margin: 0;
+    }
+    .cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: transform 0.08s ease;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
     }
 
     /* ======== HERO (contenedor) ======== */
-    .hero-box{
+    .hero-box {
       width: min(1100px, 96vw);
       margin: 18px auto 0;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       background: #0c131a;
       padding: clamp(8px, 2vw, 16px);
     }
 
     /* SVG responsivo, altura acotada similar a la imagen */
-    .hero-svg{
-      display:block;
-      width:100%;
-      height:auto;
+    .hero-svg {
+      display: block;
+      width: 100%;
+      height: auto;
       max-height: clamp(260px, 55vw, 560px);
     }
 
     /* Contador */
-    .visits{
-      text-align:center;
+    .visits {
+      text-align: center;
       margin: 1.2rem auto 0;
       color: var(--muted);
     }
 
-    @media (max-width: 640px){
-      .cta{ flex-direction:column; align-items:center; }
-      .btn, .btn.ghost{ width: min(340px, 92vw); text-align:center; }
+    @media (max-width: 640px) {
+      .cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn,
+      .btn.ghost {
+        width: min(340px, 92vw);
+        text-align: center;
+      }
     }
   </style>
 </Base>
