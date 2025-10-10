@@ -10,7 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-# Evita ejecuciones duplicadas (la causa de la X roja)
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -28,13 +27,18 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install deps
-        run: npm ci
+      # ⚠️ Aseguramos devDependencies (astro) aunque algún entorno ponga NODE_ENV=production
+      - name: Install deps (with dev)
+        run: npm ci --include=dev || npm install --no-audit --no-fund
 
       - name: Build Astro
         run: npm run build
 
-      - name: Upload artifact (dist)
+      # Requisito oficial de GitHub Pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
