@@ -10,69 +10,52 @@ const {
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#08121a" />
+    <link rel="canonical" href="https://rcpn.me/" />
 
-    <!-- CSP: habilitamos fetch a CounterAPI -->
+    <!-- CSP ajustada para permitir scripts inline y JSON-LD -->
     <meta
       http-equiv="Content-Security-Policy"
       content="
-      default-src 'self';
-      img-src 'self' data:;
-      script-src 'self';
-      style-src 'self' 'unsafe-inline';
-      connect-src 'self' https://api.counterapi.dev;
-      object-src 'none';
-      base-uri 'self';
-      upgrade-insecure-requests
-    "
+        default-src 'self';
+        img-src 'self' data:;
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' https://api.counterapi.dev;
+        object-src 'none';
+        base-uri 'self';
+        upgrade-insecure-requests
+      "
     />
-    <meta name="referrer" content="no-referrer" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
 
-    <meta
-      name="description"
-      content="La Resistencia Civil Pacífica Nacional (RCPN) es una red de ciudadanos que promueve la memoria, el respeto y la acción no violenta en México. Únete y participa en nuestro movimiento por la justicia y la paz."
-    />
-    <meta
-      name="keywords"
-      content="Resistencia Civil Pacífica Nacional, RCPN, activismo pacífico, derechos civiles, acción ciudadana, memoria y respeto, México"
-    />
-    <meta name="author" content="Resistencia Civil Pacífica Nacional (RCPN)" />
-    <meta
-      property="og:title"
-      content="Resistencia Civil Pacífica Nacional (RCPN)"
-    />
-    <meta
-      property="og:description"
-      content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México."
-    />
+    <meta name="referrer" content="no-referrer" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Resistencia Civil Pacífica Nacional (RCPN)" />
+    <meta property="og:description" content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México." />
     <meta property="og:url" content="https://rcpn.me/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://rcpn.me/logo.png" />
+    <meta property="og:image" content="https://rcpn.me/images/icon-192.png" />
 
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/images/icon-192.png" />
-  </head>
-  <footer
-    style="margin:20px auto;max-width:1100px;padding:12px 16px;
-               color:var(--muted);border-top:1px solid rgba(255,255,255,.06);"
-  >
-    <p style="text-align:center;margin:0;">
-      <span style="color:var(--accent);font-size:1.1rem;">•</span>
-      &nbsp;Visitas totales:&nbsp;<strong id="contador-visitas">—</strong>
-    </p>
-  </footer>
 
-  <!-- Script local, permitido por tu CSP ('self') -->
-  <script type="module" src="/counter.js"></script>
+    <!-- ✅ Datos estructurados Schema.org (Organization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Resistencia Civil Pacífica Nacional",
+      "alternateName": "RCPN",
+      "url": "https://rcpn.me",
+      "logo": "https://rcpn.me/images/icon-192.png",
+      "description": "La Resistencia Civil Pacífica Nacional (RCPN) es una red de ciudadanos que promueve la memoria, el respeto y la acción no violenta en México."
+    }
+    </script>
+  </head>
 
   <body>
     <header><slot name="header" /></header>
@@ -87,16 +70,16 @@ const {
       </div>
     </footer>
 
-    <!-- SW (opcional) -->
+    <!-- SW opcional -->
     <script>
       if ("serviceWorker" in navigator) {
         addEventListener("load", () =>
-          navigator.serviceWorker.register("/sw.js").catch(() => {}),
+          navigator.serviceWorker.register("/sw.js").catch(() => {})
         );
       }
     </script>
 
-    <!-- Contador (CounterAPI) - 1 vez por sesión -->
+    <!-- Contador de visitas (CounterAPI) -->
     <script>
       (async () => {
         const el = document.getElementById("contador-visitas");
@@ -144,15 +127,8 @@ const {
         align-items: center;
         justify-content: center;
       }
-      .brand-dot {
-        color: var(--accent);
-        font-weight: 900;
-        line-height: 1;
-      }
-      .footer-inner strong {
-        color: var(--accent);
-      }
+      .brand-dot { color: var(--accent); font-weight: 900; line-height: 1; }
+      .footer-inner strong { color: var(--accent); }
     </style>
   </body>
-
 </html>
