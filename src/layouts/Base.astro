@@ -14,10 +14,9 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#08121a" />
-    <meta property="og:image:type" content="image/png" />
     <link rel="canonical" href="https://rcpn.me/" />
 
-    <!-- CSP ajustada para permitir scripts inline y JSON-LD -->
+    <!-- CSP: permite JSON-LD y scripts inline que ya usas -->
     <meta
       http-equiv="Content-Security-Policy"
       content="
@@ -34,17 +33,29 @@ const {
 
     <meta name="referrer" content="no-referrer" />
 
-    <!-- Open Graph / Social -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Resistencia Civil Pacífica Nacional (RCPN)" />
     <meta property="og:description" content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México." />
-    <meta property="og:url" content="https://rcpn.me/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://rcpn.me/images/icon-192.png" />
+    <meta property="og:url" content="https://rcpn.me/" />
+    <!-- ⚠️ Asegúrate de tener /public/images/og-image.png (1200x630) -->
+    <meta property="og:image" content="https://rcpn.me/images/og-image.png?v=1" />
+    <meta property="og:image:secure_url" content="https://rcpn.me/images/og-image.png?v=1" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Resistencia Civil Pacífica Nacional — Memoria • Respeto • Acción no violenta" />
+
+    <!-- Twitter / WhatsApp cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Resistencia Civil Pacífica Nacional (RCPN)" />
+    <meta name="twitter:description" content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México." />
+    <meta name="twitter:image" content="https://rcpn.me/images/og-image.png?v=1" />
 
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="icon" href="/images/icon-192.png" />
+    <link rel="icon" href="/favicon.svg" />
 
-    <!-- ✅ Datos estructurados Schema.org (Organization) -->
+    <!-- Schema.org (Organization) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,7 +63,7 @@ const {
       "name": "Resistencia Civil Pacífica Nacional",
       "alternateName": "RCPN",
       "url": "https://rcpn.me",
-      "logo": "https://rcpn.me/images/icon-192.png",
+      "logo": "https://rcpn.me/favicon.svg",
       "description": "La Resistencia Civil Pacífica Nacional (RCPN) es una red de ciudadanos que promueve la memoria, el respeto y la acción no violenta en México."
     }
     </script>
