@@ -4,6 +4,12 @@ import Base from "../../layouts/Base.astro";
 <Base title="Kit de acción — RCPN">
   <main class="section">
     <h1 class="title" style="text-align:center;">Kit de acción</h1>
+
+    <!-- Aviso legal -->
+    <p style="text-align:center; font-size:0.95rem; color:#9aa6b2; margin:0.4rem 0 1.2rem;">
+      <em>Los logotipos oficiales son de uso restringido. Solicita autorización antes de emplearlos en materiales propios.</em>
+    </p>
+
     <p class="lede">
       Recursos simbólicos y prácticos para fortalecer la Resistencia Civil Pacífica. Todo el material promueve la acción <strong>no violenta</strong>.
     </p>
@@ -11,6 +17,7 @@ import Base from "../../layouts/Base.astro";
     <!-- ===================== 1) MATERIALES SIMBÓLICOS ===================== -->
     <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2rem;">1) Materiales simbólicos</h2>
     <ul class="cards">
+      <!-- Playera -->
       <li>
         <h3>👕 Playera tipo polo (negra)</h3>
         <p>Uniforme simbólico: color negro, logotipo RCPN al frente.</p>
@@ -22,15 +29,20 @@ import Base from "../../layouts/Base.astro";
             loading="lazy"
             width="360"
             height="460"
-            class="card-img"
+            class="card-img no-save"
+            draggable="false"
+            oncontextmenu="return false"
+            style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
           />
         </picture>
         <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-          <a class="btn" href="/kit/arte-logotipo-rcpn.svg" download>Descargar logotipo (SVG)</a>
-          <a class="btn ghost" href="/kit/arte-logotipo-rcpn.png" download>Descargar logotipo (PNG)</a>
+          <!-- Sin descarga directa de logotipos -->
+          <a class="btn" href="https://forms.gle/REEMPLAZA" target="_blank" rel="noopener">Solicitar uso del logotipo</a>
+          <a class="btn ghost" href="mailto:hola@rcpn.me?subject=Solicitud%20de%20logotipo%20RCPN">Contactar</a>
         </div>
       </li>
 
+      <!-- Gorra -->
       <li>
         <h3>🧢 Gorra (negra)</h3>
         <p>Gorra negra con logotipo RCPN al frente.</p>
@@ -42,12 +54,16 @@ import Base from "../../layouts/Base.astro";
             loading="lazy"
             width="360"
             height="360"
-            class="card-img"
+            class="card-img no-save"
+            draggable="false"
+            oncontextmenu="return false"
+            style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
           />
         </picture>
         <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-          <a class="btn" href="/kit/arte-logotipo-rcpn.svg" download>Descargar logotipo (SVG)</a>
-          <a class="btn ghost" href="/kit/arte-logotipo-rcpn.png" download>Descargar logotipo (PNG)</a>
+          <!-- Sin descarga directa de logotipos -->
+          <a class="btn" href="https://forms.gle/REEMPLAZA" target="_blank" rel="noopener">Solicitar uso del logotipo</a>
+          <a class="btn ghost" href="mailto:hola@rcpn.me?subject=Solicitud%20de%20logotipo%20RCPN">Contactar</a>
         </div>
       </li>
     </ul>
@@ -129,88 +145,4 @@ import Base from "../../layouts/Base.astro";
         <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
           <a class="btn" href="/kit/qr-rcpn.webp" download="qr-rcpn.webp">Descargar WebP</a>
           <a class="btn ghost" href="/kit/qr-rcpn.png" download="qr-rcpn.png">Descargar PNG</a>
-          <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG</a>
-        </div>
-      </li>
-    </ul>
-
-    <!-- ===================== 3) PROTOCOLOS DE ACTUACIÓN ===================== -->
-    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">3) Protocolos de actuación</h2>
-    <ul class="cards">
-      <li>
-        <h3>📜 Constitución a la mano (Art. 16 y 11)</h3>
-        <p>Extractos clave sobre revisiones arbitrarias y libre tránsito.</p>
-        <!-- Estas previews sí existen -->
-        <picture>
-          <source srcset="/kit/previews/constitucion-art16-11.webp" type="image/webp" />
-          <img src="/kit/previews/constitucion-art16-11.png" alt="Previsualización: Constitución Art. 16 y 11" loading="lazy" class="card-img" />
-        </picture>
-        <a class="btn" href="/kit/constitucion-art16-11.pdf" download>Descargar PDF</a>
-      </li>
-
-      <li>
-        <h3>🕊️ Marcha y protesta pacífica</h3>
-        <p>Formación, rutas de salida, comunicación y contacto de emergencia.</p>
-        <!-- Sin preview para evitar 404; directo al PDF -->
-        <a class="btn" href="/kit/protocolo-marcha-protesta.pdf" download>Descargar PDF</a>
-      </li>
-
-      <li>
-        <h3>🏥 En hospitales y espacios públicos</h3>
-        <p>Cómo identificar y evidenciar un abuso con seguridad jurídica.</p>
-        <a class="btn" href="/kit/protocolo-hospital-espacios.pdf" download>Descargar PDF</a>
-      </li>
-
-      <li>
-        <h3>📹 Transmisión y documentación</h3>
-        <p>Derechos al registrar y transmitir evidencias; resguardo y verificación.</p>
-        <a class="btn" href="/kit/protocolo-transmision-evidencia.pdf" download>Descargar PDF</a>
-      </li>
-
-      <li>
-        <h3>⚖️ En fiscalías</h3>
-        <p>Presentación de denuncia, comparecencia y acompañamiento.</p>
-        <a class="btn" href="/kit/protocolo-fiscalia.pdf" download>Descargar PDF</a>
-      </li>
-    </ul>
-
-    <!-- ===================== 4) KITS PRÁCTICOS ===================== -->
-    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">4) Kits prácticos</h2>
-    <ul class="cards">
-      <li>
-        <h3>⚖️ Tarjeta de derechos (bolsillo)</h3>
-        <p>Artículos clave para portar y mostrar en caso de abuso de autoridad.</p>
-        <a class="btn" href="/kit/tarjeta-derechos-rcpn.pdf" download>Descargar PDF</a>
-      </li>
-
-      <li>
-        <h3>📝 Plantilla de denuncia simple</h3>
-        <p>Formato para documentar y presentar abusos de autoridad.</p>
-        <a class="btn" href="/kit/plantilla-denuncia.pdf" download>Descargar PDF</a>
-      </li>
-
-      <li>
-        <h3>✅ Checklist de protesta pacífica</h3>
-        <p>Lista de preparación: contacto legal, equipo de grabación, ruta, punto de encuentro.</p>
-        <a class="btn" href="/kit/checklist-protesta.pdf" download>Descargar PDF</a>
-      </li>
-    </ul>
-
-    <p class="lede" style="margin-top:2rem;">
-      <small>Estos materiales son informativos. Promovemos acciones no violentas y el respeto a los derechos humanos.</small>
-    </p>
-  </main>
-
-  <style>
-    /* Estilo de imagen consistente para todas las tarjetas */
-    .card-img{
-      display:block;
-      max-width:100%;
-      height:auto;
-      border-radius:12px;
-      object-fit:contain;
-      background:#0d141b; /* base oscura para que el recorte luzca bien */
-    }
-    .card-qr{ max-width:280px; }
-  </style>
-</Base>
+          <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG
