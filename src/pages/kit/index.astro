@@ -1,5 +1,9 @@
 ---
 import Base from "../../layouts/Base.astro";
+
+// Reutilizamos la URL del formulario
+const FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe466qRdPcIIwJP5ZpdVqS5wmfPyRAZGUx8-o0u1Izwb8vw8A/viewform?usp=header";
 ---
 <Base title="Kit de acción — RCPN">
   <main class="section">
@@ -36,9 +40,12 @@ import Base from "../../layouts/Base.astro";
           />
         </picture>
         <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-          <!-- Sin descarga directa de logotipos -->
-          <a class="btn" href="https://forms.gle/REEMPLAZA" target="_blank" rel="noopener">Solicitar uso del logotipo</a>
-          <a class="btn ghost" href="mailto:hola@rcpn.me?subject=Solicitud%20de%20logotipo%20RCPN">Contactar</a>
+          <a class="btn" href={FORM_URL} target="_blank" rel="noopener">
+            Solicitar uso del logotipo
+          </a>
+          <a class="btn ghost" href={FORM_URL} target="_blank" rel="noopener">
+            Contactar
+          </a>
         </div>
       </li>
 
@@ -61,9 +68,12 @@ import Base from "../../layouts/Base.astro";
           />
         </picture>
         <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-          <!-- Sin descarga directa de logotipos -->
-          <a class="btn" href="https://forms.gle/REEMPLAZA" target="_blank" rel="noopener">Solicitar uso del logotipo</a>
-          <a class="btn ghost" href="mailto:hola@rcpn.me?subject=Solicitud%20de%20logotipo%20RCPN">Contactar</a>
+          <a class="btn" href={FORM_URL} target="_blank" rel="noopener">
+            Solicitar uso del logotipo
+          </a>
+          <a class="btn ghost" href={FORM_URL} target="_blank" rel="noopener">
+            Contactar
+          </a>
         </div>
       </li>
     </ul>
@@ -145,4 +155,68 @@ import Base from "../../layouts/Base.astro";
         <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
           <a class="btn" href="/kit/qr-rcpn.webp" download="qr-rcpn.webp">Descargar WebP</a>
           <a class="btn ghost" href="/kit/qr-rcpn.png" download="qr-rcpn.png">Descargar PNG</a>
-          <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG
+          <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- ===================== 3) PROTOCOLOS DE ACTUACIÓN ===================== -->
+    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">3) Protocolos de actuación</h2>
+    <ul class="cards">
+      <li>
+        <h3>📜 Constitución a la mano (Art. 16 y 11)</h3>
+        <p>Extractos clave sobre revisiones arbitrarias y libre tránsito.</p>
+        <picture>
+          <source srcset="/kit/previews/constitucion-art16-11.webp" type="image/webp" />
+          <img src="/kit/previews/constitucion-art16-11.png" alt="Previsualización: Constitución Art. 16 y 11" loading="lazy" class="card-img" />
+        </picture>
+        <a class="btn" href="/kit/constitucion-art16-11.pdf" download>Descargar PDF</a>
+      </li>
+
+      <li>
+        <h3>🕊️ Marcha y protesta pacífica</h3>
+        <p>Formación, rutas de salida, comunicación y contacto de emergencia.</p>
+        <a class="btn" href="/kit/protocolo-marcha-protesta.pdf" download>Descargar PDF</a>
+      </li>
+
+      <li>
+        <h3>🏥 En hospitales y espacios públicos</h3>
+        <p>Cómo identificar y evidenciar un abuso con seguridad jurídica.</p>
+        <a class="btn" href="/kit/protocolo-hospital-espacios.pdf" download>Descargar PDF</a>
+      </li>
+
+      <li>
+        <h3>📹 Transmisión y documentación</h3>
+        <p>Derechos al registrar y transmitir evidencias; resguardo y verificación.</p>
+        <a class="btn" href="/kit/protocolo-transmision-evidencia.pdf" download>Descargar PDF</a>
+      </li>
+
+      <li>
+        <h3>⚖️ En fiscalías</h3>
+        <p>Presentación de denuncia, comparecencia y acompañamiento.</p>
+        <a class="btn" href="/kit/protocolo-fiscalia.pdf" download>Descargar PDF</a>
+      </li>
+    </ul>
+
+    <p class="lede" style="margin-top:2rem;">
+      <small>Estos materiales son informativos. Promovemos acciones no violentas y el respeto a los derechos humanos.</small>
+    </p>
+  </main>
+
+  <style>
+    /* Estilo de imagen consistente para todas las tarjetas */
+    .card-img{
+      display:block;
+      max-width:100%;
+      height:auto;
+      border-radius:12px;
+      object-fit:contain;
+      background:#0d141b;
+    }
+    .card-qr{ max-width:280px; }
+
+    /* Barrera suave para evitar guardado (no infalible) */
+    .no-save { position: relative; }
+    .no-save::after{ content:""; position:absolute; inset:0; background:transparent; }
+  </style>
+</Base>
