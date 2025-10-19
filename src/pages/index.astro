@@ -124,13 +124,14 @@ import Base from "../layouts/Base.astro";
       background-color: var(--accent);
       border: none;
       color: white;
-      font-size: 2rem;
+      font-size: 2.5rem;
       cursor: pointer;
-      padding: 0 12px;
+      padding: 4px 16px;
       border-radius: 50%;
       user-select: none;
       transition: background-color 0.3s;
       z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
     .carousel-button:hover {
       background-color: darkorange;
@@ -175,6 +176,7 @@ import Base from "../layouts/Base.astro";
       const slides = Array.from(track.children);
       const prevButton = document.querySelector('.carousel-button.prev');
       const nextButton = document.querySelector('.carousel-button.next');
+      let interval;
 
       function updateCarousel() {
         const slideWidth = slides[0].getBoundingClientRect().width;
@@ -182,18 +184,34 @@ import Base from "../layouts/Base.astro";
         track.style.transform = `translateX(-${amountToMove}px)`;
       }
 
-      prevButton.addEventListener('click', () => {
+      function nextSlide() {
+        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+        updateCarousel();
+      }
+
+      function prevSlide() {
         currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
         updateCarousel();
+      }
+
+      function startAutoSlide() {
+        clearInterval(interval);
+        interval = setInterval(nextSlide, 3000); // Cambia a la siguiente cada 3 segundos
+      }
+
+      prevButton.addEventListener('click', () => {
+        prevSlide();
+        startAutoSlide(); // Reinicia auto-slide al tocar
       });
 
       nextButton.addEventListener('click', () => {
-        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-        updateCarousel();
+        nextSlide();
+        startAutoSlide(); // Reinicia auto-slide al tocar
       });
 
       window.addEventListener('resize', updateCarousel);
       updateCarousel();
+      startAutoSlide();
     });
   </script>
 </Base>
