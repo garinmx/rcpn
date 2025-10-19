@@ -110,6 +110,7 @@ body{
 .cards li{
   background: var(--card); border-radius: 12px; padding: 1.5rem;
   box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: transform .2s ease, box-shadow .2s ease;
+  position: relative;
 }
 .cards li:hover{
   transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.35);
@@ -132,13 +133,50 @@ body{
   left: 12px; top: 12px; background: #000; color: #fff; padding: 8px; border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: reduce){
-  *{transition: none !important; animation: none !important;}
+/* Botones dentro de la imagen con fondo semitransparente */
+.actions-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(15, 23, 32, 0.85);
+  padding: 10px 16px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
-/* Responsive: centra textos y botones con margen lateral en móvil para toda la web */
+.actions-overlay .btn, .actions-overlay .btn.ghost {
+  flex: 1;
+  margin: 0;
+  padding: 12px 0;
+  min-width: unset;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Acciones y botones fuera de la imagen */
+.actions {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: .6rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Responsive: margenes y centrado para móvil */
 @media (max-width: 640px) {
-  .home__header, .section, .cts, .actions {
+  .home__header,
+  .section,
+  .cta,
+  .actions {
     padding-left: 16px;
     padding-right: 16px;
     box-sizing: border-box;
@@ -147,8 +185,8 @@ body{
     text-align: center !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
     word-break: break-word;
   }
   .lede {
@@ -178,4 +216,8 @@ body{
     box-sizing: border-box;
     min-width: unset;
   }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition: none !important; animation: none !important;}
 }
