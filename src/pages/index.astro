@@ -70,40 +70,7 @@ import Base from "../layouts/Base.astro";
       </svg>
     </section>
 
-    <!-- Contador de visitas (CounterAPI, sin API key) -->
-    <p class="visits">
-      👁️ <strong id="contador-visitas">—</strong> visitas al sitio
-    </p>
   </main>
-  <script>
-    async function updateCounter() {
-      // buscamos el elemento en el DOM
-      const el = document.getElementById("contador-visitas");
-
-      // si no existe, salimos y no hacemos nada (esto evita el error)
-      if (!el) return;
-
-      try {
-        const r = await fetch(
-          "https://api.counterapi.dev/v1/rcpn/rcpn-page-views/incr",
-        );
-        const data = await r.json();
-
-        // si todo sale bien, mostramos el número
-        el.textContent = (data?.count ?? 0).toLocaleString("es-MX");
-      } catch {
-        // si algo falla (por ejemplo, sin internet), mostramos "—"
-        el.textContent = "—";
-      }
-    }
-
-    // ejecutamos la función una vez cargado el DOM
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", updateCounter);
-    } else {
-      updateCounter();
-    }
-  </script>
 
   <style>
     :root {
