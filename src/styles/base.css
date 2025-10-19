@@ -12,12 +12,12 @@ body{
   min-height: 100vh;
   color:var(--text);
   background:linear-gradient(180deg,var(--bg2),var(--bg));
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-           env(safe-area-inset-bottom) env(safe-area-inset-left);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centra vertical todo */
-  align-items: center;     /* centra horizontal todo */
+  padding:env(safe-area-inset-top) env(safe-area-inset-right)
+         env(safe-area-inset-bottom) env(safe-area-inset-left);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
 /* ===== Contenedores centrados ===== */
@@ -27,7 +27,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh; /* área central ajustable */
+  min-height: 80vh;
   margin: auto;
   box-sizing: border-box;
 }
@@ -79,7 +79,7 @@ body{
   display: block;
   margin: 0 auto;
   width: 100%;
-  height: auto;          /* el alto lo da el viewBox */
+  height: auto;
 }
 
 /* ===== Secciones internas (Kit, etc.) ===== */
@@ -127,8 +127,8 @@ body{
   *{transition: none !important; animation: none !important;}
 }
 
-/* Responsive: asegúrate que botones siguen centrados en pantallas pequeñas */
-@media (max-width: 640px) {
+/* Responsive: asegura botones, flechas y carrusel correcto en móviles */
+@media (max-width: 900px) {
   .actions, .cta {
     flex-direction: column;
     align-items: center;
@@ -136,5 +136,33 @@ body{
   .btn, .btn.ghost {
     width: min(340px, 92vw);
     text-align: center;
+  }
+  /* Carrusel */
+  .carousel {
+    max-width: 98vw !important;
+    margin: 1.4rem auto !important;
+  }
+  .carousel-slide img {
+    max-width: 90vw !important;
+    max-height: 38vh !important;
+    border-radius: 12px !important;
+  }
+  .carousel-button.prev {
+    left: 8px !important;
+    font-size: 2.2rem !important;
+    padding: 6px 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    position: absolute !important;
+    right: auto !important;
+  }
+  .carousel-button.next {
+    right: 8px !important;
+    font-size: 2.2rem !important;
+    padding: 6px 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    position: absolute !important;
+    left: auto !important;
   }
 }
