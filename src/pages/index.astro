@@ -35,54 +35,13 @@ import Base from "../layouts/Base.astro";
       </div>
     </section>
 
-    <!-- Hero ÚNICO: SVG responsivo sin recortes -->
-    <section aria-label="Imagen de portada" class="hero-box" style="margin-top:2rem;">
-      <svg
-        class="hero-svg"
-        viewBox="0 0 1600 900"
-        preserveAspectRatio="xMidYMid meet"
-        role="img"
-        aria-label="RCPN — Resistencia Civil Pacífica. Memoria, Respeto, Acción no violenta."
-      >
-        <defs>
-          <radialGradient id="g1" cx="50%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#101b24"></stop>
-            <stop offset="60%" stop-color="#0c131a"></stop>
-            <stop offset="100%" stop-color="#0a1117"></stop>
-          </radialGradient>
-        </defs>
-        <rect width="1600" height="900" fill="url(#g1)"></rect>
-        <text
-          x="50%"
-          y="45%"
-          text-anchor="middle"
-          font-size="74"
-          font-weight="800"
-          fill="#ff7a59"
-          style="letter-spacing:.02em;"
-        >
-          RCPN — Resistencia Civil Pacífica Nacional
-        </text>
-        <text
-          x="50%"
-          y="55%"
-          text-anchor="middle"
-          font-size="30"
-          fill="#e9f2f5"
-          opacity=".90"
-        >
-          Memoria • Respeto • Acción no violenta
-        </text>
-        <rect
-          x="520"
-          y="57%"
-          width="560"
-          height="6"
-          fill="#ff7a59"
-          rx="3"
-          opacity=".85"></rect>
-      </svg>
-    </section>
+    <!-- Footer local debajo del carrusel -->
+    <footer class="site-footer" style="margin-top:3rem;">
+      <div class="footer-inner">
+        <span style="color:#ff7a59; font-weight:900;">•</span>
+        © 2025 Resistencia Civil Pacífica Nacional
+      </div>
+    </footer>
   </main>
 
   <style>
@@ -182,6 +141,27 @@ import Base from "../layouts/Base.astro";
         font-size: 2.1rem;
         padding: 0 12px;
       }
+    }
+
+    .site-footer {
+      padding: 16px 0;
+      background: #131a22;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      margin-top: 2.5rem;
+      width: 100%;
+    }
+    .footer-inner {
+      color: #9aa6b2;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+    .footer-inner span {
+      color: var(--accent);
+      font-weight: 900;
     }
   </style>
 
