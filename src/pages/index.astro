@@ -105,6 +105,15 @@ import Base from "../layouts/Base.astro";
       transition: background 0.25s, color 0.25s;
       z-index: 12;
       outline: 2px solid var(--accent);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .carousel-button.prev {
+      left: -64px;
+    }
+    .carousel-button.next {
+      right: -64px;
     }
     .carousel-button:hover {
       background: var(--accent);
@@ -113,33 +122,28 @@ import Base from "../layouts/Base.astro";
     .carousel-button:focus {
       outline: 2px solid darkorange;
     }
-    .carousel-button.prev {
-      position: absolute;
-      left: -64px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .carousel-button.next {
-      position: absolute;
-      right: -64px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+
     @media (max-width: 900px) {
       .carousel {
-        max-width: 98vw;
-        margin: 1.4rem auto;
+        max-width: 98vw !important;
+        margin: 1.4rem auto !important;
       }
       .carousel-slide img {
-        max-width: 90vw;
-        max-height: 38vh;
-        border-radius: 12px;
+        max-width: 90vw !important;
+        max-height: 38vh !important;
+        border-radius: 12px !important;
       }
-      .carousel-button.prev, .carousel-button.next {
-        left: 0;
-        right: 0;
-        font-size: 2.1rem;
-        padding: 0 12px;
+      .carousel-button.prev {
+        left: 8px !important;
+        right: auto !important;
+        font-size: 2.2rem !important;
+        padding: 6px 14px !important;
+      }
+      .carousel-button.next {
+        right: 8px !important;
+        left: auto !important;
+        font-size: 2.2rem !important;
+        padding: 6px 14px !important;
       }
     }
 
