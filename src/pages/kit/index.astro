@@ -22,10 +22,10 @@ const FORM_URL =
     <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2rem;">1) Materiales simbólicos</h2>
     <ul class="cards">
       <!-- Playera -->
-      <li>
+      <li style="position: relative;">
         <h3>👕 Playera tipo polo (negra)</h3>
         <p>Uniforme simbólico: color negro, logotipo RCPN al frente.</p>
-        <picture style="position: relative; display: block;">
+        <picture style="position:relative;display:block;">
           <source srcset="/kit/playera-rcpn.webp" type="image/webp" />
           <img
             src="/kit/playera-rcpn.png"
@@ -50,14 +50,199 @@ const FORM_URL =
       </li>
 
       <!-- Gorra -->
-      <li>
+      <li style="position: relative;">
         <h3>🧢 Gorra (negra)</h3>
         <p>Gorra negra con logotipo RCPN al frente.</p>
-        <picture style="position: relative; display: block;">
+        <picture style="position:relative;display:block;">
           <source srcset="/kit/gorra-rcpn.webp" type="image/webp" />
           <img
             src="/kit/gorra-rcpn.png"
             alt="Previsualización gorra RCPN"
             loading="lazy"
             width="360"
-            height="
+            height="360"
+            class="card-img no-save"
+            draggable="false"
+            oncontextmenu="return false"
+            style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
+          />
+          <div class="actions actions-overlay">
+            <a class="btn" href={FORM_URL} target="_blank" rel="noopener">
+              Solicitar uso del logotipo
+            </a>
+            <a class="btn ghost" href={FORM_URL} target="_blank" rel="noopener">
+              Contactar
+            </a>
+          </div>
+        </picture>
+      </li>
+    </ul>
+
+    <!-- ===================== 2) RECURSOS GRÁFICOS Y DE DIFUSIÓN ===================== -->
+    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">2) Recursos gráficos y de difusión</h2>
+    <ul class="cards">
+      <!-- Flyer A4 -->
+      <li>
+        <h3>📘 Flyer A4 (imprimir)</h3>
+        <p>Cartel vertical con mensaje de unión.</p>
+        <picture>
+          <source srcset="/kit/flyer-a4.webp" type="image/webp" />
+          <img
+            src="/kit/flyer-a4.png"
+            alt="Vista previa del flyer A4 de RCPN"
+            loading="lazy"
+            class="card-img"
+          />
+        </picture>
+        <div class="actions">
+          <a class="btn" href="/kit/flyer-a4.webp" download="rcpn-flyer-a4.webp">Descargar WebP</a>
+          <a class="btn ghost" href="/kit/flyer-a4.png" download="rcpn-flyer-a4.png">Descargar PNG</a>
+          <a class="btn ghost" href="/kit/flyer-a4.pdf" download="rcpn-flyer-a4.pdf">Descargar PDF</a>
+        </div>
+      </li>
+      <!-- Post 1:1 -->
+      <li>
+        <h3>🟧 Post 1:1 (1080×1080)</h3>
+        <p>Formato cuadrado optimizado para redes.</p>
+        <picture>
+          <source srcset="/kit/post-cuadrado.webp" type="image/webp" />
+          <img
+            src="/kit/post-cuadrado.png"
+            alt="Vista previa del post cuadrado 1080×1080"
+            loading="lazy"
+            class="card-img"
+          />
+        </picture>
+        <div class="actions">
+          <a class="btn" href="/kit/post-cuadrado.webp" download="rcpn-post-1080.webp">Descargar WebP</a>
+          <a class="btn ghost" href="/kit/post-cuadrado.png" download="rcpn-post-1080.png">Descargar PNG</a>
+        </div>
+      </li>
+      <!-- Banner OG -->
+      <li>
+        <h3>🖼 Banner OG (1200×630)</h3>
+        <p>Imagen para previsualización al compartir enlaces.</p>
+        <picture>
+          <source srcset="/kit/banner-og.webp" type="image/webp" />
+          <img
+            src="/kit/banner-og.png"
+            alt="Vista previa del banner Open Graph 1200×630"
+            loading="lazy"
+            class="card-img"
+          />
+        </picture>
+        <div class="actions">
+          <a class="btn" href="/kit/banner-og.webp" download="rcpn-banner-og.webp">Descargar WebP</a>
+          <a class="btn ghost" href="/kit/banner-og.png" download="rcpn-banner-og.png">Descargar PNG</a>
+        </div>
+      </li>
+      <!-- QR oficial -->
+      <li>
+        <h3>🔗 QR oficial</h3>
+        <p>Código QR a <code>https://rcpn.me</code>.</p>
+        <picture>
+          <source srcset="/kit/qr-rcpn.webp" type="image/webp" />
+          <img
+            src="/kit/qr-rcpn.png"
+            alt="QR oficial hacia rcpn.me"
+            loading="lazy"
+            class="card-img card-qr"
+          />
+        </picture>
+        <div class="actions">
+          <a class="btn" href="/kit/qr-rcpn.webp" download="qr-rcpn.webp">Descargar WebP</a>
+          <a class="btn ghost" href="/kit/qr-rcpn.png" download="qr-rcpn.png">Descargar PNG</a>
+          <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- ===================== 3) PROTOCOLOS DE ACTUACIÓN ===================== -->
+    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">3) Protocolos de actuación</h2>
+    <ul class="cards">
+      <li>
+        <h3>📜 Constitución a la mano (Art. 16 y 11)</h3>
+        <p>Extractos clave sobre revisiones arbitrarias y libre tránsito.</p>
+        <picture>
+          <source srcset="/kit/previews/constitucion-art16-11.webp" type="image/webp" />
+          <img src="/kit/previews/constitucion-art16-11.png" alt="Previsualización: Constitución Art. 16 y 11" loading="lazy" class="card-img" />
+        </picture>
+        <a class="btn" href="/kit/constitucion-art16-11.pdf" download>Descargar PDF</a>
+      </li>
+      <li>
+        <h3>🕊️ Marcha y protesta pacífica</h3>
+        <p>Formación, rutas de salida, comunicación y contacto de emergencia.</p>
+        <a class="btn" href="/kit/protocolo-marcha-protesta.pdf" download>Descargar PDF</a>
+      </li>
+      <li>
+        <h3>🏥 En hospitales y espacios públicos</h3>
+        <p>Cómo identificar y evidenciar un abuso con seguridad jurídica.</p>
+        <a class="btn" href="/kit/protocolo-hospital-espacios.pdf" download>Descargar PDF</a>
+      </li>
+      <li>
+        <h3>📹 Transmisión y documentación</h3>
+        <p>Derechos al registrar y transmitir evidencias; resguardo y verificación.</p>
+        <a class="btn" href="/kit/protocolo-transmision-evidencia.pdf" download>Descargar PDF</a>
+      </li>
+      <li>
+        <h3>⚖️ En fiscalías</h3>
+        <p>Presentación de denuncia, comparecencia y acompañamiento.</p>
+        <a class="btn" href="/kit/protocolo-fiscalia.pdf" download>Descargar PDF</a>
+      </li>
+    </ul>
+
+    <p class="lede" style="margin-top:2rem;">
+      <small>Estos materiales son informativos. Promovemos acciones no violentas y el respeto a los derechos humanos.</small>
+    </p>
+  </main>
+
+  <style>
+    .card-img{
+      display:block;
+      max-width:100%;
+      height:auto;
+      border-radius:12px;
+      object-fit:contain;
+      background:#0d141b;
+    }
+    .card-qr{ max-width:280px; }
+    .no-save { position: relative; }
+    .no-save::after{ content:""; position:absolute; inset:0; background:transparent; }
+
+    /* Posicionamos las acciones dentro de la imagen */
+    .actions-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 23, 32, 0.85);
+      padding: 10px 16px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+
+    .actions-overlay .btn, .actions-overlay .btn.ghost {
+      flex: 1;
+      margin: 0;
+      padding: 12px 0;
+      min-width: unset;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    /* Actions y botones fuera de la imagen normales */
+    .actions {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: .6rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</Base>
