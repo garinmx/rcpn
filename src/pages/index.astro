@@ -21,17 +21,17 @@ import Base from "../layouts/Base.astro";
     <!-- Carrusel de imágenes -->
     <section aria-label="Galería de acciones de la Resistencia Civil Pacífica Nacional" class="carousel">
       <div class="carousel-container">
-        <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
+        <button class="carousel-button prev" aria-label="Imagen anterior">❮</button>
         <div class="carousel-track-container">
           <ul class="carousel-track">
             {Array.from({ length: 10 }, (_, i) => (
               <li class="carousel-slide" key={i}>
-                <img src={`/images/action${i + 1}.jpg`} alt={`Acción Resistencia Civil Pacífica ${i + 1}`} />
+                <img src={`/images/action${i + 1}.jpg`} alt={`Acción Resistencia Civil Pacífica ${i + 1}`} loading="lazy" />
               </li>
             ))}
           </ul>
         </div>
-        <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
+        <button class="carousel-button next" aria-label="Imagen siguiente">❯</button>
       </div>
     </section>
 
@@ -52,7 +52,6 @@ import Base from "../layouts/Base.astro";
           </radialGradient>
         </defs>
         <rect width="1600" height="900" fill="url(#g1)"></rect>
-        <!-- Título -->
         <text
           x="50%"
           y="45%"
@@ -64,7 +63,6 @@ import Base from "../layouts/Base.astro";
         >
           RCPN — Resistencia Civil Pacífica Nacional
         </text>
-        <!-- Subtítulo -->
         <text
           x="50%"
           y="55%"
@@ -75,7 +73,6 @@ import Base from "../layouts/Base.astro";
         >
           Memoria • Respeto • Acción no violenta
         </text>
-        <!-- Línea decorativa -->
         <rect
           x="520"
           y="57%"
@@ -133,6 +130,7 @@ import Base from "../layouts/Base.astro";
       border-radius: 50%;
       user-select: none;
       transition: background-color 0.3s;
+      z-index: 10;
     }
     .carousel-button:hover {
       background-color: darkorange;
@@ -152,33 +150,50 @@ import Base from "../layouts/Base.astro";
       top: 50%;
       transform: translateY(-50%);
     }
+    @media (max-width: 640px) {
+      .carousel,
+      .carousel-track-container,
+      .carousel-slide,
+      .carousel-slide img {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+      }
+      .carousel-button.prev {
+        left: 0;
+      }
+      .carousel-button.next {
+        right: 0;
+      }
+    }
   </style>
 
-  <script>
-    let currentIndex = 0;
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      let currentIndex = 0;
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const prevButton = document.querySelector('.carousel-button.prev');
+      const nextButton = document.querySelector('.carousel-button.next');
 
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
+      function updateCarousel() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        const amountToMove = slideWidth * currentIndex;
+        track.style.transform = `translateX(-${amountToMove}px)`;
+      }
 
-    function updateCarousel() {
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      const amountToMove = slideWidth * currentIndex;
-      track.style.transform = `translateX(-${amountToMove}px)`;
-    }
+      prevButton.addEventListener('click', () => {
+        currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+        updateCarousel();
+      });
 
-    prevButton.addEventListener('click', () => {
-      currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+      nextButton.addEventListener('click', () => {
+        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+        updateCarousel();
+      });
+
+      window.addEventListener('resize', updateCarousel);
       updateCarousel();
     });
-
-    nextButton.addEventListener('click', () => {
-      currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-      updateCarousel();
-    });
-
-    // Inicializa
-    updateCarousel();
   </script>
 </Base>
