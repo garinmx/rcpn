@@ -1,10 +1,10 @@
 ---
 import Base from "../../layouts/Base.astro";
 
-// Reutilizamos la URL del formulario
 const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSe466qRdPcIIwJP5ZpdVqS5wmfPyRAZGUx8-o0u1Izwb8vw8A/viewform?usp=header";
 ---
+
 <Base title="Kit de acción — RCPN">
   <main class="section">
     <h1 class="title" style="text-align:center;">Kit de acción</h1>
@@ -39,7 +39,7 @@ const FORM_URL =
             style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
           />
         </picture>
-        <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <div class="actions">
           <a class="btn" href={FORM_URL} target="_blank" rel="noopener">
             Solicitar uso del logotipo
           </a>
@@ -48,7 +48,6 @@ const FORM_URL =
           </a>
         </div>
       </li>
-
       <!-- Gorra -->
       <li>
         <h3>🧢 Gorra (negra)</h3>
@@ -67,7 +66,7 @@ const FORM_URL =
             style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
           />
         </picture>
-        <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <div class="actions">
           <a class="btn" href={FORM_URL} target="_blank" rel="noopener">
             Solicitar uso del logotipo
           </a>
@@ -94,13 +93,12 @@ const FORM_URL =
             class="card-img"
           />
         </picture>
-        <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <div class="actions">
           <a class="btn" href="/kit/flyer-a4.webp" download="rcpn-flyer-a4.webp">Descargar WebP</a>
           <a class="btn ghost" href="/kit/flyer-a4.png" download="rcpn-flyer-a4.png">Descargar PNG</a>
           <a class="btn ghost" href="/kit/flyer-a4.pdf" download="rcpn-flyer-a4.pdf">Descargar PDF</a>
         </div>
       </li>
-
       <!-- Post 1:1 -->
       <li>
         <h3>🟧 Post 1:1 (1080×1080)</h3>
@@ -114,12 +112,11 @@ const FORM_URL =
             class="card-img"
           />
         </picture>
-        <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <div class="actions">
           <a class="btn" href="/kit/post-cuadrado.webp" download="rcpn-post-1080.webp">Descargar WebP</a>
           <a class="btn ghost" href="/kit/post-cuadrado.png" download="rcpn-post-1080.png">Descargar PNG</a>
         </div>
       </li>
-
       <!-- Banner OG -->
       <li>
         <h3>🖼 Banner OG (1200×630)</h3>
@@ -133,12 +130,11 @@ const FORM_URL =
             class="card-img"
           />
         </picture>
-        <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <div class="actions">
           <a class="btn" href="/kit/banner-og.webp" download="rcpn-banner-og.webp">Descargar WebP</a>
           <a class="btn ghost" href="/kit/banner-og.png" download="rcpn-banner-og.png">Descargar PNG</a>
         </div>
       </li>
-
       <!-- QR oficial -->
       <li>
         <h3>🔗 QR oficial</h3>
@@ -152,7 +148,7 @@ const FORM_URL =
             class="card-img card-qr"
           />
         </picture>
-        <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <div class="actions">
           <a class="btn" href="/kit/qr-rcpn.webp" download="qr-rcpn.webp">Descargar WebP</a>
           <a class="btn ghost" href="/kit/qr-rcpn.png" download="qr-rcpn.png">Descargar PNG</a>
           <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG</a>
@@ -172,25 +168,21 @@ const FORM_URL =
         </picture>
         <a class="btn" href="/kit/constitucion-art16-11.pdf" download>Descargar PDF</a>
       </li>
-
       <li>
         <h3>🕊️ Marcha y protesta pacífica</h3>
         <p>Formación, rutas de salida, comunicación y contacto de emergencia.</p>
         <a class="btn" href="/kit/protocolo-marcha-protesta.pdf" download>Descargar PDF</a>
       </li>
-
       <li>
         <h3>🏥 En hospitales y espacios públicos</h3>
         <p>Cómo identificar y evidenciar un abuso con seguridad jurídica.</p>
         <a class="btn" href="/kit/protocolo-hospital-espacios.pdf" download>Descargar PDF</a>
       </li>
-
       <li>
         <h3>📹 Transmisión y documentación</h3>
         <p>Derechos al registrar y transmitir evidencias; resguardo y verificación.</p>
         <a class="btn" href="/kit/protocolo-transmision-evidencia.pdf" download>Descargar PDF</a>
       </li>
-
       <li>
         <h3>⚖️ En fiscalías</h3>
         <p>Presentación de denuncia, comparecencia y acompañamiento.</p>
@@ -204,7 +196,7 @@ const FORM_URL =
   </main>
 
   <style>
-    /* Estilo de imagen consistente para todas las tarjetas */
+    /* Imagen consistente en tarjetas */
     .card-img{
       display:block;
       max-width:100%;
@@ -214,9 +206,66 @@ const FORM_URL =
       background:#0d141b;
     }
     .card-qr{ max-width:280px; }
-
-    /* Barrera suave para evitar guardado (no infalible) */
     .no-save { position: relative; }
     .no-save::after{ content:""; position:absolute; inset:0; background:transparent; }
+
+    /* Actions y botones siempre centrados, también en móvil */
+    .actions {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: .6rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn, .btn.ghost {
+      margin: 0 auto;
+      min-width: 120px;
+      max-width: 340px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    /* Responsive: mejora margen y centrado en pantallas pequeñas */
+    @media (max-width: 640px) {
+      main.section {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .title {
+        font-size: 2rem !important;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 4px;
+        padding-right: 4px;
+        text-align: center;
+      }
+      .lede {
+        font-size: 1rem !important;
+        padding-left: 4px;
+        padding-right: 4px;
+        text-align: center;
+      }
+      .actions {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+      }
+      .btn, .btn.ghost {
+        width: min(340px, 94vw);
+        margin: 0 auto;
+        min-width: unset;
+        max-width: 94vw;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+      }
+    }
   </style>
 </Base>
