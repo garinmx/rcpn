@@ -81,30 +81,6 @@ const {
         margin: 40px 0 36px 0;
         min-height: calc(100vh - 76px);
       }
-      .site-footer {
-        margin-top: 28px;
-        padding: 14px 0;
-        background: var(--card);
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .footer-inner {
-        width: min(1100px, 96vw);
-        margin: 0 auto;
-        color: var(--muted);
-        font-size: 0.95rem;
-        display: flex;
-        gap: 0.6rem;
-        align-items: center;
-        justify-content: center;
-      }
-      .brand-dot {
-        color: var(--accent);
-        font-weight: 900;
-        line-height: 1;
-      }
-      .footer-inner strong {
-        color: var(--accent);
-      }
     </style>
   </head>
 
@@ -116,13 +92,6 @@ const {
     <main>
       <slot />
     </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <span class="brand-dot">•</span> 
-        © 2025 Resistencia Civil Pacífica Nacional
-      </div>
-    </footer>
 
     <!-- Service Worker opcional -->
     <script>
