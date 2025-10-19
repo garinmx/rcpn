@@ -219,6 +219,8 @@ const FORM_URL =
       margin-top: .6rem;
       width: 100%;
       box-sizing: border-box;
+      padding-left: 16px;
+      padding-right: 16px;
     }
     .btn, .btn.ghost {
       margin: 0 auto;
@@ -231,21 +233,21 @@ const FORM_URL =
     /* Responsive: mejora margen y centrado en pantallas pequeñas */
     @media (max-width: 640px) {
       main.section {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
       .title {
         font-size: 2rem !important;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 4px;
-        padding-right: 4px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 8px;
+        padding-right: 8px;
         text-align: center;
       }
       .lede {
         font-size: 1rem !important;
-        padding-left: 4px;
-        padding-right: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
         text-align: center;
       }
       .actions {
@@ -265,6 +267,7 @@ const FORM_URL =
         padding-left: 0;
         padding-right: 0;
         text-align: center;
+        box-sizing: border-box;
       }
     }
   </style>
