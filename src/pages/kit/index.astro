@@ -1,322 +1,128 @@
 ---
-import Base from "../../layouts/Base.astro";
-
-const FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSe466qRdPcIIwJP5ZpdVqS5wmfPyRAZGUx8-o0u1Izwb8vw8A/viewform?usp=header";
+// Archivo: src/pages/kit.astro
+import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Kit de acción — RCPN">
-  <main class="section">
-    <h1 class="title" style="text-align:center;">Kit de acción</h1>
+<Base
+  title="Kit de Acción | Resistencia Civil Pacífica Nacional"
+  description="Recursos simbólicos, protocolos de actuación y materiales de apoyo para la acción no violenta. Descarga el Kit oficial de la Resistencia Civil Pacífica Nacional y fortalece tu activismo ciudadano."
+  canonical="https://www.rcpn.me/kit/"
+>
+  <main class="kit">
+    <header class="kit__header">
+      <h1 class="title">Kit de Acción RCPN</h1>
+      <p class="lede">
+        Recursos y protocolos prácticos para fortalecer la Resistencia Civil Pacífica. Todo el material promueve la <strong>acción no violenta</strong> y el respeto a los derechos humanos.
+      </p>
+      <nav class="internal-links">
+        <a href="/" class="btn ghost" title="Ir a la portada">Inicio</a>
+        <a href="/seguridad-digital/" class="btn ghost" title="Ver guía de seguridad digital">Seguridad digital</a>
+      </nav>
+    </header>
 
-    <!-- Aviso legal -->
-    <p style="text-align:center; font-size:0.95rem; color:#9aa6b2; margin:0.4rem 0 1.2rem;">
-      <em>Los logotipos oficiales son de uso restringido. Solicita autorización antes de emplearlos en materiales propios.</em>
-    </p>
+    <section class="kit-materials">
+      <h2>Materiales simbólicos</h2>
+      <ul>
+        <li><strong>👕 Playera tipo polo (negra):</strong> Uniforme simbólico negro con logotipo RCPN al frente.</li>
+        <li><strong>🧢 Gorra (negra):</strong> Gorra negra con logotipo RCPN al frente.</li>
+      </ul>
+    </section>
 
-    <p class="lede">
-      Recursos simbólicos y prácticos para fortalecer la Resistencia Civil Pacífica. Todo el material promueve la acción <strong>no violenta</strong>.
-    </p>
+    <section class="kit-recursos">
+      <h2>Recursos gráficos y de difusión</h2>
+      <ul>
+        <li><strong>📘 Flyer A4 (imprimir):</strong> Cartel vertical con mensaje de unión.</li>
+        <li><strong>🟧 Post 1:1 (1080×1080):</strong> Formato cuadrado optimizado para redes.</li>
+        <li><strong>🖼 Banner OG (1200×630):</strong> Imagen para previsualización al compartir enlaces.</li>
+        <li><strong>🔗 QR oficial:</strong> Código QR a <a href="https://rcpn.me" target="_blank" rel="noopener">https://rcpn.me</a></li>
+      </ul>
+    </section>
 
-    <!-- ===================== 1) MATERIALES SIMBÓLICOS ===================== -->
-    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2rem;">1) Materiales simbólicos</h2>
-    <ul class="cards">
-      <!-- Playera -->
-      <li style="position: relative;">
-        <h3>👕 Playera tipo polo (negra)</h3>
-        <p>Uniforme simbólico: color negro, logotipo RCPN al frente.</p>
-        <picture style="position:relative; display:block;">
-          <source srcset="/kit/playera-rcpn.webp" type="image/webp" />
-          <img
-            src="/kit/playera-rcpn.png"
-            alt="Previsualización playera polo RCPN"
-            loading="lazy"
-            width="360"
-            height="460"
-            class="card-img no-save"
-            draggable="false"
-            oncontextmenu="return false"
-            style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
-          />
-          <div class="actions actions-overlay-special">
-            <a class="btn" href={FORM_URL} target="_blank" rel="noopener">Solicitar uso del logotipo</a>
-            <a class="btn ghost" href={FORM_URL} target="_blank" rel="noopener">Contactar</a>
-          </div>
-        </picture>
-      </li>
-      <!-- Gorra -->
-      <li style="position: relative;">
-        <h3>🧢 Gorra (negra)</h3>
-        <p>Gorra negra con logotipo RCPN al frente.</p>
-        <picture style="position:relative; display:block;">
-          <source srcset="/kit/gorra-rcpn.webp" type="image/webp" />
-          <img
-            src="/kit/gorra-rcpn.png"
-            alt="Previsualización gorra RCPN"
-            loading="lazy"
-            width="360"
-            height="360"
-            class="card-img no-save"
-            draggable="false"
-            oncontextmenu="return false"
-            style="user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none"
-          />
-          <div class="actions actions-overlay-special">
-            <a class="btn" href={FORM_URL} target="_blank" rel="noopener">Solicitar uso del logotipo</a>
-            <a class="btn ghost" href={FORM_URL} target="_blank" rel="noopener">Contactar</a>
-          </div>
-        </picture>
-      </li>
-    </ul>
+    <section class="kit-protocolos">
+      <h2>Protocolos de actuación</h2>
+      <ul>
+        <li><strong>📜 Constitución a la mano (Art. 16 y 11):</strong> Extractos clave sobre revisiones arbitrarias y libre tránsito. <a href="#" target="_blank" rel="noopener">Descargar PDF</a></li>
+        <li><strong>🕊️ Marcha y protesta pacífica:</strong> Formación, rutas de salida, comunicación y contacto de emergencia. <a href="#" target="_blank" rel="noopener">Descargar PDF</a></li>
+        <li><strong>🏥 En hospitales y espacios públicos:</strong> Cómo identificar y evidenciar un abuso con seguridad jurídica. <a href="#" target="_blank" rel="noopener">Descargar PDF</a></li>
+        <li><strong>📹 Transmisión y documentación:</strong> Derechos al registrar y transmitir evidencias; resguardo y verificación. <a href="#" target="_blank" rel="noopener">Descargar PDF</a></li>
+        <li><strong>⚖️ En fiscalías:</strong> Presentación de denuncia, comparecencia y acompañamiento. <a href="#" target="_blank" rel="noopener">Descargar PDF</a></li>
+      </ul>
+    </section>
 
-    <!-- ===================== 2) RECURSOS GRÁFICOS Y DE DIFUSIÓN ===================== -->
-    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">2) Recursos gráficos y de difusión</h2>
-    <ul class="cards">
-      <!-- Flyer A4 -->
-      <li>
-        <h3>📘 Flyer A4 (imprimir)</h3>
-        <p>Cartel vertical con mensaje de unión.</p>
-        <picture>
-          <source srcset="/kit/flyer-a4.webp" type="image/webp" />
-          <img
-            src="/kit/flyer-a4.png"
-            alt="Vista previa del flyer A4 de RCPN"
-            loading="lazy"
-            class="card-img"
-          />
-        </picture>
-        <div class="actions">
-          <a class="btn" href="/kit/flyer-a4.webp" download="rcpn-flyer-a4.webp">Descargar WebP</a>
-          <a class="btn ghost" href="/kit/flyer-a4.png" download="rcpn-flyer-a4.png">Descargar PNG</a>
-          <a class="btn ghost" href="/kit/flyer-a4.pdf" download="rcpn-flyer-a4.pdf">Descargar PDF</a>
-        </div>
-      </li>
-      <!-- Post 1:1 -->
-      <li>
-        <h3>🟧 Post 1:1 (1080×1080)</h3>
-        <p>Formato cuadrado optimizado para redes.</p>
-        <picture>
-          <source srcset="/kit/post-cuadrado.webp" type="image/webp" />
-          <img
-            src="/kit/post-cuadrado.png"
-            alt="Vista previa del post cuadrado 1080×1080"
-            loading="lazy"
-            class="card-img"
-          />
-        </picture>
-        <div class="actions">
-          <a class="btn" href="/kit/post-cuadrado.webp" download="rcpn-post-1080.webp">Descargar WebP</a>
-          <a class="btn ghost" href="/kit/post-cuadrado.png" download="rcpn-post-1080.png">Descargar PNG</a>
-        </div>
-      </li>
-      <!-- Banner OG -->
-      <li>
-        <h3>🖼 Banner OG (1200×630)</h3>
-        <p>Imagen para previsualización al compartir enlaces.</p>
-        <picture>
-          <source srcset="/kit/banner-og.webp" type="image/webp" />
-          <img
-            src="/kit/banner-og.png"
-            alt="Vista previa del banner Open Graph 1200×630"
-            loading="lazy"
-            class="card-img"
-          />
-        </picture>
-        <div class="actions">
-          <a class="btn" href="/kit/banner-og.webp" download="rcpn-banner-og.webp">Descargar WebP</a>
-          <a class="btn ghost" href="/kit/banner-og.png" download="rcpn-banner-og.png">Descargar PNG</a>
-        </div>
-      </li>
-      <!-- QR oficial -->
-      <li>
-        <h3>🔗 QR oficial</h3>
-        <p>Código QR a <code>https://rcpn.me</code>.</p>
-        <picture>
-          <source srcset="/kit/qr-rcpn.webp" type="image/webp" />
-          <img
-            src="/kit/qr-rcpn.png"
-            alt="QR oficial hacia rcpn.me"
-            loading="lazy"
-            class="card-img card-qr"
-          />
-        </picture>
-        <div class="actions">
-          <a class="btn" href="/kit/qr-rcpn.webp" download="qr-rcpn.webp">Descargar WebP</a>
-          <a class="btn ghost" href="/kit/qr-rcpn.png" download="qr-rcpn.png">Descargar PNG</a>
-          <a class="btn ghost" href="/kit/qr-rcpn.svg" download="qr-rcpn.svg">Descargar SVG</a>
-        </div>
-      </li>
-    </ul>
+    <div style="max-width: 750px; margin: 2.5rem auto 1rem auto; text-align: center; color: #ffa77b;">
+      <em>Los logotipos oficiales son de uso restringido. Solicita autorización antes de emplearlos en materiales propios.<br>
+      Estos materiales son informativos. Promovemos acciones no violentas y el respeto a los derechos humanos.</em>
+    </div>
 
-    <!-- ===================== 3) PROTOCOLOS DE ACTUACIÓN ===================== -->
-    <h2 class="title" style="text-align:center; font-size:1.4rem; margin-top:2.5rem;">3) Protocolos de actuación</h2>
-    <ul class="cards">
-      <li>
-        <h3>📜 Constitución a la mano (Art. 16 y 11)</h3>
-        <p>Extractos clave sobre revisiones arbitrarias y libre tránsito.</p>
-        <picture>
-          <source srcset="/kit/previews/constitucion-art16-11.webp" type="image/webp" />
-          <img src="/kit/previews/constitucion-art16-11.png" alt="Previsualización: Constitución Art. 16 y 11" loading="lazy" class="card-img" />
-        </picture>
-        <a class="btn" href="/kit/constitucion-art16-11.pdf" download>Descargar PDF</a>
-      </li>
-      <li>
-        <h3>🕊️ Marcha y protesta pacífica</h3>
-        <p>Formación, rutas de salida, comunicación y contacto de emergencia.</p>
-        <a class="btn" href="/kit/protocolo-marcha-protesta.pdf" download>Descargar PDF</a>
-      </li>
-      <li>
-        <h3>🏥 En hospitales y espacios públicos</h3>
-        <p>Cómo identificar y evidenciar un abuso con seguridad jurídica.</p>
-        <a class="btn" href="/kit/protocolo-hospital-espacios.pdf" download>Descargar PDF</a>
-      </li>
-      <li>
-        <h3>📹 Transmisión y documentación</h3>
-        <p>Derechos al registrar y transmitir evidencias; resguardo y verificación.</p>
-        <a class="btn" href="/kit/protocolo-transmision-evidencia.pdf" download>Descargar PDF</a>
-      </li>
-      <li>
-        <h3>⚖️ En fiscalías</h3>
-        <p>Presentación de denuncia, comparecencia y acompañamiento.</p>
-        <a class="btn" href="/kit/protocolo-fiscalia.pdf" download>Descargar PDF</a>
-      </li>
-    </ul>
-
-    <p class="lede" style="margin-top:2rem;">
-      <small>Estos materiales son informativos. Promovemos acciones no violentas y el respeto a los derechos humanos.</small>
-    </p>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span style="color:#ff7a59; font-weight:900;">•</span>
+        © 2025 Resistencia Civil Pacífica Nacional
+      </div>
+    </footer>
   </main>
 
   <style>
-    .card-img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      object-fit: contain;
-      background: #0d141b;
-    }
-    .card-qr { max-width: 280px; }
-    .no-save { position: relative; }
-    .no-save::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: transparent;
-    }
-
-    .actions {
+    .kit {
+      min-height: 100vh;
       display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      margin-top: 0.6rem;
-      width: 100%;
-      box-sizing: border-box;
-      padding-left: 16px;
-      padding-right: 16px;
+      justify-content: flex-start;
     }
-    .btn,
-    .btn.ghost {
-      margin: 0 auto;
-      min-width: 120px;
-      max-width: 340px;
+    .kit__header {
+      max-width: 750px;
+      margin: 2.5rem auto 1.5rem auto;
       text-align: center;
-      box-sizing: border-box;
+      padding: 0 1rem;
     }
-
-    .actions-overlay-special {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(15, 23, 32, 0.5);
-      padding: 10px 16px;
-      box-sizing: border-box;
+    .internal-links {
       display: flex;
+      gap: 1rem;
       justify-content: center;
-      gap: 10px;
-      border-radius: 0 0 var(--radius) var(--radius);
-      transition: background-color 0.3s ease;
+      margin: 1.5rem 0 0.5rem 0;
     }
-
-    .actions-overlay-special:hover {
-      background: rgba(15, 23, 32, 0.85);
+    .kit-materials, .kit-recursos, .kit-protocolos {
+      max-width: 750px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
     }
-
-    .actions-overlay-special .btn,
-    .actions-overlay-special .btn.ghost {
-      flex: 1;
-      margin: 0;
-      padding: 12px 0;
-      min-width: unset;
-      max-width: 100%;
+    .kit-materials h2, .kit-recursos h2, .kit-protocolos h2 {
+      margin-bottom: 0.7rem;
+      text-align: left;
+      color: #ffa77b;
+    }
+    ul {
+      list-style: disc inside;
+      margin: 0.3rem 0 1.2rem 0;
+      padding-left: 1rem;
+    }
+    .site-footer {
+      padding: 16px 0;
+      background: #131a22;
+      border-top: 1px solid rgba(255,255,255,0.06);
       text-align: center;
-      background-color: transparent;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 2.5rem;
+      width: 100%;
     }
-
-    .actions-overlay-special .btn:hover {
-      background-color: var(--accent);
-      color: #fff;
+    .footer-inner {
+      color: #9aa6b2;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
     }
-
-    .actions-overlay-special .btn.ghost:hover {
-      background-color: rgba(255, 122, 89, 0.15);
+    .footer-inner span {
       color: var(--accent);
+      font-weight: 900;
     }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .home__header,
-      .section,
-      .cta,
-      .actions {
-        padding-left: 16px;
-        padding-right: 16px;
-        box-sizing: border-box;
+    @media (max-width: 900px) {
+      .kit__header,
+      .kit-materials, .kit-recursos, .kit-protocolos {
+        max-width: 98vw !important;
+        padding: 0 0.5rem !important;
       }
-      .title {
-        text-align: center !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 8px;
-        padding-right: 8px;
-        word-break: break-word;
-      }
-      .lede {
-        text-align: center !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 8px;
-        padding-right: 8px;
-        word-break: break-word;
-      }
-      .cta,
-      .actions {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-      }
-      .btn, .btn.ghost {
-        width: min(340px, 100%);
-        max-width: 94vw;
-        margin: 0 auto;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-        box-sizing: border-box;
-        min-width: unset;
-      }
-    }
-
-    /* Motion reduction */
-    @media (prefers-reduced-motion: reduce){
-      *{transition: none !important; animation: none !important;}
     }
   </style>
 </Base>
