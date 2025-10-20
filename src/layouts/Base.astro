@@ -16,8 +16,6 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#08121a" />
-
-    <!-- Aquí ya usamos la canonical pasada por prop -->
     <link rel="canonical" href={canonical} />
 
     <!-- CSP: permite JSON-LD y scripts inline que ya usas -->
@@ -38,8 +36,8 @@ const {
     <meta name="referrer" content="no-referrer" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Resistencia Civil Pacífica Nacional (RCPN)" />
-    <meta property="og:description" content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <!-- ⚠️ Asegúrate de tener /public/images/og-image.png (1200x630) -->
@@ -52,8 +50,8 @@ const {
 
     <!-- Twitter / WhatsApp cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Resistencia Civil Pacífica Nacional (RCPN)" />
-    <meta name="twitter:description" content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México." />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://rcpn.me/images/og-image.png?v=1" />
 
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -87,16 +85,13 @@ const {
       }
     </style>
   </head>
-
   <body>
     <header>
       <slot name="header" />
     </header>
-
     <main>
       <slot />
     </main>
-
     <!-- Service Worker opcional -->
     <script>
       if ("serviceWorker" in navigator) {
