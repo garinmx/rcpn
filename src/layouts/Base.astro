@@ -6,10 +6,7 @@ const {
   description = "Memoria y acción pacífica. Únete y comparte.",
   canonical = "https://rcpn.me/",
 } = Astro.props;
-...
-<link rel="canonical" href={canonical} />
-...
-
+---
 
 <!doctype html>
 <html lang="es">
@@ -19,7 +16,9 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#08121a" />
-    <link rel="canonical" href="https://rcpn.me/" />
+
+    <!-- Aquí ya usamos la canonical pasada por prop -->
+    <link rel="canonical" href={canonical} />
 
     <!-- CSP: permite JSON-LD y scripts inline que ya usas -->
     <meta
@@ -42,7 +41,7 @@ const {
     <meta property="og:title" content="Resistencia Civil Pacífica Nacional (RCPN)" />
     <meta property="og:description" content="Movimiento ciudadano que promueve la memoria, el respeto y la acción no violenta en México." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rcpn.me/" />
+    <meta property="og:url" content={canonical} />
     <!-- ⚠️ Asegúrate de tener /public/images/og-image.png (1200x630) -->
     <meta property="og:image" content="https://rcpn.me/images/og-image.png?v=1" />
     <meta property="og:image:secure_url" content="https://rcpn.me/images/og-image.png?v=1" />
