@@ -1,10 +1,11 @@
 ---
+// Archivo: src/pages/index.astro
 import Base from "../layouts/Base.astro";
 ---
 
 <Base
   title="Resistencia Civil Pacífica Nacional | Acción pacífica en México"
-  description="Somos una red ciudadana que promueve la memoria, el respeto y la acción no violenta para construir un México pacífico. Únete y participa en nuestras iniciativas."
+  description="Somos una red ciudadana que promueve memoria, respeto y acción no violenta en México. Únete y participa en nuestras iniciativas pacíficas."
   canonical="https://www.rcpn.me/"
 >
   <main class="home">
@@ -14,7 +15,7 @@ import Base from "../layouts/Base.astro";
         Somos una red de ciudadanos que exige memoria, respeto y soluciones pacíficas. Únete y comparte para construir un México más justo y en paz.
       </p>
       <p>
-        Nuestro movimiento promueve acciones pacíficas, respeto por los derechos humanos y la defensa de la justicia social a través de la colaboración y la resistencia civil no violenta.
+        Nuestro movimiento promueve acciones pacíficas, respeto por los derechos humanos y la defensa de la justicia social mediante la colaboración y la resistencia civil no violenta.
       </p>
       <div class="cta">
         <a class="btn" href="/kit/" title="Consulta el Kit de acción para activistas pacíficos">Kit de acción</a>
@@ -22,12 +23,20 @@ import Base from "../layouts/Base.astro";
       </div>
     </header>
 
-    <!-- Añadido sección con enlaces internos para mejorar enlazado SEO -->
-    <section aria-label="Recursos principales de la Resistencia Civil Pacífica Nacional" class="resources-links" style="max-width:750px; margin:2rem auto; padding:0 1rem;">
+    <!-- Enlaces internos para SEO y navegación clara -->
+    <section aria-label="Recursos principales de la Resistencia Civil Pacífica Nacional" class="resources-links">
       <h2>Recursos y Guías Importantes</h2>
       <ul>
-        <li><a href="/kit/" title="Ver Kit de acción RCPN con recursos para la acción pacífica">Kit de acción: materiales y protocolos para fortalecer la resistencia civil pacífica.</a></li>
-        <li><a href="/seguridad-digital/" title="Guía práctica sobre seguridad digital para activistas">Seguridad digital: guía para proteger tus comunicaciones y dispositivos durante la acción pacífica.</a></li>
+        <li>
+          <a href="/kit/" title="Ver Kit de acción RCPN con recursos para la acción pacífica">
+            Kit de acción: materiales y protocolos para fortalecer la resistencia civil pacífica.
+          </a>
+        </li>
+        <li>
+          <a href="/seguridad-digital/" title="Guía práctica sobre seguridad digital para activistas">
+            Seguridad digital: guía para proteger tus comunicaciones y dispositivos durante la acción pacífica.
+          </a>
+        </li>
       </ul>
     </section>
 
@@ -49,7 +58,7 @@ import Base from "../layouts/Base.astro";
     </section>
 
     <!-- Footer local debajo del carrusel -->
-    <footer class="site-footer" style="margin-top:3rem;">
+    <footer class="site-footer">
       <div class="footer-inner">
         <span style="color:#ff7a59; font-weight:900;">•</span>
         © 2025 Resistencia Civil Pacífica Nacional
@@ -58,8 +67,151 @@ import Base from "../layouts/Base.astro";
   </main>
 
   <style>
-    /* El estilo existente se mantiene igual */
-    /* Puedes mantener el CSS proporcionado inicialmente */
+    .home__header {
+      max-width: 750px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .cta {
+      display: inline-flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .resources-links {
+      max-width: 750px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 1rem;
+      text-align: left;
+    }
+    .resources-links h2 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .carousel {
+      max-width: 750px;
+      margin: 0 auto 3rem auto;
+      position: relative;
+      overflow: visible;
+    }
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .carousel-track-container {
+      overflow: hidden;
+      width: 100%;
+      border-radius: 20px;
+      background: #11171e;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .carousel-slide {
+      width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+    }
+    .carousel-slide img {
+      width: 100%;
+      max-width: 520px;
+      max-height: 320px;
+      object-fit: contain;
+      margin: auto;
+      border-radius: 18px;
+      border: 5px solid #23272c;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      background: #222930;
+    }
+    .carousel-button {
+      background: #fff;
+      color: var(--accent);
+      font-size: 3.2rem;
+      padding: 0 20px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.19);
+      transition: background 0.25s, color 0.25s;
+      z-index: 12;
+      outline: 2px solid var(--accent);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .carousel-button.prev {
+      left: -64px;
+    }
+    .carousel-button.next {
+      right: -64px;
+    }
+    .carousel-button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .carousel-button:focus {
+      outline: 2px solid darkorange;
+    }
+    @media (max-width: 900px) {
+      .home__header,
+      .resources-links {
+        max-width: 98vw !important;
+        padding: 0 0.5rem !important;
+      }
+      .carousel {
+        max-width: 98vw !important;
+        margin: 1.4rem auto !important;
+      }
+      .carousel-slide img {
+        max-width: 90vw !important;
+        max-height: 38vh !important;
+        border-radius: 12px !important;
+      }
+      .carousel-button.prev {
+        left: 8px !important;
+        right: auto !important;
+        font-size: 2.2rem !important;
+        padding: 6px 14px !important;
+      }
+      .carousel-button.next {
+        right: 8px !important;
+        left: auto !important;
+        font-size: 2.2rem !important;
+        padding: 6px 14px !important;
+      }
+    }
+    .site-footer {
+      padding: 16px 0;
+      background: #131a22;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      margin-top: 2.5rem;
+      width: 100%;
+    }
+    .footer-inner {
+      color: #9aa6b2;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+    .footer-inner span {
+      color: var(--accent);
+      font-weight: 900;
+    }
   </style>
 
   <script is:inline>
