@@ -1,13 +1,12 @@
 ---
-// Archivo: src/pages/index.astro
+/** Archivo: src/pages/index.astro */
 import Base from "../layouts/Base.astro";
-
 ---
 
 <Base
   title="Resistencia Civil Pacífica Nacional | Acción pacífica en México"
   description="Somos una red ciudadana que promueve memoria, respeto y acción no violenta en México. Únete y participa en nuestras iniciativas pacíficas."
-  canonical="https://rcpn.me/"
+  canonical="https://www.rcpn.me/"
 >
   <main class="home">
     <header class="home__header">
@@ -45,8 +44,8 @@ import Base from "../layouts/Base.astro";
         <button class="carousel-button prev" aria-label="Imagen anterior">❮</button>
         <div class="carousel-track-container">
           <ul class="carousel-track">
-            {Array.from({ length: 10 }, (_, i) => (
-              <li class="carousel-slide" key={i}>
+            {Array.from({ length: 10 }).map((_, i) => (
+              <li class="carousel-slide">
                 <img src={`/images/action${i + 1}.jpg`} alt={`Acción Resistencia Civil Pacífica ${i + 1}`} loading="lazy" />
               </li>
             ))}
@@ -65,159 +64,32 @@ import Base from "../layouts/Base.astro";
   </main>
 
   <style>
-    .home {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      width: 100%;
-    }
-    .home__header {
-      max-width: 750px;
-      margin: 2.5rem auto 1rem auto;
-      text-align: center;
-      padding: 0 1rem;
-    }
-    .cta {
-      display: inline-flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
-    .resources-links {
-      max-width: 750px;
-      margin: 2rem auto 3.5rem auto;
-      padding: 0 1rem;
-      text-align: left;
-    }
-    .resources-links h2 {
-      text-align: center;
-      margin-bottom: 0.8rem;
-    }
-    .carousel {
-      max-width: 750px;
-      margin: 2.5rem auto 3rem auto;
-      position: relative;
-      overflow: visible;
-    }
-    .carousel-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .carousel-track-container {
-      overflow: hidden;
-      width: 100%;
-      border-radius: 20px;
-      background: #11171e;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.3s ease-in-out;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-    .carousel-slide {
-      width: 100%;
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: none;
-    }
-    .carousel-slide img {
-      width: 100%;
-      max-width: 520px;
-      max-height: 320px;
-      object-fit: contain;
-      margin: auto;
-      border-radius: 18px;
-      border: 5px solid #23272c;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-      background: #222930;
-    }
-    .carousel-button {
-      background: #fff;
-      color: var(--accent);
-      font-size: 3.2rem;
-      padding: 0 20px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.19);
-      transition: background 0.25s, color 0.25s;
-      z-index: 12;
-      outline: 2px solid var(--accent);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .carousel-button.prev {
-      left: -64px;
-    }
-    .carousel-button.next {
-      right: -64px;
-    }
-    .carousel-button:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-    .carousel-button:focus {
-      outline: 2px solid darkorange;
-    }
+    .home { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; }
+    .home__header { max-width: 750px; margin: 2.5rem auto 1rem auto; text-align: center; padding: 0 1rem; }
+    .cta { display: inline-flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+    .resources-links { max-width: 750px; margin: 2rem auto 3.5rem auto; padding: 0 1rem; text-align: left; }
+    .resources-links h2 { text-align: center; margin-bottom: 0.8rem; }
+    .carousel { max-width: 750px; margin: 2.5rem auto 3rem auto; position: relative; overflow: visible; }
+    .carousel-container { display: flex; align-items: center; justify-content: center; position: relative; }
+    .carousel-track-container { overflow: hidden; width: 100%; border-radius: 20px; background: #11171e; }
+    .carousel-track { display: flex; transition: transform 0.3s ease-in-out; padding: 0; margin: 0; list-style: none; }
+    .carousel-slide { width: 100%; min-width: 100%; box-sizing: border-box; padding: 20px 24px; display: flex; align-items: center; justify-content: center; background: none; }
+    .carousel-slide img { width: 100%; max-width: 520px; max-height: 320px; object-fit: contain; margin: auto; border-radius: 18px; border: 5px solid #23272c; box-shadow: 0 8px 32px rgba(0,0,0,0.35); background: #222930; }
+    .carousel-button { background: #fff; color: var(--accent); font-size: 3.2rem; padding: 0 20px; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.19); transition: background 0.25s, color 0.25s; z-index: 12; outline: 2px solid var(--accent); position: absolute; top: 50%; transform: translateY(-50%); }
+    .carousel-button.prev { left: -64px; }
+    .carousel-button.next { right: -64px; }
+    .carousel-button:hover { background: var(--accent); color: #fff; }
+    .carousel-button:focus { outline: 2px solid darkorange; }
     @media (max-width: 900px) {
-      .home__header,
-      .resources-links {
-        max-width: 98vw !important;
-        padding: 0 0.5rem !important;
-      }
-      .carousel {
-        max-width: 98vw !important;
-        margin: 1.4rem auto !important;
-      }
-      .carousel-slide img {
-        max-width: 90vw !important;
-        max-height: 38vh !important;
-        border-radius: 12px !important;
-      }
-      .carousel-button.prev {
-        left: 8px !important;
-        right: auto !important;
-        font-size: 2.2rem !important;
-        padding: 6px 14px !important;
-      }
-      .carousel-button.next {
-        right: 8px !important;
-        left: auto !important;
-        font-size: 2.2rem !important;
-        padding: 6px 14px !important;
-      }
+      .home__header, .resources-links { max-width: 98vw !important; padding: 0 0.5rem !important; }
+      .carousel { max-width: 98vw !important; margin: 1.4rem auto !important; }
+      .carousel-slide img { max-width: 90vw !important; max-height: 38vh !important; border-radius: 12px !important; }
+      .carousel-button.prev { left: 8px !important; right: auto !important; font-size: 2.2rem !important; padding: 6px 14px !important; }
+      .carousel-button.next { right: 8px !important; left: auto !important; font-size: 2.2rem !important; padding: 6px 14px !important; }
     }
-    .site-footer {
-      padding: 16px 0;
-      background: #131a22;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
-      margin-top: 2.5rem;
-      width: 100%;
-    }
-    .footer-inner {
-      color: #9aa6b2;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-    }
-    .footer-inner span {
-      color: var(--accent);
-      font-weight: 900;
-    }
+    .site-footer { padding: 16px 0; background: #131a22; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; margin-top: 2.5rem; width: 100%; }
+    .footer-inner { color: #9aa6b2; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+    .footer-inner span { color: var(--accent); font-weight: 900; }
   </style>
 
   <script is:inline>
@@ -231,8 +103,7 @@ import Base from "../layouts/Base.astro";
 
       function updateCarousel() {
         const slideWidth = slides[0].getBoundingClientRect().width;
-        const amountToMove = slideWidth * currentIndex;
-        track.style.transform = `translateX(-${amountToMove}px)`;
+        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
       }
 
       function nextSlide() {
@@ -250,16 +121,8 @@ import Base from "../layouts/Base.astro";
         interval = setInterval(nextSlide, 3000);
       }
 
-      prevButton.addEventListener('click', () => {
-        prevSlide();
-        startAutoSlide();
-      });
-
-      nextButton.addEventListener('click', () => {
-        nextSlide();
-        startAutoSlide();
-      });
-
+      prevButton.addEventListener('click', () => { prevSlide(); startAutoSlide(); });
+      nextButton.addEventListener('click', () => { nextSlide(); startAutoSlide(); });
       window.addEventListener('resize', updateCarousel);
       updateCarousel();
       startAutoSlide();
