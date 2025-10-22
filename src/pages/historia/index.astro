@@ -1,0 +1,181 @@
+---
+/** Archivo: src/pages/historia/index.astro */
+import Base from "../../layouts/Base.astro";
+const CANONICAL = "https://www.rcpn.me/historia/";
+---
+
+<Base
+  title="Historia | Resistencia Civil Pacífica Nacional"
+  description="Origen, contexto e hitos de la Resistencia Civil Pacífica Nacional (RCPN). Conoce nuestra evolución, campañas y aprendizajes en la acción no violenta."
+  canonical={CANONICAL}
+>
+  <Fragment slot="head">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Historia | Resistencia Civil Pacífica Nacional" />
+    <meta property="og:description" content="Conoce los orígenes e hitos de RCPN: memoria, organización y acción no violenta en México." />
+    <meta property="og:url" content={CANONICAL} />
+    <meta property="og:image" content="https://www.rcpn.me/og-image.jpg" />
+    <meta property="og:site_name" content="RCPN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Historia | Resistencia Civil Pacífica Nacional" />
+    <meta name="twitter:description" content="Origen e hitos de la RCPN en la defensa pacífica de derechos." />
+    <meta name="twitter:image" content="https://www.rcpn.me/og-image.jpg" />
+
+    <!-- (Opcional) Apple touch icon si no se inyecta globalmente -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Breadcrumbs JSON-LD -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.rcpn.me/" },
+          { "@type": "ListItem", "position": 2, "name": "Historia", "item": CANONICAL }
+        ]
+      })}
+    </script>
+  </Fragment>
+
+  <main class="page">
+    <header class="page__header">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación">
+        <a href="/" title="Volver al inicio">Inicio</a> <span>›</span> <strong>Historia</strong>
+      </nav>
+      <h1>Historia de la Resistencia Civil Pacífica Nacional</h1>
+      <p class="lede">
+        La RCPN surge como una red ciudadana que elige la <em>acción no violenta</em> para defender la dignidad,
+        la verdad y los derechos humanos. Esta cronología resume hitos, aprendizajes y campañas que han
+        fortalecido nuestra organización y el tejido social.
+      </p>
+    </header>
+
+    <!-- Sección: Orígenes -->
+    <section class="content-block" aria-label="Orígenes">
+      <h2>Orígenes y contexto</h2>
+      <p>
+        Nacimos de iniciativas locales que, ante la normalización de la violencia y la indiferencia,
+        apostaron por la paz activa, el diálogo y la organización comunitaria. Inspirados por experiencias
+        de <strong>resistencia no violenta</strong> en el mundo y por la memoria de quienes defendieron la
+        dignidad con gestos cotidianos, articulamos una red abierta para compartir metodologías, cuidado y
+        protocolos de seguridad.
+      </p>
+      <p>
+        Desde el inicio, priorizamos la <strong>formación cívica</strong>, la <strong>seguridad digital</strong>
+        y la <strong>acción simbólica</strong> para visibilizar problemáticas sin poner en riesgo a las personas,
+        fortaleciendo la confianza social y la incidencia pública.
+      </p>
+    </section>
+
+    <!-- Sección: Línea de tiempo -->
+    <section class="content-block" aria-label="Línea de tiempo">
+      <h2>Línea de tiempo e hitos</h2>
+
+      <ol class="timeline">
+        <li>
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-card">
+            <h3>Primeras brigadas informativas</h3>
+            <p class="t-meta">Año 1</p>
+            <p>Se realizan brigadas comunitarias con material de formación cívica y protocolos de cuidado,
+              consolidando equipos locales y alianzas vecinales.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-card">
+            <h3>Campañas de memoria y verdad</h3>
+            <p class="t-meta">Año 2</p>
+            <p>Acciones simbólicas y jornadas de diálogo para reconocer a víctimas, preservar la memoria
+              y evitar la repetición de injusticias.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-card">
+            <h3>Red de apoyo y capacitación</h3>
+            <p class="t-meta">Año 3</p>
+            <p>Se formalizan talleres sobre acción no violenta, comunicación segura y organización comunitaria,
+              fortaleciendo capacidades y liderazgo local.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-card">
+            <h3>Protocolo de seguridad y cuidado</h3>
+            <p class="t-meta">Año 4</p>
+            <p>Publicación de lineamientos de cuidado integral y respuesta ante incidentes, priorizando
+              la seguridad física y digital de las personas participantes.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-card">
+            <h3>Incidencia y redes aliadas</h3>
+            <p class="t-meta">Año 5</p>
+            <p>Articulación con iniciativas afines para compartir recursos y amplificar el impacto de
+              campañas locales y regionales.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="next-steps">
+        Explora nuestras <a href="/acciones" title="Acciones destacadas">acciones</a>, revisa los
+        <a href="/principios" title="Principios">principios</a> que nos guían y, si deseas integrarte,
+        completa el formulario: <a href="https://forms.gle/HB1WZJiXCBcJq5eg8" target="_blank" rel="noopener noreferrer">Quiero participar</a>.
+      </p>
+    </section>
+
+    <!-- Sección: Aprendizajes -->
+    <section class="content-block" aria-label="Aprendizajes">
+      <h2>Aprendizajes y metodología</h2>
+      <p>
+        La experiencia ha mostrado que la <strong>no violencia</strong> es efectiva cuando se combina con
+        organización, comunicación clara y protocolos de seguridad. Priorizamos la <strong>corresponsabilidad</strong>,
+        la <strong>transparencia</strong> y la <strong>formación continua</strong>, con guías que pueden adaptarse a
+        distintos contextos locales.
+      </p>
+      <ul>
+        <li>Acción simbólica y pedagógica centrada en la comunidad.</li>
+        <li>Cuidado integral: físico, emocional y digital.</li>
+        <li>Documentación y memoria como base de mejora continua.</li>
+      </ul>
+    </section>
+
+    <!-- CTA final -->
+    <section class="content-block cta-block" aria-label="Participa">
+      <h2>Participa en la RCPN</h2>
+      <p>
+        Súmate a nuestras actividades, colabora con tu experiencia y promueve la acción pacífica en tu comunidad.
+        <a class="btn" href="https://forms.gle/HB1WZJiXCBcJq5eg8" target="_blank" rel="noopener noreferrer" title="Formulario de participación">
+          Quiero participar
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <style>
+    .page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    .page__header { max-width: 760px; margin: 2rem auto 1rem; padding: 0 1rem; text-align: center; }
+    .breadcrumbs { font-size: .95rem; opacity: .9; margin-bottom: .6rem; }
+    .breadcrumbs a { text-decoration: none; border-bottom: 1px dashed var(--accent); }
+    .lede { max-width: 760px; margin: 0.6rem auto 0; }
+    .content-block { max-width: 760px; margin: 1.6rem auto; padding: 0 1rem; }
+    .timeline { list-style: none; padding: 0; margin: 1rem 0; border-left: 3px solid var(--accent); }
+    .timeline li { position: relative; margin: 1.2rem 0 1.2rem 0.8rem; padding-left: 1rem; }
+    .t-dot { position: absolute; left: -10px; top: .2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+    .t-card { background: #0f151c; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: .9rem 1rem; }
+    .t-card h3 { margin: 0 0 .25rem 0; font-size: 1.05rem; }
+    .t-meta { opacity: .85; font-size: .92rem; margin: 0 0 .4rem 0; }
+    .next-steps { margin-top: .8rem; }
+    .cta-block .btn { display: inline-block; margin-left: .6rem; background: var(--accent); color: #fff; padding: .6rem 1rem; border-radius: 10px; text-decoration: none; font-weight: 700; }
+    @media (max-width: 900px){
+      .page__header, .content-block { max-width: 96vw !important; padding: 0 .6rem !important; }
+    }
+  </style>
+</Base>
