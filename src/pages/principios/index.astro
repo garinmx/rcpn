@@ -1,0 +1,73 @@
+---
+/** Archivo: src/pages/principios/index.astro */
+import Base from "../../layouts/Base.astro";
+const CANONICAL = "https://www.rcpn.me/principios/";
+---
+
+<Base
+  title="Principios | Resistencia Civil Pacífica Nacional"
+  description="Principios y valores que guían a la RCPN: no violencia, solidaridad, transparencia, memoria y participación."
+  canonical={CANONICAL}
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Principios | Resistencia Civil Pacífica Nacional" />
+    <meta property="og:description" content="Conoce los valores que orientan cada acción de la RCPN." />
+    <meta property="og:url" content={CANONICAL} />
+    <meta property="og:image" content="https://www.rcpn.me/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.rcpn.me/"},
+          {"@type":"ListItem","position":2,"name":"Principios","item":CANONICAL}
+        ]
+      })}
+    </script>
+  </Fragment>
+
+  <main class="page">
+    <header class="page__header">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a> <span>›</span> <strong>Principios</strong>
+      </nav>
+      <h1>Principios que nos guían</h1>
+      <p class="lede">Estos principios orientan la toma de decisiones, la organización y el cuidado en cada actividad de la RCPN.</p>
+    </header>
+
+    <section class="content-block">
+      <ol class="principios">
+        <li><strong>No violencia:</strong> método de acción, comunicación y pensamiento.</li>
+        <li><strong>Solidaridad:</strong> apoyo mutuo entre personas, barrios y regiones.</li>
+        <li><strong>Transparencia:</strong> claridad en procesos, roles y recursos.</li>
+        <li><strong>Memoria:</strong> reconocimiento de la historia para no repetir injusticias.</li>
+        <li><strong>Participación:</strong> organización ciudadana informada y corresponsable.</li>
+        <li><strong>Cuidado:</strong> integridad física, emocional y digital en todas las acciones.</li>
+      </ol>
+      <p>
+        Consulta también nuestros <a href="/protocolos" title="Protocolos de seguridad">protocolos de seguridad</a>,
+        la <a href="/historia" title="Historia RCPN">historia</a> y las <a href="/acciones" title="Acciones">acciones</a>.
+      </p>
+    </section>
+
+    <section class="content-block cta-block">
+      <h2>Participa</h2>
+      <p>
+        ¿Quieres integrarte a un equipo local o proponer una actividad?
+        <a class="btn" href="https://forms.gle/HB1WZJiXCBcJq5eg8" target="_blank" rel="noopener noreferrer">Quiero participar</a>
+      </p>
+    </section>
+  </main>
+
+  <style>
+    .page{min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    .page__header{max-width:760px;margin:2rem auto 1rem;padding:0 1rem;text-align:center}
+    .breadcrumbs{font-size:.95rem;opacity:.9;margin-bottom:.6rem}.breadcrumbs a{border-bottom:1px dashed var(--accent);text-decoration:none}
+    .content-block{max-width:760px;margin:1.6rem auto;padding:0 1rem}
+    .principios{padding-left:1.2rem}
+    .cta-block .btn{display:inline-block;margin-left:.4rem;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:10px;text-decoration:none;font-weight:700}
+    @media (max-width:900px){.page__header,.content-block{max-width:96vw;padding:0 .6rem}}
+  </style>
+</Base>
