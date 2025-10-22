@@ -8,7 +8,6 @@ import Base from "../layouts/Base.astro";
   description="Somos una red ciudadana que promueve memoria, respeto y acción no violenta en México. Únete y participa en nuestras iniciativas pacíficas."
   canonical="https://www.rcpn.me/"
 >
-  {/* === HEAD EXTRAS: Meta social + Apple Icon === */}
   <Fragment slot="head">
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -43,7 +42,7 @@ import Base from "../layouts/Base.astro";
       </div>
     </header>
 
-    <!-- 🔷 1. Introducción / Quiénes somos (≈60–70 palabras) -->
+    <!-- 🔷 1. Introducción / Quiénes somos -->
     <section aria-label="Quiénes somos" class="content-block">
       <h2>¿Quiénes somos?</h2>
       <p>
@@ -54,7 +53,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 2. Historia del movimiento (≈80–100 palabras) -->
+    <!-- 🔷 2. Historia del movimiento -->
     <section aria-label="Historia del movimiento" class="content-block">
       <h2>Nuestra historia</h2>
       <p>
@@ -70,7 +69,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 3. Misión y visión (≈60–80 palabras) -->
+    <!-- 🔷 3. Misión y visión -->
     <section aria-label="Misión y visión" class="content-block">
       <h2>Misión y visión</h2>
       <p>
@@ -81,7 +80,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 4. Principios o valores (lista + breve texto ≈60–80 palabras) -->
+    <!-- 🔷 4. Principios -->
     <section aria-label="Principios y valores" class="content-block">
       <h2>Principios que nos guían</h2>
       <p>
@@ -100,60 +99,45 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 5. Cómo participar / CTA (≈50–70 palabras) -->
+    <!-- 🔷 5. Cómo participar -->
     <section aria-label="Cómo participar" class="content-block">
       <h2>Cómo participar</h2>
       <p>
         Súmate como voluntario en <a href="/acciones" title="Acciones y voluntariado">acciones locales</a>,
         asiste a <a href="/eventos" title="Calendario de eventos">talleres y eventos</a>,
         fortalece tu privacidad con <a href="/seguridad-digital" title="Guías de seguridad digital">guías de seguridad digital</a>
-        y ayúdanos a difundir mensajes en redes. Si puedes, apoya con donaciones o colaboración técnica.
+        y ayúdanos a difundir mensajes en redes.  
         <a href="/contacto" title="Contacto RCPN">Contáctanos</a> para integrarte a los grupos de trabajo.
       </p>
+
       <div class="cta secondary">
-        <a class="btn" href="/contacto" title="Escríbenos para participar">Quiero participar</a>
-        <a class="btn ghost" href="/donar" title="Apoya nuestras actividades">Apoyar / Donar</a>
+        <a
+          class="btn"
+          href="https://forms.gle/HB1WZJiXCBcJq5eg8"
+          title="Formulario de participación RCPN"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Quiero participar
+        </a>
       </div>
-      <div class="social-share" aria-label="Compartir en redes">
-        <a href="https://twitter.com/intent/tweet?url=https://www.rcpn.me&text=Resistencia%20Civil%20Pac%C3%ADfica%20Nacional%3A%20acci%C3%B3n%20no%20violenta%20en%20M%C3%A9xico"
-           target="_blank" rel="noopener noreferrer" class="share">Compartir en X</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.rcpn.me"
-           target="_blank" rel="noopener noreferrer" class="share">Compartir en Facebook</a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.rcpn.me"
-           target="_blank" rel="noopener noreferrer" class="share">Compartir en LinkedIn</a>
-      </div>
+
       <p class="ref-ext">
         Inspiración metodológica en <a href="https://www.nonviolenceinternational.net" target="_blank" rel="noopener noreferrer">Nonviolence International</a>.
       </p>
     </section>
 
-    <section aria-label="Recursos principales de la Resistencia Civil Pacífica Nacional" class="resources-links">
+    <section aria-label="Recursos principales" class="resources-links">
       <h2>Recursos y Guías Importantes</h2>
       <ul>
-        <li>
-          <a href="/kit/" title="Ver Kit de acción RCPN con recursos para la acción pacífica">
-            Kit de acción: materiales y protocolos para fortalecer la resistencia civil pacífica.
-          </a>
-        </li>
-        <li>
-          <a href="/seguridad-digital/" title="Guía práctica sobre seguridad digital para activistas">
-            Seguridad digital: guía para proteger tus comunicaciones y dispositivos durante la acción pacífica.
-          </a>
-        </li>
-        <li>
-          <a href="/historia" title="Historia y línea de tiempo de RCPN">
-            Historia: conoce el contexto, orígenes e hitos que dieron forma a RCPN.
-          </a>
-        </li>
-        <li>
-          <a href="/principios" title="Código de principios de RCPN">
-            Principios: bases éticas y operativas de nuestras acciones.
-          </a>
-        </li>
+        <li><a href="/kit/">Kit de acción: materiales y protocolos para fortalecer la resistencia civil pacífica.</a></li>
+        <li><a href="/seguridad-digital/">Seguridad digital: guía para proteger tus comunicaciones y dispositivos.</a></li>
+        <li><a href="/historia/">Historia: conoce el contexto, orígenes e hitos que dieron forma a RCPN.</a></li>
+        <li><a href="/principios/">Principios: bases éticas y operativas de nuestras acciones.</a></li>
       </ul>
     </section>
 
-    <section aria-label="Galería de acciones de la Resistencia Civil Pacífica Nacional" class="carousel">
+    <section aria-label="Galería" class="carousel">
       <div class="carousel-container">
         <button class="carousel-button prev" aria-label="Imagen anterior">❮</button>
         <div class="carousel-track-container">
@@ -189,8 +173,6 @@ import Base from "../layouts/Base.astro";
     .principios { padding-left: 1.2rem; }
     .resources-links { max-width: 750px; margin: 2rem auto 3.5rem auto; padding: 0 1rem; text-align: left; }
     .resources-links h2 { text-align: center; margin-bottom: 0.8rem; }
-    .social-share { display: flex; gap: 0.8rem; margin-top: 0.8rem; flex-wrap: wrap; }
-    .social-share .share { font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--accent); }
     .ref-ext { margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.9; }
     .carousel { max-width: 750px; margin: 2.5rem auto 3rem auto; position: relative; overflow: visible; }
     .carousel-container { display: flex; align-items: center; justify-content: center; position: relative; }
@@ -202,7 +184,6 @@ import Base from "../layouts/Base.astro";
     .carousel-button.prev { left: -64px; }
     .carousel-button.next { right: -64px; }
     .carousel-button:hover { background: var(--accent); color: #fff; }
-    .carousel-button:focus { outline: 2px solid darkorange; }
     @media (max-width: 900px) {
       .home__header, .resources-links, .content-block { max-width: 98vw !important; padding: 0 0.5rem !important; }
       .carousel { max-width: 98vw !important; margin: 1.4rem auto !important; }
