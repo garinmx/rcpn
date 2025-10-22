@@ -1,0 +1,80 @@
+---
+/** Archivo: src/pages/acciones/index.astro */
+import Base from "../../layouts/Base.astro";
+const CANONICAL = "https://www.rcpn.me/acciones/";
+const acciones = [
+  { titulo: "Brigadas informativas", meta: "Continuo", desc: "Puntos móviles con material cívico y protocolos de cuidado." },
+  { titulo: "Jornadas de memoria", meta: "Fechas conmemorativas", desc: "Acciones simbólicas por la verdad y la dignidad." },
+  { titulo: "Talleres de formación", meta: "Mensual", desc: "Acción no violenta, organización y seguridad digital." },
+  { titulo: "Círculos de diálogo", meta: "Barrial", desc: "Escucha activa y resolución pacífica de conflictos." },
+];
+---
+
+<Base
+  title="Acciones | Resistencia Civil Pacífica Nacional"
+  description="Acciones y campañas de la RCPN: brigadas informativas, jornadas de memoria, talleres y más."
+  canonical={CANONICAL}
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Acciones | Resistencia Civil Pacífica Nacional" />
+    <meta property="og:description" content="Explora campañas y actividades para sumar tu participación." />
+    <meta property="og:url" content={CANONICAL} />
+    <meta property="og:image" content="https://www.rcpn.me/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.rcpn.me/"},
+          {"@type":"ListItem","position":2,"name":"Acciones","item":CANONICAL}
+        ]
+      })}
+    </script>
+  </Fragment>
+
+  <main class="page">
+    <header class="page__header">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación">
+        <a href="/">Inicio</a> <span>›</span> <strong>Acciones</strong>
+      </nav>
+      <h1>Acciones y campañas</h1>
+      <p class="lede">Actividades abiertas para fortalecer comunidad, memoria y organización pacífica.</p>
+    </header>
+
+    <section class="cards content-block" aria-label="Listado de acciones">
+      {acciones.map((a) => (
+        <article class="card">
+          <h2>{a.titulo}</h2>
+          <p class="meta">{a.meta}</p>
+          <p>{a.desc}</p>
+          <p class="links">
+            <a href="/principios">Principios</a> · <a href="/protocolos">Protocolos</a> · <a href="/seguridad-digital">Seguridad digital</a>
+          </p>
+        </article>
+      ))}
+    </section>
+
+    <section class="content-block cta-block">
+      <h2>¿Te sumas?</h2>
+      <p>
+        Propón una actividad o únete a un equipo local.
+        <a class="btn" href="https://forms.gle/HB1WZJiXCBcJq5eg8" target="_blank" rel="noopener noreferrer">Quiero participar</a>
+      </p>
+    </section>
+  </main>
+
+  <style>
+    .page{min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    .page__header{max-width:960px;margin:2rem auto 1rem;padding:0 1rem;text-align:center}
+    .breadcrumbs{font-size:.95rem;opacity:.9;margin-bottom:.6rem}.breadcrumbs a{border-bottom:1px dashed var(--accent);text-decoration:none}
+    .content-block{max-width:960px;margin:1.6rem auto;padding:0 1rem}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .card{background:#0f151c;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1rem}
+    .card h2{margin:.2rem 0 .25rem}.card .meta{opacity:.85;font-size:.92rem;margin:.15rem 0 .5rem}
+    .card .links a{text-decoration:none;border-bottom:1px dashed var(--accent)}
+    .cta-block .btn{display:inline-block;margin-left:.4rem;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:10px;text-decoration:none;font-weight:700}
+    @media (max-width:900px){.cards{grid-template-columns:1fr}.page__header,.content-block{max-width:96vw;padding:0 .6rem}}
+  </style>
+</Base>
