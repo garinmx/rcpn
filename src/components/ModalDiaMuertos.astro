@@ -1,0 +1,127 @@
+---
+/**
+ * ModalDiaMuertos.astro
+ * Modal que se muestra solo 1 vez por sesión.
+ * Props:
+ *  - imgSrc: string  Ruta de la imagen (default: /images/dia-de-muertos.jpg)
+ *  - linkHref: string URL a donde envía el CTA (default: /kit/)
+ *  - seenKey: string  Clave de sessionStorage (default: dm_seen_2025)
+ */
+const {
+  imgSrc = "/images/dia-de-muertos.jpg",
+  linkHref = "/kit/",
+  seenKey = "dm_seen_2025",
+} = Astro.props;
+---
+
+<div id="dm-overlay" class="dm-overlay" hidden aria-hidden="true">
+  <div class="dm-modal" role="dialog" aria-modal="true" aria-label="Invitación RCPN — Día de Muertos">
+    <button class="dm-close" type="button" aria-label="Cerrar invitación">×</button>
+
+    <a class="dm-link" href={linkHref} aria-label="Ir al detalle del evento">
+      <img
+        class="dm-img"
+        src={imgSrc}
+        alt="RCPN — Día de Muertos para Niños"
+        width="1200"
+        height="1200"
+        loading="eager"
+      />
+    </a>
+
+    <p class="dm-note"><a href={linkHref}>Ver más detalles</a></p>
+  </div>
+</div>
+
+<style>
+  .dm-overlay {
+    position: fixed; inset: 0;
+    display: grid; place-items: center;
+    background: rgba(0,0,0,.72);
+    z-index: 9999; padding: clamp(10px,3vw,24px);
+    backdrop-filter: blur(2px);
+  }
+  .dm-overlay[hidden] { display:none !important; opacity:0 !important; pointer-events:none !important; }
+  .dm-modal {
+    position: relative; max-width: min(95vw,840px); width:100%;
+    border-radius:16px; overflow:hidden;
+    background:#0f1720; border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 30px 100px rgba(0,0,0,.55);
+  }
+  .dm-img { display:block; width:100%; height:auto; object-fit:cover; background:#111; aspect-ratio:1/1; }
+  .dm-close {
+    position:absolute; top:12px; right:12px;
+    width:44px; height:44px; line-height:44px; border-radius:50%;
+    border:0; background:#fff; color:#111827; font-size:28px; font-weight:700;
+    cursor:pointer; display:grid; place-items:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.35);
+    transition: transform .15s ease, background .2s ease, color .2s ease;
+    z-index:2;
+  }
+  .dm-close:hover { transform:scale(1.05); background:#111827; color:#fff; }
+  .dm-note { text-align:center; margin:10px 0 14px; font-size:.95rem; color:#cbd5e1; }
+  .dm-note a { color: var(--accent, #ff7a59); text-decoration: underline; }
+</style>
+
+<script is:inline>
+  // Mostrar solo una vez por sesión (con fix para bfcache)
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay   = document.getElementById("dm-overlay");
+    if (!overlay) return;
+
+    const closeBtn  = overlay.querySelector(".dm-close");
+    const modalImg  = overlay.querySelector(".dm-img");
+    const modalLink = overlay.querySelector(".dm-link");
+
+    const IMG_PATH  = {imgSrc};
+    const SEEN_KEY  = {JSON.stringify(seenKey)};
+
+    const markSeen = () => sessionStorage.setItem(SEEN_KEY, "1");
+
+    const showOverlay = () => {
+      overlay.hidden = false;
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn?.focus();
+    };
+    const hideOverlay = () => {
+      overlay.hidden = true;
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      markSeen();
+    };
+
+    if (sessionStorage.getItem(SEEN_KEY)) {
+      overlay.hidden = true;
+      overlay.setAttribute("aria-hidden", "true");
+      return;
+    }
+
+    // Precarga segura
+    const img = new window.Image();
+    img.src = IMG_PATH;
+    img.onload = () => {
+      if (modalImg) modalImg.src = IMG_PATH;
+      showOverlay();
+    };
+    img.onerror = () => { markSeen(); };
+
+    closeBtn?.addEventListener("click", hideOverlay);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) hideOverlay(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay.hidden === false) hideOverlay(); });
+
+    modalLink?.addEventListener("click", () => { markSeen(); });
+
+    window.addEventListener("pagehide", () => { if (!overlay.hidden) markSeen(); });
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted && sessionStorage.getItem(SEEN_KEY)) {
+        overlay.hidden = true;
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+    }, { once: true });
+
+    overlay.addEventListener("wheel", (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive: false });
+    overlay.addEventListener("touchmove", (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive: false });
+  });
+</script>
