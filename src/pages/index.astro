@@ -1,5 +1,5 @@
 ---
-/** Archivo: src/pages/index.astro */
+// Archivo: src/pages/index.astro
 import Base from "../layouts/Base.astro";
 ---
 
@@ -27,20 +27,23 @@ import Base from "../layouts/Base.astro";
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   </Fragment>
 
-  <!-- 🔔 Modal "Día de Muertos" (se muestra 1 vez por sesión) -->
+  <!-- ░░ Modal “Día de Muertos” (1 vez por sesión) ░░ -->
   <div id="dm-overlay" class="dm-overlay" hidden aria-hidden="true">
-    <div class="dm-modal" role="dialog" aria-modal="true" aria-label="Invitación RCPN">
-      <button class="dm-close" type="button" aria-label="Cerrar">✕</button>
-      <a class="dm-link" href="/kit/" aria-label="Ver detalles del evento">
+    <div class="dm-modal" role="dialog" aria-modal="true" aria-label="Invitación RCPN — Día de Muertos">
+      <button class="dm-close" type="button" aria-label="Cerrar invitación">×</button>
+
+      <a class="dm-link" href="/kit/" aria-label="Ir al detalle del evento">
+        <!-- la ruta se asigna/precarga vía JS para evitar parpadeo -->
         <img
           class="dm-img"
-          src="/images/dia-de-muertos.jpg"
+          src=""
           alt="RCPN — Día de Muertos para Niños"
-          width="960"
-          height="960"
+          width="1200"
+          height="1200"
           loading="eager"
         />
       </a>
+
       <p class="dm-note">
         <a href="/kit/">Ver más detalles</a>
       </p>
@@ -62,7 +65,7 @@ import Base from "../layouts/Base.astro";
       </div>
     </header>
 
-    <!-- 🔷 1. Quiénes somos -->
+    <!-- 1. Quiénes somos -->
     <section aria-label="Quiénes somos" class="content-block">
       <h2>¿Quiénes somos?</h2>
       <p>
@@ -73,7 +76,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 2. Historia -->
+    <!-- 2. Historia -->
     <section aria-label="Historia del movimiento" class="content-block">
       <h2>Nuestra historia</h2>
       <p>
@@ -89,7 +92,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 3. Misión y visión -->
+    <!-- 3. Misión y visión -->
     <section aria-label="Misión y visión" class="content-block">
       <h2>Misión y visión</h2>
       <p>
@@ -100,7 +103,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 4. Principios -->
+    <!-- 4. Principios -->
     <section aria-label="Principios y valores" class="content-block">
       <h2>Principios que nos guían</h2>
       <p>Actuamos con base en valores que orientan cada iniciativa y resguardan la integridad de las personas y comunidades.</p>
@@ -117,7 +120,7 @@ import Base from "../layouts/Base.astro";
       </p>
     </section>
 
-    <!-- 🔷 5. Cómo participar -->
+    <!-- 5. Cómo participar -->
     <section aria-label="Cómo participar" class="content-block">
       <h2>Cómo participar</h2>
       <p>
@@ -139,6 +142,7 @@ import Base from "../layouts/Base.astro";
       </div>
     </section>
 
+    <!-- Recursos -->
     <section aria-label="Recursos principales" class="resources-links">
       <h2>Recursos y Guías Importantes</h2>
       <ul>
@@ -149,7 +153,7 @@ import Base from "../layouts/Base.astro";
       </ul>
     </section>
 
-    <!-- 🔷 Carrusel -->
+    <!-- Carrusel -->
     <section aria-label="Galería" class="carousel">
       <div class="carousel-container">
         <button class="carousel-button prev" aria-label="Imagen anterior">❮</button>
@@ -175,7 +179,7 @@ import Base from "../layouts/Base.astro";
   </main>
 
   <style>
-    /* ===== Modal Día de Muertos ===== */
+    /* ========== MODAL DÍA DE MUERTOS ========== */
     .dm-overlay {
       position: fixed;
       inset: 0;
@@ -195,42 +199,51 @@ import Base from "../layouts/Base.astro";
       overflow: hidden;
       background: #0f1720;
       border: 1px solid rgba(255,255,255,.08);
+      transform: translateZ(0);
     }
     .dm-img {
       display: block;
       width: 100%;
       height: auto;
       object-fit: cover;
-      aspect-ratio: 1 / 1;
       background: #111;
+      aspect-ratio: 1/1;
     }
     .dm-close {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 40px;
-      height: 40px;
+      top: 12px;
+      right: 12px;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
       border-radius: 50%;
       border: 0;
-      background: rgba(0,0,0,.6);
-      color: #fff;
-      font-size: 20px;
+      background: #ffffff;
+      color: #111827;
+      font-size: 28px;
+      font-weight: 700;
       cursor: pointer;
       display: grid;
       place-items: center;
-      transition: transform .15s ease, background .2s ease;
-      outline: 2px solid rgba(255,255,255,.25);
+      box-shadow: 0 6px 20px rgba(0,0,0,.35);
+      transition: transform .15s ease, background .2s ease, color .2s ease;
+      z-index: 2;
     }
-    .dm-close:hover { transform: scale(1.05); background: rgba(0,0,0,.8); }
+    .dm-close:hover { transform: scale(1.05); background:#111827; color:#fff; }
     .dm-note {
       text-align: center;
-      margin: 8px 0 12px;
+      margin: 10px 0 14px;
       font-size: .95rem;
       color: #cbd5e1;
     }
-    .dm-note a { color: #ff7a59; text-decoration: underline; }
+    .dm-note a { color: var(--accent, #ff7a59); text-decoration: underline; }
 
-    /* ===== Página ===== */
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-track { transition: none !important; }
+      .dm-close { transition: none !important; }
+    }
+
+    /* ========== PÁGINA ========== */
     .home { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; }
     .home__header { max-width: 750px; margin: 2.5rem auto 1rem auto; text-align: center; padding: 0 1rem; }
     .cta { display: inline-flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
@@ -271,8 +284,10 @@ import Base from "../layouts/Base.astro";
   <script is:inline>
     // ===== Carrusel =====
     document.addEventListener('DOMContentLoaded', () => {
-      let currentIndex = 0;
       const track = document.querySelector('.carousel-track');
+      if (!track) return;
+
+      let currentIndex = 0;
       const slides = Array.from(track.children);
       const prevButton = document.querySelector('.carousel-button.prev');
       const nextButton = document.querySelector('.carousel-button.next');
@@ -301,48 +316,58 @@ import Base from "../layouts/Base.astro";
       startAutoSlide();
     });
 
-    // ===== Modal "Día de Muertos" (1 vez por sesión) =====
+    // ===== Modal “Día de Muertos” (1 vez por sesión) =====
     document.addEventListener('DOMContentLoaded', () => {
       const overlay = document.getElementById('dm-overlay');
       if (!overlay) return;
 
+      const modal = overlay.querySelector('.dm-modal');
+      const closeBtn = overlay.querySelector('.dm-close');
+      const modalImg = overlay.querySelector('.dm-img');
+
+      // actualiza esta ruta si usas otro nombre/ubicación
+      const IMG_PATH = '/images/dia-de-muertos.jpg';
       const SEEN_KEY = 'dm_seen_2025';
-      const seen = sessionStorage.getItem(SEEN_KEY);
 
-      // Cambia la ruta si tu imagen tiene otro nombre o ubicación:
-      const MODAL_IMG = '/images/dia-de-muertos.jpg';
-
-      if (!seen) {
-        // Pre-carga de la imagen para evitar parpadeo
-        const img = new Image();
-        img.src = MODAL_IMG;
-        img.onload = () => {
-          // asignamos la ruta a la imagen del modal
-          const modalImg = overlay.querySelector('.dm-img');
-          if (modalImg) modalImg.src = MODAL_IMG;
-
-          overlay.hidden = false;
-          overlay.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        };
+      function showOverlay() {
+        overlay.hidden = false;
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn?.focus();
       }
-
-      function closeModal() {
+      function hideOverlay() {
         overlay.hidden = true;
         overlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         sessionStorage.setItem(SEEN_KEY, '1');
       }
 
+      // Mostrar solo si no se ha visto en esta sesión
+      if (!sessionStorage.getItem(SEEN_KEY)) {
+        const img = new Image();
+        img.src = IMG_PATH;
+        img.onload = () => {
+          if (modalImg) modalImg.src = IMG_PATH;
+          showOverlay();
+        };
+        img.onerror = () => {
+          // si fallara la imagen, no bloqueamos la navegación
+          sessionStorage.setItem(SEEN_KEY, '1');
+        };
+      }
+
+      // Cerrar con botón, click fuera o tecla Escape
+      closeBtn?.addEventListener('click', hideOverlay);
       overlay.addEventListener('click', (e) => {
-        // cierra si se hace click fuera del panel
-        if (e.target === overlay) closeModal();
+        if (e.target === overlay) hideOverlay();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.hidden === false) hideOverlay();
       });
 
-      overlay.querySelector('.dm-close')?.addEventListener('click', closeModal);
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.hidden === false) closeModal();
-      });
+      // Evita scroll de fondo con rueda/touch cuando el modal está abierto
+      overlay.addEventListener('wheel', (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive:false });
+      overlay.addEventListener('touchmove', (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive:false });
     });
   </script>
 </Base>
