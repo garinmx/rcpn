@@ -1,0 +1,85 @@
+---
+/**
+ * CarouselBasic.astro
+ * Carrusel simple controlado por JS interno.
+ * Props:
+ *  - slides: Array<{ title: string, text?: string, href?: string }>
+ */
+interface Slide { title: string; text?: string; href?: string; }
+const { slides = [] } = Astro.props as { slides: Slide[] };
+---
+
+<section class="carousel" aria-label="Destacados">
+  <div class="carousel-track">
+    {slides.map((s) => (
+      <article class="slide">
+        <h3>{s.title}</h3>
+        {s.text && <p>{s.text}</p>}
+        {s.href && <a class="slide-link" href={s.href}>Ver más</a>}
+      </article>
+    ))}
+  </div>
+  <button class="carousel-button prev" aria-label="Anterior" type="button">‹</button>
+  <button class="carousel-button next" aria-label="Siguiente" type="button">›</button>
+</section>
+
+<style>
+  .carousel { position:relative; margin:3rem auto; max-width:980px; overflow:hidden; min-height:160px; }
+  .carousel-track { display:flex; transition: transform .4s ease; will-change: transform; }
+  .slide {
+    min-width:100%; box-sizing:border-box; padding:2rem;
+    background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px;
+    color:#cbd5e1; display:grid; gap:.5rem;
+  }
+  .slide h3 { margin:0; color:#fff; }
+  .slide-link { color:#ff7a59; text-decoration: underline; }
+  .carousel-button {
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:44px; height:44px; border-radius:9999px; border:0;
+    background:#fff; color:#111; font-size:24px; line-height:44px; text-align:center;
+    cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.25); user-select:none;
+  }
+  .carousel-button.prev { left:8px; }
+  .carousel-button.next { right:8px; }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const root = document.currentScript?.closest(".carousel");
+    if (!root) return;
+
+    const track = root.querySelector(".carousel-track");
+    if (!track) return;
+
+    const slides = Array.from(track.children);
+    const prevButton = root.querySelector(".carousel-button.prev");
+    const nextButton = root.querySelector(".carousel-button.next");
+
+    let currentIndex = 0;
+    let interval;
+
+    function updateCarousel() {
+      const slideWidth = (slides[0] as HTMLElement).getBoundingClientRect().width;
+      (track as HTMLElement).style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    }
+    function nextSlide() {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateCarousel();
+    }
+    function prevSlide() {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateCarousel();
+    }
+    function startAutoSlide() {
+      clearInterval(interval);
+      interval = setInterval(nextSlide, 3000);
+    }
+
+    prevButton?.addEventListener("click", () => { prevSlide(); startAutoSlide(); });
+    nextButton?.addEventListener("click", () => { nextSlide(); startAutoSlide(); });
+    window.addEventListener("resize", updateCarousel);
+
+    updateCarousel();
+    startAutoSlide();
+  });
+</script>
