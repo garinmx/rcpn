@@ -1,6 +1,7 @@
 ---
 // Archivo: src/pages/index.astro
 import Base from "../layouts/Base.astro";
+import { Fragment } from "astro/jsx-runtime";
 ---
 
 <Base
@@ -14,14 +15,14 @@ import Base from "../layouts/Base.astro";
     <meta property="og:title" content="Resistencia Civil Pacífica Nacional | Acción pacífica en México" />
     <meta property="og:description" content="Movimiento ciudadano que promueve la acción no violenta, la memoria y la participación activa para construir un México más justo." />
     <meta property="og:url" content="https://www.rcpn.me/" />
-    <meta property="og:image" content="https://www.rcpn.me/og-image.jpg" />
+    <meta property="og:image" content="https://www.rcpn.me/images/og-image.png" />
     <meta property="og:site_name" content="RCPN" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Resistencia Civil Pacífica Nacional | Acción pacífica en México" />
     <meta name="twitter:description" content="Acción no violenta, memoria y participación ciudadana para transformar México." />
-    <meta name="twitter:image" content="https://www.rcpn.me/og-image.jpg" />
+    <meta name="twitter:image" content="https://www.rcpn.me/images/og-image.png" />
 
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -33,7 +34,6 @@ import Base from "../layouts/Base.astro";
       <button class="dm-close" type="button" aria-label="Cerrar invitación">×</button>
 
       <a class="dm-link" href="/kit/" aria-label="Ir al detalle del evento">
-        <!-- la ruta se asigna/precarga vía JS para evitar parpadeo -->
         <img
           class="dm-img"
           src=""
@@ -43,7 +43,6 @@ import Base from "../layouts/Base.astro";
           loading="eager"
         />
       </a>
-
       <p class="dm-note">
         <a href="/kit/">Ver más detalles</a>
       </p>
@@ -65,117 +64,11 @@ import Base from "../layouts/Base.astro";
       </div>
     </header>
 
-    <!-- 1. Quiénes somos -->
-    <section aria-label="Quiénes somos" class="content-block">
-      <h2>¿Quiénes somos?</h2>
-      <p>
-        La <strong>Resistencia Civil Pacífica Nacional (RCPN)</strong> es un movimiento ciudadano que impulsa la
-        <em>acción no violenta</em>, la memoria y la participación activa para transformar la realidad social de México.
-        Creemos en el poder de la organización comunitaria, el diálogo y la solidaridad para defender derechos, exigir
-        transparencia y construir soluciones colectivas, siempre con ética, respeto y propósito.
-      </p>
-    </section>
+    <!-- ... toda la estructura y contenido que ya tienes ... -->
 
-    <!-- 2. Historia -->
-    <section aria-label="Historia del movimiento" class="content-block">
-      <h2>Nuestra historia</h2>
-      <p>
-        RCPN nace de iniciativas locales que, frente a la violencia y la indiferencia, eligieron la ruta de la paz activa.
-        Inspirados por experiencias internacionales de <em>resistencia no violenta</em> y por la memoria de quienes
-        defendieron la dignidad con gestos cotidianos, nos articulamos como red para compartir aprendizajes, metodologías
-        y protocolos seguros. Hemos crecido con campañas comunitarias, brigadas informativas y acciones simbólicas que
-        unen a vecinas y vecinos en torno a la justicia y la verdad, fortaleciendo la confianza y el tejido social.
-      </p>
-      <p>
-        Conoce más en nuestra <a href="/historia" title="Historia de RCPN">línea del tiempo</a> y revisa
-        <a href="/acciones" title="Acciones de RCPN">acciones destacadas</a> realizadas en distintas regiones del país.
-      </p>
-    </section>
+    <!-- Aquí mantén los mismos sections, carousel, footer exactamente igual -->
+    <!-- ... -->
 
-    <!-- 3. Misión y visión -->
-    <section aria-label="Misión y visión" class="content-block">
-      <h2>Misión y visión</h2>
-      <p>
-        Nuestra <strong>misión</strong> es promover una cultura de respeto, memoria y participación informada mediante
-        herramientas pacíficas, formación cívica y apoyo comunitario. Nuestra <strong>visión</strong> es un México donde
-        la empatía, el diálogo y la colaboración sustituyan la violencia, y donde comunidades organizadas influyan en
-        decisiones públicas con transparencia y corresponsabilidad, para garantizar justicia, libertad y bienestar común.
-      </p>
-    </section>
-
-    <!-- 4. Principios -->
-    <section aria-label="Principios y valores" class="content-block">
-      <h2>Principios que nos guían</h2>
-      <p>Actuamos con base en valores que orientan cada iniciativa y resguardan la integridad de las personas y comunidades.</p>
-      <ol class="principios">
-        <li><strong>No violencia:</strong> método, lenguaje y práctica cotidiana.</li>
-        <li><strong>Solidaridad:</strong> apoyo mutuo entre regiones y causas.</li>
-        <li><strong>Transparencia:</strong> claridad en procesos, recursos y decisiones.</li>
-        <li><strong>Memoria:</strong> reconocer el pasado para no repetir injusticias.</li>
-        <li><strong>Participación:</strong> organización ciudadana informada y responsable.</li>
-      </ol>
-      <p>
-        Consulta nuestro <a href="/principios" title="Principios de RCPN">código de principios</a> y los
-        <a href="/protocolos" title="Protocolos de seguridad">protocolos de seguridad</a> que guían cada actividad.
-      </p>
-    </section>
-
-    <!-- 5. Cómo participar -->
-    <section aria-label="Cómo participar" class="content-block">
-      <h2>Cómo participar</h2>
-      <p>
-        Súmate como voluntario en <a href="/acciones" title="Acciones y voluntariado">acciones locales</a>,
-        fortalece tu privacidad con <a href="/seguridad-digital" title="Guías de seguridad digital">guías de seguridad digital</a>
-        y ayúdanos a difundir mensajes en redes. Regístrate para integrarte a los grupos de trabajo.
-      </p>
-
-      <div class="cta secondary">
-        <a
-          class="btn"
-          href="https://forms.gle/HB1WZJiXCBcJq5eg8"
-          title="Formulario de participación RCPN"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Quiero participar
-        </a>
-      </div>
-    </section>
-
-    <!-- Recursos -->
-    <section aria-label="Recursos principales" class="resources-links">
-      <h2>Recursos y Guías Importantes</h2>
-      <ul>
-        <li><a href="/kit/">Kit de acción: materiales y protocolos para fortalecer la resistencia civil pacífica.</a></li>
-        <li><a href="/seguridad-digital/">Seguridad digital: guía para proteger tus comunicaciones y dispositivos.</a></li>
-        <li><a href="/historia/">Historia: conoce el contexto, orígenes e hitos que dieron forma a RCPN.</a></li>
-        <li><a href="/principios/">Principios: bases éticas y operativas de nuestras acciones.</a></li>
-      </ul>
-    </section>
-
-    <!-- Carrusel -->
-    <section aria-label="Galería" class="carousel">
-      <div class="carousel-container">
-        <button class="carousel-button prev" aria-label="Imagen anterior">❮</button>
-        <div class="carousel-track-container">
-          <ul class="carousel-track">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <li class="carousel-slide">
-                <img src={`/images/action${i + 1}.jpg`} alt={`Acción Resistencia Civil Pacífica ${i + 1}`} loading="lazy" />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <button class="carousel-button next" aria-label="Imagen siguiente">❯</button>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <span style="color:#ff7a59; font-weight:900;">•</span>
-        © 2025 Resistencia Civil Pacífica Nacional
-      </div>
-    </footer>
   </main>
 
   <style>
@@ -237,62 +130,67 @@ import Base from "../layouts/Base.astro";
       color: #cbd5e1;
     }
     .dm-note a { color: var(--accent, #ff7a59); text-decoration: underline; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .carousel-track { transition: none !important; }
-      .dm-close { transition: none !important; }
-    }
-
-    /* ========== PÁGINA ========== */
-    .home { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; }
-    .home__header { max-width: 750px; margin: 2.5rem auto 1rem auto; text-align: center; padding: 0 1rem; }
-    .cta { display: inline-flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
-    .cta.secondary { margin-top: 0.8rem; }
-    .btn { background: var(--accent); color: #fff; padding: 0.7rem 1.1rem; border-radius: 10px; text-decoration: none; font-weight: 700; }
-    .btn.ghost { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
-
-    .content-block { max-width: 750px; margin: 1.5rem auto; padding: 0 1rem; }
-    .content-block h2 { margin-bottom: 0.5rem; }
-    .principios { padding-left: 1.2rem; }
-    .resources-links { max-width: 750px; margin: 2rem auto 3.5rem auto; padding: 0 1rem; text-align: left; }
-    .resources-links h2 { text-align: center; margin-bottom: 0.8rem; }
-
-    .carousel { max-width: 750px; margin: 2.5rem auto 3rem auto; position: relative; overflow: visible; }
-    .carousel-container { display: flex; align-items: center; justify-content: center; position: relative; }
-    .carousel-track-container { overflow: hidden; width: 100%; border-radius: 20px; background: #11171e; }
-    .carousel-track { display: flex; transition: transform 0.3s ease-in-out; padding: 0; margin: 0; list-style: none; }
-    .carousel-slide { width: 100%; min-width: 100%; box-sizing: border-box; padding: 20px 24px; display: flex; align-items: center; justify-content: center; background: none; }
-    .carousel-slide img { width: 100%; max-width: 520px; max-height: 320px; object-fit: contain; margin: auto; border-radius: 18px; border: 5px solid #23272c; box-shadow: 0 8px 32px rgba(0,0,0,0.35); background: #222930; }
-    .carousel-button { background: #fff; color: var(--accent); font-size: 3.2rem; padding: 0 20px; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.19); transition: background 0.25s, color 0.25s; z-index: 12; outline: 2px solid var(--accent); position: absolute; top: 50%; transform: translateY(-50%); }
-    .carousel-button.prev { left: -64px; }
-    .carousel-button.next { right: -64px; }
-    .carousel-button:hover { background: var(--accent); color: #fff; }
-
-    @media (max-width: 900px) {
-      .home__header, .resources-links, .content-block { max-width: 98vw !important; padding: 0 0.5rem !important; }
-      .carousel { max-width: 98vw !important; margin: 1.4rem auto !important; }
-      .carousel-slide img { max-width: 90vw !important; max-height: 38vh !important; border-radius: 12px !important; }
-      .carousel-button.prev { left: 8px !important; right: auto !important; font-size: 2.2rem !important; padding: 6px 14px !important; }
-      .carousel-button.next { right: 8px !important; left: auto !important; font-size: 2.2rem !important; padding: 6px 14px !important; }
-    }
-
-    .site-footer { padding: 16px 0; background: #131a22; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; margin-top: 2.5rem; width: 100%; }
-    .footer-inner { color: #9aa6b2; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
-    .footer-inner span { color: var(--accent); font-weight: 900; }
+    /* ... Igual todo tu CSS ... */
   </style>
 
   <script is:inline>
+    // ===== Modal “Día de Muertos” (1 vez por sesión) =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('dm-overlay');
+      if (!overlay) return;
+
+      const modal = overlay.querySelector('.dm-modal');
+      const closeBtn = overlay.querySelector('.dm-close');
+      const modalImg = overlay.querySelector('.dm-img');
+      const IMG_PATH = '/images/dia-de-muertos.jpg';
+      const SEEN_KEY = 'dm_seen_2025';
+
+      function showOverlay() {
+        overlay.hidden = false;
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn?.focus();
+      }
+      function hideOverlay() {
+        overlay.hidden = true;
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        sessionStorage.setItem(SEEN_KEY, '1');
+      }
+      // Mostrar solo si no se ha visto en esta sesión
+      if (!sessionStorage.getItem(SEEN_KEY)) {
+        const img = new window.Image();
+        img.src = IMG_PATH;
+        img.onload = () => {
+          if (modalImg) modalImg.src = IMG_PATH;
+          showOverlay();
+        };
+        img.onerror = () => {
+          // si fallara la imagen, no bloqueamos la navegación
+          sessionStorage.setItem(SEEN_KEY, '1');
+        };
+      }
+      // Cerrar con botón, click fuera o tecla Escape
+      closeBtn?.addEventListener('click', hideOverlay);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) hideOverlay();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.hidden === false) hideOverlay();
+      });
+      // Evita scroll de fondo
+      overlay.addEventListener('wheel', (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive:false });
+      overlay.addEventListener('touchmove', (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive:false });
+    });
     // ===== Carrusel =====
     document.addEventListener('DOMContentLoaded', () => {
       const track = document.querySelector('.carousel-track');
       if (!track) return;
-
       let currentIndex = 0;
       const slides = Array.from(track.children);
       const prevButton = document.querySelector('.carousel-button.prev');
       const nextButton = document.querySelector('.carousel-button.next');
       let interval;
-
       function updateCarousel() {
         const slideWidth = slides[0].getBoundingClientRect().width;
         track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
@@ -314,60 +212,6 @@ import Base from "../layouts/Base.astro";
       window.addEventListener('resize', updateCarousel);
       updateCarousel();
       startAutoSlide();
-    });
-
-    // ===== Modal “Día de Muertos” (1 vez por sesión) =====
-    document.addEventListener('DOMContentLoaded', () => {
-      const overlay = document.getElementById('dm-overlay');
-      if (!overlay) return;
-
-      const modal = overlay.querySelector('.dm-modal');
-      const closeBtn = overlay.querySelector('.dm-close');
-      const modalImg = overlay.querySelector('.dm-img');
-
-      // actualiza esta ruta si usas otro nombre/ubicación
-      const IMG_PATH = '/images/dia-de-muertos.jpg';
-      const SEEN_KEY = 'dm_seen_2025';
-
-      function showOverlay() {
-        overlay.hidden = false;
-        overlay.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        closeBtn?.focus();
-      }
-      function hideOverlay() {
-        overlay.hidden = true;
-        overlay.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        sessionStorage.setItem(SEEN_KEY, '1');
-      }
-
-      // Mostrar solo si no se ha visto en esta sesión
-      if (!sessionStorage.getItem(SEEN_KEY)) {
-        const img = new Image();
-        img.src = IMG_PATH;
-        img.onload = () => {
-          if (modalImg) modalImg.src = IMG_PATH;
-          showOverlay();
-        };
-        img.onerror = () => {
-          // si fallara la imagen, no bloqueamos la navegación
-          sessionStorage.setItem(SEEN_KEY, '1');
-        };
-      }
-
-      // Cerrar con botón, click fuera o tecla Escape
-      closeBtn?.addEventListener('click', hideOverlay);
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) hideOverlay();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.hidden === false) hideOverlay();
-      });
-
-      // Evita scroll de fondo con rueda/touch cuando el modal está abierto
-      overlay.addEventListener('wheel', (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive:false });
-      overlay.addEventListener('touchmove', (e) => { if (!overlay.hidden) e.preventDefault(); }, { passive:false });
     });
   </script>
 </Base>
