@@ -1,12 +1,13 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import EventBanner from '../components/EventBanner.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import EventBanner from "../components/EventBanner.astro";
 
 const page = {
-  title: 'RCPN — No violencia y acción cívica',
-  description: 'Contenido, principios y recursos para la resistencia civil pacífica.',
-  ogImage: '/og-default.png',
-  robots: 'index,follow'
+  title: "RCPN — No violencia y acción cívica",
+  description:
+    "Contenido, principios y recursos para la resistencia civil pacífica.",
+  ogImage: "/og-default.png",
+  robots: "index,follow",
 };
 ---
 
@@ -15,18 +16,19 @@ const page = {
 
   <section class="hero" aria-label="Portada">
     <picture>
-      <!-- WebP prioritario con variantes existentes en /public -->
+      <!-- WebP para navegadores modernos (Chrome, Firefox, Edge, Safari 14+) -->
       <source
+        type="image/webp"
         srcset="/hero-640.webp 640w, /hero-1024.webp 1024w, /hero-1600.webp 1600w"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
-        type="image/webp" />
+      />
 
-      <!-- Fallback PNG con las mismas variantes -->
+      <!-- Fallback PNG para navegadores antiguos -->
       <img
-        src="/hero-1024.webp"
-        srcset="/hero-640.webp 640w, /hero-1024.webp 1024w, /hero-1600.webp 1600w"
+        src="/hero-1024.png"
+        srcset="/hero-640.png 640w, /hero-1024.png 1024w, /hero-1600.png 1600w"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
-        alt="[translate:Personas unidas en acciones cívicas pacíficas]"
+        alt="Personas unidas en acciones cívicas pacíficas"
         width="1600"
         height="900"
         decoding="async"
@@ -37,7 +39,9 @@ const page = {
 
     <div class="hero-content">
       <h1>Resistencia Civil Pacífica, impacto real</h1>
-      <p>Estrategias, principios y tácticas no violentas para cambiar tu entorno.</p>
+      <p>
+        Estrategias, principios y tácticas no violentas para cambiar tu entorno.
+      </p>
       <a class="btn btn-primary" href="/recursos">Explorar recursos</a>
     </div>
   </section>
@@ -45,13 +49,17 @@ const page = {
   <section class="grid">
     <article class="card">
       <h2>Principios</h2>
-      <p>Marco ético y táctico de la no violencia aplicable a comunidades reales.</p>
+      <p>
+        Marco ético y táctico de la no violencia aplicable a comunidades reales.
+      </p>
       <a class="btn btn-secondary" href="/principios">Leer más</a>
     </article>
 
     <article class="card">
       <h2>Quienes somos</h2>
-      <p>Conoce a la red y cómo colaboramos para impulsar cambios sostenibles.</p>
+      <p>
+        Conoce a la red y cómo colaboramos para impulsar cambios sostenibles.
+      </p>
       <a class="btn btn-secondary" href="/quienes-somos">Conocer</a>
     </article>
 
