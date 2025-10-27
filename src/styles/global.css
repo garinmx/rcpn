@@ -225,3 +225,27 @@ h1, h2, h3 { line-height: 1.2; margin: 0.2em 0 0.4em; }
 @media (max-width: 720px) {
   .videos-grid { grid-template-columns: 1fr; }
 }
+
+.intro-section {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  line-height: 1.8;
+}
+
+.intro-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.intro-section h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.intro-section p {
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
+}
