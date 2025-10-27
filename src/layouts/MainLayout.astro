@@ -1,12 +1,17 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Navbar from '../components/Navbar.astro';
+
 const {
-  title = "RCPN",
-  description = "Red de Contenidos por la No Violencia",
-  canonical, // Úsala cuando definas "site" en astro.config.mjs
+  title = "RCPN — Resistencia Civil Pacífica Nacional",
+  description = "Movimiento social pacífico de México por la justicia y derechos humanos",
   ogImage = "/og-default.png",
   robots = "index,follow",
 } = Astro.props;
+
+// Genera canonical automáticamente usando Astro.site
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
@@ -17,40 +22,47 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    {canonical && <link rel="canonical" href={canonical} />}
-
+    <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content={robots} />
+
     <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content="es_MX" />
-    <!-- Twitter -->
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageURL} />
 
+    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152.png" />
     <link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167.png" />
 
-    <!-- Preload del hero con variantes responsivas (coinciden con /public) -->
+    <!-- Preload hero responsive -->
     <link
       rel="preload"
       as="image"
-      href="/hero-1024.png"
+      href="/hero-1024.webp"
       imagesrcset="/hero-640.webp 640w, /hero-1024.webp 1024w, /hero-1600.webp 1600w"
       imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
     />
 
     <!-- CSS global -->
     <link rel="stylesheet" href="/src/styles/global.css" />
-    
-    <!-- Support Safari header blur (si lo usas en otras partes) -->
+
+    <!-- View Transitions -->
+    <ViewTransitions />
+
+    <!-- Header blur support -->
     <style>
       .site-header {
         position: sticky;
@@ -62,10 +74,10 @@ const {
         backdrop-filter: blur(8px);
       }
       @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-        .site-header { background: rgba(11,12,16,0.65);}
+        .site-header { background: rgba(11,12,16,0.65); }
       }
       @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-        .site-header { background: rgba(11,12,16,0.92);}
+        .site-header { background: rgba(11,12,16,0.92); }
       }
     </style>
 
@@ -95,6 +107,5 @@ const {
         </small>
       </div>
     </footer>
-    
   </body>
 </html>
