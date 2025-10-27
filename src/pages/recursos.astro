@@ -1,0 +1,89 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const page = {
+  title: 'Recursos digitales — RCPN',
+  description: 'Herramientas y recursos digitales para la acción y formación ciudadana pacífica.',
+  ogImage: '/og-default.png',
+  robots: 'index,follow'
+};
+
+const recursos = [
+  {
+    nombre: "Canales de Mensajería Segura",
+    descripcion: "Telegram y Signal para coordinación sin censura ni vigilancia.",
+    enlaces: [
+      { label: "Descargar Telegram", url: "https://telegram.org" },
+      { label: "Descargar Signal", url: "https://signal.org" }
+    ]
+  },
+  {
+    nombre: "Difusión y convocatoria",
+    descripcion: "Crea carteles, infografías y convocatorias con facilidad y calidad.",
+    enlaces: [
+      { label: "Canva", url: "https://www.canva.com" },
+      { label: "Studio", url: "https://studeoapp.com/" },
+      { label: "Figma (diseño colaborativo)", url: "https://figma.com" }
+    ]
+  },
+  {
+    nombre: "Encriptación y privacidad",
+    descripcion: "Protege tus archivos e identidad usando cifrado de código abierto.",
+    enlaces: [
+      { label: "VeraCrypt (cifrado de discos y USBs)", url: "https://www.veracrypt.fr" },
+      { label: "Firefox Focus (navegador privado)", url: "https://www.mozilla.org/es-ES/firefox/focus/" }
+    ]
+  },
+  {
+    nombre: "Organización y votación",
+    descripcion: "Herramientas para toma de decisiones seguras y colaborativas.",
+    enlaces: [
+      { label: "Loomio (debate y votación)", url: "https://www.loomio.org" },
+      { label: "CryptPad (colaboración en línea cifrada)", url: "https://cryptpad.fr" }
+    ]
+  },
+  {
+    nombre: "Difusión en redes",
+    descripcion: "Estrategias y apps para amplificar acciones en redes sociales.",
+    enlaces: [
+      { label: "Hootsuite (gestión de publicaciones)", url: "https://hootsuite.com" },
+      { label: "Twitonomy (análisis de impacto)", url: "https://www.twitonomy.com/" }
+    ]
+  }
+];
+---
+
+<MainLayout {...page}>
+  <section class="recursos-root">
+    <h1>Recursos digitales para la resistencia pacífica</h1>
+    <p>
+      Las siguientes herramientas están seleccionadas pensando en privacidad, coordinación, seguridad digital y creatividad colectiva. Cada una es fundamental para potenciar la voz, organización y resiliencia de la comunidad.
+    </p>
+
+    <div class="recursos-lista">
+      {recursos.map((recurso) => (
+        <article class="card recurso-card">
+          <h2>{recurso.nombre}</h2>
+          <p>{recurso.descripcion}</p>
+          <ul>
+            {recurso.enlaces.map((enlace) => (
+              <li>
+                <a href={enlace.url} target="_blank" rel="noopener">{enlace.label}</a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <aside class="recursos-tips">
+      <h3>Tips de seguridad digital:</h3>
+      <ul>
+        <li>No utilices las mismas contraseñas en diferentes plataformas.</li>
+        <li>Activa la verificación en dos pasos donde sea posible.</li>
+        <li>Evita compartir información sensible por WhatsApp o redes públicas.</li>
+        <li>Descarga apps solo de los sitios oficiales.</li>
+      </ul>
+    </aside>
+  </section>
+</MainLayout>

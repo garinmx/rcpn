@@ -1,0 +1,160 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const page = {
+  title: 'Videos — RCPN',
+  description: 'Casos, charlas y tácticas explicadas en video de la Resistencia Civil Pacífica Nacional.',
+  ogImage: '/og-default.png',
+  robots: 'index,follow'
+};
+
+const videosDestacados = [
+  {
+    titulo: '¿Qué es la Resistencia Civil Pacífica Nacional?',
+    embed: 'https://odysee.com/%24/embed/%40RCPN_Mexico%3A2%2Fqueesrcp%3Ab?r=CMWhh2NfSyLQfLRs1nVKuWfgdzuUydMQ',
+    descripcion: 'Breve explicación sobre la importancia y el impacto histórico de la resistencia civil pacífica.'
+  }
+];
+
+const todosLosVideos = [
+  { 
+    n: 1, 
+    titulo: 'Video 01', 
+    descripcion: 'Descripción breve.', 
+    embed: 'https://odysee.com/De-a-6-mil-pesos-la-mordida-de-la-policia:a9390630c52a8bfa47ba8eaa1fc8f451189d038f' 
+  }
+].sort((a, b) => a.n - b.n);
+---
+
+<MainLayout {...page}>
+  <section class="videos-root">
+    <h1>Videos</h1>
+    <p>
+      Explora testimonios, tácticas, documentales y acciones grabadas de la resistencia civil pacífica. 
+      Todos los videos se muestran en orden numérico y en grupos de 5 para facilitar su consulta.
+    </p>
+
+    {videosDestacados.length > 0 && (
+      <div class="videos-destacados">
+        <h2>Videos destacados</h2>
+        <div class="videos-grid">
+          {videosDestacados.map((v) => (
+            <article class="video-card">
+              <iframe 
+                width="360" 
+                height="210" 
+                src={v.embed} 
+                title={v.titulo} 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+              <h3>{v.titulo}</h3>
+              <p>{v.descripcion}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <section class="videos-paginados" id="videosPaginados" data-page="1" data-per-page="5">
+      <h2>Todos los videos</h2>
+
+      <div class="videos-grid" id="listaVideos"></div>
+
+      <nav class="paginacion" aria-label="Paginación de videos">
+        <button id="btnPrev" disabled>Anterior</button>
+        <span id="pageInfo">Página 1</span>
+        <button id="btnNext">Siguiente</button>
+      </nav>
+
+      <script type="application/json" id="videosData">{JSON.stringify(todosLosVideos)}</script>
+    </section>
+  </section>
+  <script>
+  // @ts-nocheck
+  function renderPagina(videos, contenedor, pagina, porPagina) {
+    var inicio = (pagina - 1) * porPagina;
+    var fin = inicio + porPagina;
+    var lote = videos.slice(inicio, fin);
+    
+    if (!lote.length) {
+      contenedor.innerHTML = '<p style="opacity:.8">No hay videos para mostrar.</p>';
+      return;
+    }
+    
+    var html = '';
+    for (var i = 0; i < lote.length; i++) {
+      var v = lote[i] || {};
+      var titulo = (v.titulo || '').toString();
+      var desc = (v.descripcion || '').toString();
+      var src = (v.embed || '').toString();
+      
+      html += '<article class="video-card">'
+        + '<iframe width="320" height="180" src="' + src + '" title="' + titulo + '" frameborder="0"'
+        + ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"'
+        + ' allowfullscreen></iframe>'
+        + '<h3>' + titulo + '</h3>'
+        + '<p>' + desc + '</p>'
+        + '</article>';
+    }
+    contenedor.innerHTML = html;
+  }
+
+  (function initPaginacion(){
+    var dataEl = document.getElementById('videosData');
+    if (!dataEl) return;
+    
+    var videosJson = dataEl.textContent || '[]';
+    var videos = [];
+    try { 
+      videos = JSON.parse(videosJson); 
+    } catch(e) { 
+      videos = []; 
+    }
+
+    var root = document.getElementById('videosPaginados');
+    var cont = document.getElementById('listaVideos');
+    var prev = document.getElementById('btnPrev');
+    var next = document.getElementById('btnNext');
+    var info = document.getElementById('pageInfo');
+    
+    if (!root || !cont || !prev || !next || !info) return;
+
+    var porPagina = parseInt(root.dataset.perPage || '5', 10);
+    var pagina = parseInt(root.dataset.page || '1', 10);
+    var totalPaginas = Math.max(1, Math.ceil(videos.length / Math.max(1, porPagina)));
+
+    function actualizar() {
+      if (pagina < 1) pagina = 1;
+      if (pagina > totalPaginas) pagina = totalPaginas;
+      
+      renderPagina(videos, cont, pagina, porPagina);
+      info.textContent = 'Página ' + pagina + ' de ' + totalPaginas;
+      prev.disabled = pagina <= 1;
+      next.disabled = pagina >= totalPaginas;
+      root.dataset.page = String(pagina);
+    }
+
+    prev.addEventListener('click', function(){
+      if (pagina > 1) {
+        pagina -= 1;
+        actualizar();
+        root.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+    
+    next.addEventListener('click', function(){
+      if (pagina < totalPaginas) {
+        pagina += 1;
+        actualizar();
+        root.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+
+    actualizar();
+  })();
+</script>
+
+
+</MainLayout>

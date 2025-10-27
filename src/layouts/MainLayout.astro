@@ -1,0 +1,100 @@
+---
+import Navbar from '../components/Navbar.astro';
+const {
+  title = "RCPN",
+  description = "Red de Contenidos por la No Violencia",
+  canonical, // Úsala cuando definas "site" en astro.config.mjs
+  ogImage = "/og-default.png",
+  robots = "index,follow",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <meta name="robots" content={robots} />
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167.png" />
+
+    <!-- Preload del hero con variantes responsivas (coinciden con /public) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-1024.png"
+      imagesrcset="/hero-640.webp 640w, /hero-1024.webp 1024w, /hero-1600.webp 1600w"
+      imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
+    />
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    
+    <!-- Support Safari header blur (si lo usas en otras partes) -->
+    <style>
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(11, 12, 16, 0.85);
+        border-bottom: 1px solid #22242b;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+      @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        .site-header { background: rgba(11,12,16,0.65);}
+      }
+      @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        .site-header { background: rgba(11,12,16,0.92);}
+      }
+    </style>
+
+    <!-- PWA Service Worker -->
+    <script is:inline>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((r) => console.log("SW registrado:", r.scope))
+            .catch((err) => console.error("SW fallo:", err));
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <Navbar />
+
+    <main id="main" class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>
+          &copy; {new Date().getFullYear()} RCPN. Todos los derechos reservados.
+        </small>
+      </div>
+    </footer>
+    
+  </body>
+</html>

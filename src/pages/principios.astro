@@ -1,0 +1,41 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const page = {
+  title: 'Principios — RCPN',
+  description: 'Marco ético y táctico de la no violencia para comunidades reales.',
+  ogImage: '/og-default.png',
+  robots: 'index,follow'
+};
+---
+
+<MainLayout {...page}>
+  <section class="principios-root">
+    <h1>Principios</h1>
+    <p>
+      En la RCPN creemos en la fuerza de la acción civil no violenta como herramienta de transformación social y democrática. Estos principios guían cada una de nuestras acciones y proyectos.
+    </p>
+
+    <div class="principios-list">
+      <article class="card">
+        <h2>Ética de la no violencia</h2>
+        <p>
+          Actuar con coherencia, respeto y responsabilidad, evitando cualquier forma de agresión física o verbal, incluso ante la provocación.
+        </p>
+      </article>
+      <article class="card">
+        <h2>Participación ciudadana</h2>
+        <p>
+          Fomentar la inclusión y la participación activa de la comunidad, reconociendo la diversidad y el diálogo como bases de fortalecimiento social.
+        </p>
+      </article>
+      <article class="card">
+        <h2>Transparencia y verdad</h2>
+        <p>
+          Compromiso con la honestidad en los procesos, objetivos y resultados para generar confianza y legitimidad social.
+        </p>
+      </article>
+      <!-- Agrega aquí más principios según tu proyecto -->
+    </div>
+  </section>
+</MainLayout>

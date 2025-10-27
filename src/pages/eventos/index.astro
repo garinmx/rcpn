@@ -1,0 +1,53 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const page = {
+  title: 'Eventos | RCPN',
+  description: 'Calendario de próximos eventos, actividades y encuentros de la Red de Resistencia Civil Pacífica y No Violenta.',
+  ogImage: '/og-default.png',
+  robots: 'index,follow'
+};
+
+const eventos = [
+  {
+    titulo: 'Día de Muertos en RCPN',
+    fecha: 'Sábado 1 de noviembre · 18:00 hrs',
+    ubicacion: 'Mariano Matamoros #44, Col. Nueva Aragón, Ecatepec de Morelos',
+    resumen: 'Actividades para niños, talleres de manualidades, convivencia y dulces gratuitos para toda la comunidad. ¡Te esperamos con tu familia!',
+    imagen: '/muertos.jpg',
+    formulario: 'https://forms.gle/FCcbTmXvXkN3gJwe8'
+  }
+];
+---
+
+<MainLayout {...page}>
+  <section class="eventos-root" aria-labelledby="eventos-title">
+    <h1 id="eventos-title">Eventos</h1>
+    <a href="/" class="btn btn-secondary regresar-inicio">← Volver al inicio</a>
+    <p class="eventos-intro">
+      Consulta actividades próximas, culturales y de formación cívica.
+    </p>
+    <div class="eventos-lista">
+      {eventos.map(ev => (
+        <article class="evento-card" tabindex="0">
+          <img src={ev.imagen} alt={`Cartel de ${ev.titulo}`} width="110" height="110" class="evento-card-img" loading="lazy" />
+          <div class="evento-card-contenido">
+            <h2>{ev.titulo}</h2>
+            <p class="evento-card-fecha"><b>{ev.fecha}</b></p>
+            <p class="evento-card-ubi">{ev.ubicacion}</p>
+            <p class="evento-card-resumen">{ev.resumen}</p>
+            <hr style="opacity:0.25; margin: 0.6em 0;" />
+            <div class="evento-card-extra">
+              <a href={ev.formulario}
+                 class="evento-card-btn"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Formulario de contacto y registro
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</MainLayout>

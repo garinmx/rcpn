@@ -1,0 +1,40 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const page = {
+  title: 'Quiénes somos — RCPN',
+  description: 'Conoce la historia, misión y valores de la Resistencia Civil Pacífica Nacional.',
+  ogImage: '/og-default.png',
+  robots: 'index,follow'
+};
+---
+
+<MainLayout {...page}>
+  <section class="quienes-root">
+    <h1>¿Quiénes somos?</h1>
+    <p>
+      La <strong>Resistencia Civil Pacífica Nacional (RCPN)</strong> es un movimiento ciudadano abierto dedicado a la acción cívica no violenta, la memoria colectiva y la participación activa para transformar la realidad social de México.
+    </p>
+
+    <div class="quienes-mision-vision">
+      <h2>Misión</h2>
+      <p>
+        Promover una cultura de respeto, memoria y participación informada mediante herramientas pacíficas, formación cívica y apoyo comunitario.
+      </p>
+      <h2>Visión</h2>
+      <p>
+        Un México donde la empatía, el diálogo y la colaboración sustituyan la violencia, y las comunidades organizadas influyan responsablemente en las decisiones públicas para garantizar justicia, libertad y bienestar común.
+      </p>
+    </div>
+
+    <div class="quienes-historia">
+      <h2>Nuestra historia</h2>
+      <p>
+        RCPN nace de iniciativas locales que, frente a la violencia y la indiferencia, eligieron la ruta de la paz activa. Inspirados por movimientos internacionales y la memoria de quienes defendieron la dignidad con gestos cotidianos, nos articulamos como red para compartir aprendizajes, metodologías y protocolos seguros. Crecemos con campañas comunitarias, brigadas informativas y acciones simbólicas que unen a la sociedad en torno a la justicia y la verdad, fortaleciendo la confianza y el tejido social.
+      </p>
+    </div>
+
+    <!-- Puedes añadir aquí una línea del tiempo, testimonios, o una galería de imágenes de acciones -->
+
+  </section>
+</MainLayout>

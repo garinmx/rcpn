@@ -1,0 +1,16 @@
+---
+const image = "/muertos2.jpg"; // Usa aquí la versión redimensionada y optimizada (por ejemplo 320x160)
+const titulo = "DÍA DE MUERTOS EN RCPN";
+const resumen = "SÁBADO 1 DE NOVIEMBRE 18:00 HRS · MARIANO MATAMOROS #44, COL. NUEVA ARAGÓN, ECATEPEC DE MORELOS";
+const link = "/eventos";
+const cta = "VER DETALLES";
+---
+
+<div class="banner-evento">
+  <img src={image} alt={titulo} class="banner-img" loading="lazy" width="160" height="160" />
+  <div class="banner-texto">
+    <strong>{titulo}</strong>
+    <span>{resumen}</span>
+    <a href={link} class="evento-btn">{cta}</a>
+  </div>
+</div>
