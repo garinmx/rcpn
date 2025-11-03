@@ -9,10 +9,21 @@ const page = {
 ---
 
 <MainLayout {...page}>
+  <section class="tribute-page">
+    <h1>Homenaje a Carlos Manzo</h1>
+    
+    <!-- Imagen de homenaje a Carlos Manzo -->
+    <div class="tribute-image">
+      <img 
+        src="/images/Carlos.png" 
+        alt="Homenaje a Carlos Manzo, alcalde de Uruapan" 
+        loading="eager"
+        width="800"
+        height="450"
+      />
+    </div>
 
-  <section class="tribute-page" style="padding: 2rem; max-width: 800px; margin: auto; font-family: Arial, sans-serif;">
-    <h1 style="color: #e63946;">Homenaje a Carlos Manzo</h1>
-    <p style="font-size: 1.2rem;">
+    <p class="intro-text">
       Carlos Manzo fue un activista comprometido con la defensa de los derechos humanos y la justicia social en México. Su asesinato representa una triste pérdida para nuestra comunidad y un recordatorio de la importancia de la resistencia civil pacífica frente a la violencia y la impunidad.
     </p>
 
@@ -20,17 +31,115 @@ const page = {
       En la Resistencia Civil Pacífica Nacional (RCPN), honramos su memoria y seguimos firmes en la lucha por un México más justo, donde todos podamos vivir sin miedo y con dignidad.
     </p>
 
-    <h2 style="margin-top: 2rem;">¿Cómo puedes apoyar?</h2>
-    <ul style="font-size: 1.1rem; max-width: 600px;">
+    <h2>¿Cómo puedes apoyar?</h2>
+    <ul class="support-list">
       <li>Difunde su historia en tu comunidad.</li>
       <li>Participa en actividades pacíficas y solidarias organizadas por RCPN.</li>
       <li>Exige justicia a las autoridades correspondientes.</li>
       <li>Comparte información en redes sociales respetando su memoria.</li>
     </ul>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe466qRdPcIIwJP5ZpdVqS5wmfPyRAZGUx8-o0u1Izwb8vw8A/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 2rem; display: inline-block;">
+    <a 
+      href="https://docs.google.com/forms/d/e/1FAIpQLSe466qRdPcIIwJP5ZpdVqS5wmfPyRAZGUx8-o0u1Izwb8vw8A/viewform?usp=header" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="btn btn-primary">
       Contacta a RCPN para más información
     </a>
   </section>
-
 </MainLayout>
+
+<style>
+.tribute-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.tribute-page h1 {
+  color: #e63946;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tribute-image {
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tribute-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.tribute-page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.tribute-page h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.support-list {
+  font-size: 1.1rem;
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.support-list li {
+  margin-bottom: 0.75rem;
+}
+
+.btn {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  background-color: #e63946;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #d62839;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .tribute-page {
+    padding: 1.5rem;
+  }
+
+  .tribute-page h1 {
+    font-size: 2rem;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+  }
+
+  .tribute-page h2 {
+    font-size: 1.5rem;
+  }
+}
+</style>

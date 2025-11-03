@@ -41,4 +41,130 @@ const page = {
       </picture>
     </div>
 
-    <div class="principios-lis
+    <div class="principios-list">
+      <article class="principio-card">
+        <h2>🤝 No Violencia Activa</h2>
+        <p>
+          La resistencia pacífica no es pasividad. Es una estrategia consciente y organizada
+          que busca el cambio sin recurrir a la agresión física o verbal.
+        </p>
+      </article>
+
+      <article class="principio-card">
+        <h2>🏛️ Transparencia y Rendición de Cuentas</h2>
+        <p>
+          Toda acción colectiva debe ser clara, documentada y abierta al escrutinio público.
+          La confianza se construye con hechos verificables.
+        </p>
+      </article>
+
+      <article class="principio-card">
+        <h2>🗳️ Participación Democrática</h2>
+        <p>
+          Cada voz cuenta. Promovemos espacios horizontales donde las decisiones
+          se tomen de manera inclusiva y representativa.
+        </p>
+      </article>
+
+      <article class="principio-card">
+        <h2>🌍 Justicia Social y Ambiental</h2>
+        <p>
+          Luchamos por un país donde los derechos humanos, la equidad y el cuidado
+          del medio ambiente sean pilares fundamentales.
+        </p>
+      </article>
+
+      <article class="principio-card">
+        <h2>📚 Educación y Conciencia Crítica</h2>
+        <p>
+          El cambio comienza con el conocimiento. Fomentamos la formación continua
+          y el pensamiento crítico en nuestras comunidades.
+        </p>
+      </article>
+
+      <article class="principio-card">
+        <h2>🔗 Solidaridad y Apoyo Mutuo</h2>
+        <p>
+          Nos apoyamos entre nosotros. La fuerza de la resistencia civil radica
+          en la unión y el respeto entre diversos actores sociales.
+        </p>
+      </article>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+.principios-root {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.principios-root h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary, #2d3748);
+}
+
+.principios-root > p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: var(--color-text, #4a5568);
+}
+
+.principios-hero {
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.principios-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.principios-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.principio-card {
+  background: #f7fafc;
+  border-left: 4px solid var(--color-accent, #38b2ac);
+  padding: 1.5rem;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.principio-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.principio-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary, #2d3748);
+}
+
+.principio-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text, #4a5568);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .principios-root h1 {
+    font-size: 2rem;
+  }
+  
+  .principio-card {
+    padding: 1.25rem;
+  }
+}
+</style>
