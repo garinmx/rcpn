@@ -11,31 +11,34 @@ const page = {
 
 <MainLayout {...page}>
   <section class="principios-root">
-    <h1>Principios</h1>
+    <h1>🌿 Principios</h1>
     <p>
-      En la RCPN creemos en la fuerza de la acción civil no violenta como herramienta de transformación social y democrática. Estos principios guían cada una de nuestras acciones y proyectos.
+      En la RCPN creemos en la fuerza de la acción civil no violenta ✌️ como herramienta de transformación social y democrática.
+      Estos principios guían cada una de nuestras acciones y proyectos.
     </p>
 
-    <div class="principios-list">
-      <article class="card">
-        <h2>Ética de la no violencia</h2>
-        <p>
-          Actuar con coherencia, respeto y responsabilidad, evitando cualquier forma de agresión física o verbal, incluso ante la provocación.
-        </p>
-      </article>
-      <article class="card">
-        <h2>Participación ciudadana</h2>
-        <p>
-          Fomentar la inclusión y la participación activa de la comunidad, reconociendo la diversidad y el diálogo como bases de fortalecimiento social.
-        </p>
-      </article>
-      <article class="card">
-        <h2>Transparencia y verdad</h2>
-        <p>
-          Compromiso con la honestidad en los procesos, objetivos y resultados para generar confianza y legitimidad social.
-        </p>
-      </article>
-      <!-- Agrega aquí más principios según tu proyecto -->
+    <!-- Imagen responsiva (JPG) -->
+    <div class="principios-hero">
+      <picture>
+        <source
+          srcset="/images/principios-640.jpg 640w,
+                  /images/principios-1280.jpg 1280w,
+                  /images/principios-1920.jpg 1920w,
+                  /images/principios-2560.jpg 2560w"
+          type="image/jpeg"
+          sizes="(max-width: 640px) 98vw,
+                 (max-width: 1280px) 90vw,
+                 (max-width: 1920px) 80vw,
+                 70vw" />
+        <img
+          src="/images/principios-1280.jpg"
+          alt="Ilustración de comunidad RCPN: ética, participación y transparencia"
+          width="1280"
+          height="720"
+          loading="lazy"
+          decoding="async"
+          class="principios-img" />
+      </picture>
     </div>
-  </section>
-</MainLayout>
+
+    <div class="principios-lis

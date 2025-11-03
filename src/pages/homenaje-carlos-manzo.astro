@@ -1,0 +1,36 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const page = {
+  title: "Homenaje a Carlos Manzo — RCPN",
+  description: "Recordamos y rendimos homenaje a Carlos Manzo, activista asesinado injustamente. Luchamos por justicia y resistencia pacífica.",
+  ogImage: "/og-homenaje-carlos.png",
+};
+---
+
+<MainLayout {...page}>
+
+  <section class="tribute-page" style="padding: 2rem; max-width: 800px; margin: auto; font-family: Arial, sans-serif;">
+    <h1 style="color: #e63946;">Homenaje a Carlos Manzo</h1>
+    <p style="font-size: 1.2rem;">
+      Carlos Manzo fue un activista comprometido con la defensa de los derechos humanos y la justicia social en México. Su asesinato representa una triste pérdida para nuestra comunidad y un recordatorio de la importancia de la resistencia civil pacífica frente a la violencia y la impunidad.
+    </p>
+
+    <p>
+      En la Resistencia Civil Pacífica Nacional (RCPN), honramos su memoria y seguimos firmes en la lucha por un México más justo, donde todos podamos vivir sin miedo y con dignidad.
+    </p>
+
+    <h2 style="margin-top: 2rem;">¿Cómo puedes apoyar?</h2>
+    <ul style="font-size: 1.1rem; max-width: 600px;">
+      <li>Difunde su historia en tu comunidad.</li>
+      <li>Participa en actividades pacíficas y solidarias organizadas por RCPN.</li>
+      <li>Exige justicia a las autoridades correspondientes.</li>
+      <li>Comparte información en redes sociales respetando su memoria.</li>
+    </ul>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe466qRdPcIIwJP5ZpdVqS5wmfPyRAZGUx8-o0u1Izwb8vw8A/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 2rem; display: inline-block;">
+      Contacta a RCPN para más información
+    </a>
+  </section>
+
+</MainLayout>

@@ -1,29 +1,27 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import EventBanner from "../components/EventBanner.astro";
+import TributeBanner from "../components/TributeBanner.astro";
 
 const page = {
   title: "RCPN — No violencia y acción cívica",
-  description:
-    "Contenido, principios y recursos para la resistencia civil pacífica.",
+  description: "Contenido, principios y recursos para la resistencia civil pacífica.",
   ogImage: "/og-default.png",
   robots: "index,follow",
 };
 ---
 
 <MainLayout {...page}>
-  <EventBanner />
+  <TributeBanner />
+
+  
 
   <section class="hero" aria-label="Portada">
     <picture>
-      <!-- WebP para navegadores modernos -->
       <source
         type="image/webp"
         srcset="/hero-640.webp 640w, /hero-1024.webp 1024w, /hero-1600.webp 1600w"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
       />
-
-      <!-- Fallback PNG con fetchpriority="high" -->
       <img
         src="/hero-1024.png"
         srcset="/hero-640.png 640w, /hero-1024.png 1024w, /hero-1600.png 1600w"
@@ -36,67 +34,53 @@ const page = {
         class="hero-img"
       />
     </picture>
-
     <div class="hero-content">
       <h1>Resistencia Civil Pacífica, impacto real</h1>
-      <p>
-        Estrategias, principios y tácticas no violentas para cambiar tu entorno.
-      </p>
+      <p>Estrategias, principios y tácticas no violentas para cambiar tu entorno.</p>
       <a class="btn btn-primary" href="/recursos">Explorar recursos</a>
     </div>
   </section>
 
-  <!-- Nueva sección: Contenido expandido con palabras del H1 -->
+  <hr class="section-divider" />
+
   <section class="intro-section">
     <h2>¿Qué es la Resistencia Civil Pacífica?</h2>
     <p>
-      La <strong>Resistencia Civil Pacífica</strong> es un movimiento ciudadano que busca generar un 
-      <strong>impacto real</strong> en la transformación social de México. A través de métodos no violentos 
-      y la organización comunitaria, trabajamos por la justicia, los derechos humanos y el cambio sostenible 
-      en nuestras comunidades.
+      La <strong>Resistencia Civil Pacífica</strong> es un movimiento ciudadano que busca generar un <strong>impacto real</strong> en la transformación social de México. A través de métodos no violentos y la organización comunitaria, trabajamos por la justicia, los derechos humanos y el cambio sostenible en nuestras comunidades.
     </p>
-    
     <p>
-      Nuestro enfoque se basa en la acción cívica directa, la educación popular y la movilización pacífica. 
-      Creemos en el poder de la ciudadanía organizada para construir alternativas a los sistemas de opresión 
-      y desigualdad, siempre desde el respeto a la dignidad humana y el compromiso con el bienestar colectivo.
+      Nuestro enfoque se basa en la acción cívica directa, la educación popular y la movilización pacífica. Creemos en el poder de la ciudadanía organizada para construir alternativas a los sistemas de opresión y desigualdad, siempre desde el respeto a la dignidad humana y el compromiso con el bienestar colectivo.
     </p>
-
-    <h3>Nuestro enfoque de trabajo</h3>
+    <h3><span class="section-icon">🌱</span>Nuestro enfoque de trabajo</h3>
     <p>
-      Desarrollamos actividades de formación, coordinación de acciones pacíficas y difusión de herramientas 
-      para el activismo efectivo. Cada recurso, principio y táctica que compartimos está diseñado para empoderar 
-      a las personas y comunidades en su camino hacia la transformación social no violenta.
+      Desarrollamos actividades de formación, coordinación de acciones pacíficas y difusión de herramientas para el activismo efectivo. Cada recurso, principio y táctica que compartimos está diseñado para empoderar a las personas y comunidades en su camino hacia la transformación social no violenta.
     </p>
-
     <p>
-      La <strong>resistencia civil pacífica</strong> no es pasividad; es acción estratégica, consciente y 
-      comprometida con el cambio duradero. A través de la solidaridad, la creatividad y la persistencia, 
-      construimos el <strong>impacto real</strong> que queremos ver en nuestra sociedad.
+      La <strong>resistencia civil pacífica</strong> no es pasividad; es acción estratégica, consciente y comprometida con el cambio duradero. A través de la solidaridad, la creatividad y la persistencia, construimos el <strong>impacto real</strong> que queremos ver en nuestra sociedad.
     </p>
   </section>
 
+  <hr class="section-divider" />
+
   <section class="grid">
     <article class="card">
-      <h2>Principios</h2>
-      <p>
-        Marco ético y táctico de la no violencia aplicable a comunidades reales.
-      </p>
+      <h2><span class="section-icon">📜</span>Principios</h2>
+      <p>Marco ético y táctico de la no violencia aplicable a comunidades reales.</p>
       <a class="btn btn-secondary" href="/principios">Leer más</a>
     </article>
-
     <article class="card">
-      <h2>Quienes somos</h2>
-      <p>
-        Conoce a la red y cómo colaboramos para impulsar cambios sostenibles.
-      </p>
+      <h2><span class="section-icon">🤝</span>Quienes somos</h2>
+      <p>Conoce a la red y cómo colaboramos para impulsar cambios sostenibles.</p>
       <a class="btn btn-secondary" href="/quienes-somos">Conocer</a>
     </article>
-
     <article class="card">
-      <h2>Videos</h2>
+      <h2><span class="section-icon">🎬</span>Videos</h2>
       <p>Casos, charlas y tácticas explicadas en formato audiovisual.</p>
       <a class="btn btn-secondary" href="/videos">Ver videos</a>
     </article>
   </section>
+
+  <button class="cta-btn" onclick="window.location='/quienes-somos'">
+    Únete a la red
+  </button>
 </MainLayout>

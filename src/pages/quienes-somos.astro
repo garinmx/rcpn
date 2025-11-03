@@ -11,30 +11,50 @@ const page = {
 
 <MainLayout {...page}>
   <section class="quienes-root">
-    <h1>¿Quiénes somos?</h1>
+    <h1>🤝 ¿Quiénes somos?</h1>
     <p>
-      La <strong>Resistencia Civil Pacífica Nacional (RCPN)</strong> es un movimiento ciudadano abierto dedicado a la acción cívica no violenta, la memoria colectiva y la participación activa para transformar la realidad social de México.
+      La <strong>Resistencia Civil Pacífica Nacional (RCPN)</strong> ✌️ es un movimiento ciudadano abierto dedicado a la acción cívica no violenta, la memoria colectiva 🕊️ y la participación activa 🧩 para transformar la realidad social de México.
     </p>
 
     <div class="quienes-mision-vision">
-      <h2>Misión</h2>
+      <h2>🎯 Misión</h2>
       <p>
-        Promover una cultura de respeto, memoria y participación informada mediante herramientas pacíficas, formación cívica y apoyo comunitario.
+        Promover una cultura de <strong>respeto</strong> 🤲, <strong>memoria</strong> 🕯️ y <strong>participación informada</strong> 🗣️ mediante herramientas pacíficas 🕊️, formación cívica 📚 y apoyo comunitario 🤗.
       </p>
-      <h2>Visión</h2>
+
+      <h2>🌅 Visión</h2>
       <p>
-        Un México donde la empatía, el diálogo y la colaboración sustituyan la violencia, y las comunidades organizadas influyan responsablemente en las decisiones públicas para garantizar justicia, libertad y bienestar común.
+        Un México 🇲🇽 donde la <strong>empatía</strong> 💞, el <strong>diálogo</strong> 🗨️ y la <strong>colaboración</strong> 🤝 sustituyan la violencia, y las comunidades organizadas influyan responsablemente en las decisiones públicas ⚖️ para garantizar justicia, libertad y bienestar común 🌿.
       </p>
     </div>
 
     <div class="quienes-historia">
-      <h2>Nuestra historia</h2>
+      <h2>📜 Nuestra historia</h2>
       <p>
-        RCPN nace de iniciativas locales que, frente a la violencia y la indiferencia, eligieron la ruta de la paz activa. Inspirados por movimientos internacionales y la memoria de quienes defendieron la dignidad con gestos cotidianos, nos articulamos como red para compartir aprendizajes, metodologías y protocolos seguros. Crecemos con campañas comunitarias, brigadas informativas y acciones simbólicas que unen a la sociedad en torno a la justicia y la verdad, fortaleciendo la confianza y el tejido social.
+        RCPN nace de iniciativas locales 🌎 que, frente a la violencia y la indiferencia, eligieron la <strong>ruta de la paz activa</strong> ✊🕊️.  
+        Inspirados por movimientos internacionales 🌍 y la memoria de quienes defendieron la dignidad con gestos cotidianos 💪, nos articulamos como red 🔗 para compartir aprendizajes, metodologías y protocolos seguros 🛡️.  
+        Crecemos con <strong>campañas comunitarias</strong> 🎉, <strong>brigadas informativas</strong> 📢 y <strong>acciones simbólicas</strong> 🕯️ que unen a la sociedad en torno a la justicia ⚖️ y la verdad 🌟, fortaleciendo la confianza y el tejido social ❤️‍🩹.
       </p>
     </div>
 
-    <!-- Puedes añadir aquí una línea del tiempo, testimonios, o una galería de imágenes de acciones -->
+    <div class="quienes-img-wrapper">
+      <picture>
+        <source 
+          srcset="/images/quienessomos-640.webp 640w, /images/quienessomos-1280.webp 1280w, /images/quienessomos-1920.webp 1920w"
+          type="image/webp"
+          sizes="(max-width: 640px) 98vw, (max-width: 1280px) 80vw, 60vw" />
 
+        <img 
+          src="/images/quienessomos-1280.webp"
+          srcset="/images/quienessomos-640.webp 640w, /images/quienessomos-1280.webp 1280w, /images/quienessomos-1920.webp 1920w"
+          sizes="(max-width: 640px) 98vw, (max-width: 1280px) 80vw, 60vw"
+          alt="Acción comunitaria RCPN"
+          class="quienes-img"
+          width="1280"
+          height="720"
+          loading="lazy"
+          decoding="async" />
+      </picture>
+    </div>
   </section>
 </MainLayout>
