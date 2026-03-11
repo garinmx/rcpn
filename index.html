@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal oficial de la RCPN. Monitor de riesgo y radar autónomo de noticias de derechos humanos en México.">
+    <title>Resistencia Civil Pacífica Nacional | RCPN</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container flex-header">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>RESISTENCIA CIVIL <span>PACÍFICA NACIONAL</span></h1>
+                </a>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">☰</button>
+            
+            <nav class="main-nav" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="#monitor-ruta">MONITOR</a></li>
+                    <li><a href="#noticias">RADAR JURÍDICO</a></li>
+                    <li><a href="#nosotros">ARTURO MORALES C.</a></li>
+                    <li><a href="#contacto" class="btn-emergency">DENUNCIA</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Inteligencia Jurídica Colectiva</h2>
+                    <p>Monitoreo táctico y actualización de casos legales en tiempo real para la defensa ciudadana.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="monitor-ruta" class="container section-padding">
+            <header class="section-header">
+                <h2>Monitor de Avistamientos</h2>
+                <p>Información estratégica para la seguridad en ruta.</p>
+            </header>
+            <div class="dashboard-monitor">
+                <table class="monitor-table">
+                    <thead>
+                        <tr>
+                            <th>Ubicación</th>
+                            <th>Corporación</th>
+                            <th>Riesgo</th>
+                            <th>Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Caseta Tepotzotlán, Mex-Qro</td>
+                            <td>Guardia Nacional</td>
+                            <td><span class="risk-badge red pulse">ALTO</span></td>
+                            <td class="timestamp">En Vivo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="noticias" class="bg-light section-padding">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Radar de Derechos Humanos (Sincronizado)</h2>
+                    <p>Actualización automática desde fuentes oficiales de justicia en México.</p>
+                </header>
+
+                <div id="news-container" class="grid-noticias">
+                    <div class="loading-news">Sincronizando con bases de datos legales...</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="bg-dark section-padding">
+            <div class="container grid-profile">
+                <div class="profile-image">
+                    <img src="assets/img/arturo-morales.webp" alt="Arturo Morales Camargo">
+                </div>
+                <div class="profile-text">
+                    <span class="badge">Estrategia Nacional</span>
+                    <h2>Arturo Morales Camargo</h2>
+                    <p>Liderazgo y dirección técnica en la defensa de la soberanía ciudadana y el Estado de Derecho.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="news-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <span id="modal-date" class="date"></span>
+            <h2 id="modal-title"></h2>
+            <hr>
+            <div id="modal-body" class="modal-body-text"></div>
+            <div class="modal-footer-btns">
+                <a id="modal-link" href="#" target="_blank" class="btn-table">Ir a la Fuente Oficial</a>
+                <button class="btn-whatsapp" onclick="compartirWhatsApp()">Compartir en WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Resistencia Civil Pacífica Nacional | Sistema Autónomo de Información</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
