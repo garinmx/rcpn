@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Al activar el sitemap, actualiza esta línea con tu dominio:
-# Sitemap: https://tu-dominio.tld/sitemap-index.xml
