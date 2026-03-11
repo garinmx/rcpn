@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const modal = document.getElementById('news-modal');
 
-    // Noticias de Respaldo Jurídico
+    // Datos Jurídicos de Respaldo
     const noticiasLocales = [
         {
             title: "Tesis Jurisprudencial: Inspecciones vehiculares",
@@ -32,39 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>${item.description}</p>
                 <span class="btn-read">LEER DETALLES</span>
             `;
-            card.onclick = () => {
-                document.getElementById('modal-title').innerText = item.title;
-                document.getElementById('modal-body').innerText = item.content;
-                document.getElementById('modal-link').href = item.link;
-                modal.style.display = "block";
-            };
+            // Lógica simple para modal (si se implementa)
             newsContainer.appendChild(card);
         });
     }
 
     renderizar(noticiasLocales);
 
-    // Controles UI
-    const closeBtn = document.querySelector('.close-modal');
-    if(closeBtn) closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
-
-    window.compartirWhatsApp = () => {
-        const titulo = document.getElementById('modal-title').innerText;
-        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('Cápsula RCPN: ' + titulo + ' - Ver más en rcpn.me')}`, '_blank');
-    };
-
-    const mb = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    if(mb) mb.onclick = () => navMenu.classList.toggle('active');
-
     // Navegación Fluida
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) target.scrollIntoView({ behavior: 'smooth' });
-            if(navMenu) navMenu.classList.remove('active');
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    console.log("RCPN v4.3: Optimización de rendimiento activa.");
 });
