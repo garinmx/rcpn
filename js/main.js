@@ -1,13 +1,14 @@
 /**
  * RCPN v4.4 - Script de Inteligencia y Control
  * Optimizado para: www.rcpn.me
+ * Estado: Estable / Produccion
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const modal = document.getElementById('news-modal');
 
-    // Datos Jurídicos de Respaldo para evitar 'Thin Content'
+    // Datos Jurídicos de Respaldo - Aumenta la densidad de palabras para SEO
     const noticiasLocales = [
         {
             title: "Tesis Jurisprudencial: Inspecciones vehiculares",
@@ -22,17 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pubDate: "09 MAR 2026",
             link: "https://www.cndh.org.mx/",
             content: "Documentar el actuar de la autoridad es un derecho. No constituye delito ni falta administrativa siempre que no se obstruya físicamente la labor policial."
-        },
-        {
-            title: "Amparo contra Retenes Ilegales",
-            description: "Análisis de la suspensión definitiva obtenida contra revisiones arbitrarias en carreteras federales.",
-            pubDate: "08 MAR 2026",
-            link: "https://www.scjn.gob.mx/",
-            content: "La libertad de tránsito es un derecho fundamental que no puede ser condicionado por revisiones preventivas sin causa probable justificada ante un juez."
         }
     ];
 
-    // Función de Renderizado en el DOM
+    // Funcion de Renderizado - Asegura contenido en el Radar
     function renderizar(items) {
         if(!newsContainer) return;
         newsContainer.innerHTML = ''; 
@@ -47,17 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="btn-read">LEER DETALLES</span>
             `;
             
-            // Lógica para abrir modal con información extendida
+            // Logica de apertura de modal si existe
             card.onclick = () => {
                 if(modal) {
-                    const modalTitle = document.getElementById('modal-title');
-                    const modalBody = document.getElementById('modal-body');
-                    const modalLink = document.getElementById('modal-link');
-                    
-                    if(modalTitle) modalTitle.innerText = item.title;
-                    if(modalBody) modalBody.innerText = item.content;
-                    if(modalLink) modalLink.href = item.link;
-                    
+                    const mTitle = document.getElementById('modal-title');
+                    const mBody = document.getElementById('modal-body');
+                    if(mTitle) mTitle.innerText = item.title;
+                    if(mBody) mBody.innerText = item.content;
                     modal.style.display = "block";
                 }
             };
@@ -66,10 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializar Radar
     renderizar(noticiasLocales);
 
-    // Navegación Fluida (Smooth Scroll)
+    // Navegación Fluida Blindada
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -82,15 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Control de cierre del Modal
+    // Cierre de Modal seguro
     const closeBtn = document.querySelector('.close-modal');
     if(closeBtn && modal) {
-        closeBtn.onclick = () => modal.style.display = "none";
+        closeBtn.onclick = () => { modal.style.display = "none"; };
     }
 
-    window.onclick = (e) => {
-        if (modal && e.target == modal) modal.style.display = "none";
+    window.onclick = (event) => {
+        if (modal && event.target == modal) {
+            modal.style.display = "none";
+        }
     };
 
     console.log("RCPN v4.4: Despliegue de JavaScript exitoso.");
-}); // <--- Aquí estaba el error: faltaba cerrar la función principal
+});
