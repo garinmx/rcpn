@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Resistencia Civil Pacífica Nacional | Defensa Legal y Justicia</title>
-    <meta name="description" content="Portal oficial de la RCPN liderado por Arturo Morales Camargo. Monitoreo de riesgos, radar jurídico de derechos humanos y cultura de resistencia social.">
-    <meta name="keywords" content="RCPN, Arturo Morales Camargo, Resistencia Civil, Derechos Humanos México, Constitución Mexicana, Defensa Ciudadana">
+    <title>RCPN | Resistencia Civil Pacífica Nacional</title>
     
-    <meta property="og:title" content="Resistencia Civil Pacífica Nacional | RCPN">
-    <meta property="og:description" content="Unidos contra el abuso de autoridad. Información y estrategia para la soberanía ciudadana.">
-    <meta property="og:image" content="https://www.rcpn.me/assets/img/arturo-morales.webp">
-    <meta property="og:url" content="https://www.rcpn.me">
-    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://www.rcpn.me/" />
+
+    <meta name="description" content="Portal oficial de la RCPN. Defensa ciudadana, monitor de riesgo y radar de derechos humanos en México."> [cite: 63]
+    <meta name="keywords" content="RCPN, Arturo Morales Camargo, Resistencia Civil, Derechos Humanos México">
+    
+    <meta property="og:title" content="Resistencia Civil Pacífica Nacional | RCPN"> [cite: 125]
+    <meta property="og:description" content="Unidos contra el abuso de autoridad. Información y estrategia para la soberanía ciudadana."> [cite: 127]
+    <meta property="og:image" content="https://www.rcpn.me/assets/img/arturo-morales.webp"> [cite: 129]
+    <meta property="og:url" content="https://www.rcpn.me"> [cite: 131]
+    <meta property="og:type" content="website"> [cite: 133]
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Resistencia Civil Pacífica Nacional",
+      "url": "https://www.rcpn.me",
+      "logo": "https://www.rcpn.me/assets/img/arturo-morales.webp",
+      "founder": "Arturo Morales Camargo",
+      "description": "Movimiento ciudadano para la defensa del Estado de Derecho en México."
+    }
+    </script>
 
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"> [cite: 71]
 </head>
 <body>
 
@@ -23,14 +38,14 @@
         <div class="container flex-header">
             <div class="logo">
                 <a href="index.html">
-                    <h1>RESISTENCIA CIVIL <span>PACÍFICA NACIONAL</span></h1>
+                    <p class="logo-text">RESISTENCIA CIVIL <span>PACÍFICA NACIONAL</span></p>
                 </a>
             </div>
-            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú de navegación">☰</button>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">☰</button> [cite: 98]
             <nav class="main-nav" id="nav-menu">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#monitor-ruta">Monitor de Riesgo</a></li>
+                    <li><a href="#monitor-ruta">Monitor</a></li>
                     <li><a href="#noticias">Radar Jurídico</a></li>
                     <li><a href="#nosotros">Arturo Morales C.</a></li>
                     <li><a href="#cine" class="btn-emergency">Cine de Lucha</a></li>
@@ -42,25 +57,23 @@
     <main>
         <section id="hero" class="hero-section">
             <div class="container">
-                <h1>Soberanía y Justicia Ciudadana en México</h1>
-                <p>La RCPN es un movimiento de resistencia pacífica dedicado a la vigilancia del Estado de Derecho y la protección contra el abuso de poder.</p>
+                <h1>Soberanía y Justicia Ciudadana en México</h1> [cite: 29]
+                <p>La RCPN es un movimiento dedicado a la vigilancia del Estado de Derecho y la protección del ciudadano ante el abuso de autoridad.</p>
             </div>
         </section>
 
         <section id="monitor-ruta" class="container section-padding">
             <header class="section-header">
-                <h2>Monitor de Avistamientos y Seguridad Vial</h2>
-                <p>Prevención ciudadana mediante el reporte de retenes ilegales y operativos en carreteras nacionales.</p>
+                <h2>Monitor de Avistamientos y Seguridad Vial</h2> [cite: 31]
+                <p>Prevención ciudadana mediante el reporte de retenes y operativos en tiempo real.</p>
             </header>
             <div class="dashboard-monitor">
                 <table class="monitor-table">
-                    <caption>Estado actual de avistamientos en tiempo real</caption>
                     <thead>
                         <tr>
                             <th scope="col">Ubicación</th>
                             <th scope="col">Corporación</th>
-                            <th scope="col">Riesgo Detectado</th>
-                            <th scope="col">Estatus</th>
+                            <th scope="col">Riesgo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +81,6 @@
                             <td>Caseta Tepotzotlán, Mex-Qro</td>
                             <td>Guardia Nacional</td>
                             <td><span class="risk-badge red pulse">ALTO</span></td>
-                            <td>REPORTADO EN VIVO</td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,7 +91,6 @@
             <div class="container">
                 <header class="section-header">
                     <h2>Radar de Derechos Humanos y Jurisprudencia</h2>
-                    <p>Análisis de las últimas resoluciones de la SCJN y recomendaciones de la CNDH para la defensa ciudadana.</p>
                 </header>
                 <div id="news-container" class="grid-noticias">
                     </div>
@@ -89,21 +100,13 @@
         <section id="cine" class="container section-padding">
             <header class="section-header">
                 <h2>Cine de Resistencia y Conciencia Social</h2>
-                <p>Difundimos obras cinematográficas que inspiran la lucha por la justicia y la dignidad humana.</p>
             </header>
             <div class="grid-cine">
                 <article class="movie-card">
                     <div class="movie-info">
-                        <h3>Canoa (1976)</h3>
-                        <p>Documento fílmico sobre la injusticia y la manipulación social. Obra cumbre de la resistencia en México.</p>
-                        <a href="https://www.youtube.com/results?search_query=Canoa+pelicula+completa" class="btn-trailer" target="_blank" rel="noopener noreferrer">Ver Trailer Oficial</a>
-                    </div>
-                </article>
-                <article class="movie-card">
-                    <div class="movie-info">
-                        <h3>La Ley de Herodes</h3>
-                        <p>Sátira política necesaria para comprender los mecanismos de corrupción que combatimos día a día.</p>
-                        <a href="https://www.youtube.com/results?search_query=La+Ley+de+Herodes+trailer" class="btn-trailer" target="_blank" rel="noopener noreferrer">Ver Trailer Oficial</a>
+                        <h3>Canoa (1976)</h3> [cite: 38]
+                        <p>Análisis crudo sobre la injusticia social en el México rural.</p>
+                        <a href="https://www.youtube.com/results?search_query=Canoa+trailer" class="btn-trailer" target="_blank" rel="noopener">Ver Trailer</a>
                     </div>
                 </article>
             </div>
@@ -112,12 +115,12 @@
         <section id="nosotros" class="bg-dark section-padding">
             <div class="container grid-profile">
                 <div class="profile-image">
-                    <img src="assets/img/arturo-morales.webp" alt="Arturo Morales Camargo - Líder Nacional RCPN" loading="lazy">
+                    <img src="assets/img/arturo-morales.webp" alt="Arturo Morales Camargo" loading="lazy"> [cite: 65, 96]
                 </div>
                 <div class="profile-text">
-                    <span class="badge">Estratega de la Resistencia</span>
+                    <span class="badge">Estrategia Nacional</span>
                     <h2>Arturo Morales Camargo</h2>
-                    <p class="emotional-text">Arturo Morales Camargo lidera la RCPN con una fe inquebrantable en la libertad y el amor a México. Su lucha contra la corrupción es el motor de nuestra organización.</p>
+                    <p class="emotional-text">Arturo Morales Camargo lidera con una fe inquebrantable en la decencia del ciudadano común y el amor a México.</p>
                 </div>
             </div>
         </section>
@@ -125,7 +128,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2026 Resistencia Civil Pacífica Nacional | www.rcpn.me | Defensa de la Constitución</p>
+            <p>&copy; 2026 RCPN | www.rcpn.me | Defensa de la Constitución</p>
         </div>
     </footer>
 
