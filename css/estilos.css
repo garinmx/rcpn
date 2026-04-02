@@ -9,6 +9,7 @@
     --azul-medio:     #1b263b;
     --dorado-ley:     #c5a059;
     --rojo-alerta:    #e74c3c;
+    --accent-red:     #b22222;
     --blanco:         #ffffff;
 
     /* Dark Mode Premium */
@@ -240,7 +241,7 @@ body {
     border-radius: 4px;
     font-weight: 800;
     font-size: 0.7rem;
-    background: var(--rojo-alerta);
+    background: var(--accent-red);
     color: var(--blanco);
 }
 
@@ -296,7 +297,7 @@ body {
 
 .news-card h3, .movie-card h3 { color: var(--text-primary); margin-bottom: 12px; }
 .news-card p,  .movie-card p  { color: var(--text-secondary); }
-.news-card .date { color: var(--text-muted); font-size: 0.75rem; display: block; margin-bottom: 8px; }
+.news-card .date { color: var(--text-secondary); font-size: 0.75rem; display: block; margin-bottom: 8px; }
 
 .btn-read {
     display: inline-block;
@@ -413,7 +414,7 @@ body {
 }
 
 .arturo-card__share-label {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -462,7 +463,7 @@ body {
 /* Footer */
 .main-footer {
     background: var(--bg-base);
-    color: var(--text-muted);
+    color: var(--text-secondary);
     padding: 40px 0;
     text-align: center;
     font-size: 0.85rem;

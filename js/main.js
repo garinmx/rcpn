@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'news-card';
             card.setAttribute('role', 'button');
             card.setAttribute('tabindex', '0');
-            card.setAttribute('aria-label', `Leer detalles: ${item.title}`);
+            card.setAttribute('aria-label', item.title);
             card.innerHTML = `
                 <span class="date">${item.pubDate}</span>
                 <h3>${item.title}</h3>
