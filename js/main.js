@@ -52,15 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!newsContainer) return;
         newsContainer.innerHTML = ''; 
         
-        items.forEach(item => {
+        items.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'news-card';
             card.setAttribute('role', 'button');
             card.setAttribute('tabindex', '0');
-            card.setAttribute('aria-label', item.title);
+            const titleId = `news-title-${index}`;
+            card.setAttribute('aria-labelledby', titleId);
             card.innerHTML = `
                 <span class="date" aria-hidden="true">${item.pubDate}</span>
-                <h3>${item.title}</h3>
+                <h3 id="${titleId}">${item.title}</h3>
                 <p>${item.description}</p>
                 <span class="btn-read" aria-hidden="true">LEER DETALLES</span>
             `;
