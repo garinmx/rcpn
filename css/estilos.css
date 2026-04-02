@@ -4,13 +4,51 @@
 */
 
 :root {
+    /* Paleta legacy */
     --azul-autoridad: #0d1b2a;
-    --azul-medio: #1b263b;
-    --dorado-ley: #c5a059;
-    --gris-suave: #f4f4f9;
-    --rojo-alerta: #e74c3c;
-    --blanco: #ffffff;
-    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --azul-medio:     #1b263b;
+    --dorado-ley:     #c5a059;
+    --rojo-alerta:    #e74c3c;
+    --blanco:         #ffffff;
+
+    /* Dark Mode Premium */
+    --bg-base:            #0d0d0d;
+    --bg-surface:         #1a1a1a;
+    --bg-elevated:        #242424;
+    --accent-green:       #2d572c;
+    --accent-green-light: #3d7a3c;
+    --text-primary:       #f0f0f0;
+    --text-secondary:     #a0a0a0;
+    --text-muted:         #666666;
+    --neu-shadow-dark:    #111111;
+    --neu-shadow-light:   #232323;
+    --shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    background: var(--dorado-ley);
+    color: var(--azul-autoridad);
+    padding: 10px 20px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 9999;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--azul-autoridad);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skip-link { transition: none; }
 }
 
 /* Reset y Base */
@@ -23,9 +61,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--azul-autoridad);
+    color: var(--text-primary);
     overflow-x: hidden;
-    background-color: var(--blanco);
+    background-color: var(--bg-base);
 }
 
 /* Contenedores Genericos */
@@ -44,14 +82,10 @@ body {
     margin-bottom: 50px;
 }
 
-.bg-light {
-    background-color: var(--gris-suave);
-}
+.bg-light { background-color: var(--bg-surface); }
+.bg-dark  { background-color: var(--bg-elevated); }
 
-.bg-dark {
-    background-color: var(--azul-autoridad);
-    color: var(--blanco);
-}
+.section-header p { color: var(--text-secondary); }
 
 /* Header y Navegacion */
 .main-header {
@@ -130,13 +164,13 @@ body {
 
 .intro-text h2 {
     margin-bottom: 25px;
-    color: var(--azul-autoridad);
+    color: var(--text-primary);
 }
 
 .intro-text p {
     margin-bottom: 20px;
     font-size: 1.1rem;
-    color: #444444;
+    color: var(--text-secondary);
     text-align: justify;
 }
 
@@ -191,6 +225,11 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+    .news-card, .movie-card, .btn-trailer { transition: none; }
+}
+
 /* Grillas de Contenido */
 .grid-noticias, .grid-cine {
     display: grid;
@@ -199,25 +238,45 @@ body {
 }
 
 .news-card, .movie-card {
-    background: var(--blanco);
-    border-top: 6px solid var(--dorado-ley);
+    background: var(--bg-surface);
+    border-top: 4px solid var(--dorado-ley);
     padding: 30px;
-    box-shadow: var(--shadow);
+    border-radius: 16px;
+    box-shadow:
+        8px 8px 20px var(--neu-shadow-dark),
+        -8px -8px 20px var(--neu-shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 0 0 8px 8px;
+    color: var(--text-primary);
 }
 
 .news-card:hover, .movie-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    box-shadow:
+        12px 12px 28px var(--neu-shadow-dark),
+        -12px -12px 28px var(--neu-shadow-light);
+}
+
+.news-card h3, .movie-card h3 { color: var(--text-primary); margin-bottom: 12px; }
+.news-card p,  .movie-card p  { color: var(--text-secondary); }
+.news-card .date { color: var(--text-muted); font-size: 0.75rem; display: block; margin-bottom: 8px; }
+
+.btn-read {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--dorado-ley);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
 }
 
 .btn-trailer {
-    background: var(--azul-autoridad);
+    background: var(--accent-green);
     color: var(--blanco);
     text-decoration: none;
     padding: 12px;
-    border-radius: 4px;
+    border-radius: 8px;
     display: block;
     text-align: center;
     margin-top: 20px;
@@ -226,32 +285,9 @@ body {
     transition: background 0.3s ease;
 }
 
-.btn-trailer:hover {
-    background: var(--azul-medio);
-}
+.btn-trailer:hover { background: var(--accent-green-light); }
 
-/* Perfil Arturo Morales */
-.grid-profile {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.profile-image img {
-    width: 100%;
-    border-radius: 12px;
-    border: 5px solid var(--dorado-ley);
-    box-shadow: var(--shadow);
-}
-
-.emotional-text {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.95);
-}
-
+/* Badge compartido */
 .badge {
     background: var(--dorado-ley);
     color: var(--azul-autoridad);
@@ -262,6 +298,68 @@ body {
     border-radius: 4px;
     display: inline-block;
     margin-bottom: 15px;
+}
+
+/* Arturo Morales — Tarjeta Neumórfica con Pop-Out */
+.nosotros-section { background-color: var(--bg-base); }
+
+.arturo-card {
+    position: relative;
+    background: var(--bg-surface);
+    border-radius: 24px;
+    padding: 80px 40px 48px;
+    margin-top: 64px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow:
+        8px 8px 20px var(--neu-shadow-dark),
+        -8px -8px 20px var(--neu-shadow-light);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.arturo-card__avatar {
+    position: absolute;
+    top: -48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 4px solid var(--dorado-ley);
+    box-shadow:
+        0 8px 32px rgba(197, 160, 89, 0.4),
+        0 2px 8px rgba(0,0,0,0.8);
+    z-index: 10;
+    object-fit: cover;
+}
+
+.arturo-card__nombre {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--text-primary);
+    margin: 12px 0 4px;
+}
+
+.arturo-card__cargo {
+    color: var(--dorado-ley);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
+.arturo-card__bio {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-style: italic;
+    text-align: left;
+}
+
+.arturo-card__bio p + p {
+    margin-top: 16px;
 }
 
 /* Footer */
@@ -276,8 +374,21 @@ body {
 
 /* Media Queries */
 @media (max-width: 900px) {
-    .main-nav { display: none; }
-    .grid-profile { grid-template-columns: 1fr; text-align: center; }
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--azul-autoridad);
+        border-top: 1px solid var(--dorado-ley);
+        padding: 16px 0;
+        z-index: 999;
+    }
+    .main-nav.nav-open { display: block; }
+    .main-nav ul { flex-direction: column; }
+    .main-nav a { padding: 12px 24px; display: block; }
+    .arturo-card { padding: 72px 24px 40px; }
     .hero-section h1 { font-size: 2.2rem; }
 }
 

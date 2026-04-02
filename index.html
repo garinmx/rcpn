@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RCPN | Resistencia Civil Pacífica Nacional en México</title>
-    <link rel="canonical" href="https://www.rcpn.me/" />
+    <link rel="canonical" href="https://rcpn.me/" />
     <meta name="description" content="Portal oficial de la RCPN liderado por Arturo Morales Camargo. Defensa ciudadana, monitor de riesgo vial y radar de derechos humanos a nivel nacional en México.">
-    
+    <meta name="keywords" content="Resistencia Civil Pacífica Nacional, RCPN, Arturo Morales Camargo, derechos humanos México, abuso de autoridad, soberanía ciudadana, justicia México">
+
     <meta property="og:title" content="Resistencia Civil Pacífica Nacional | RCPN">
     <meta property="og:description" content="Unidos contra el abuso de autoridad. Estrategia para la soberanía ciudadana.">
-    <meta property="og:image" content="https://www.rcpn.me/assets/img/arturo-morales.webp">
-    <meta property="og:url" content="https://www.rcpn.me">
+    <meta property="og:image" content="https://rcpn.me/assets/img/arturo-morales.webp">
+    <meta property="og:url" content="https://rcpn.me/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resistencia Civil Pacífica Nacional | RCPN">
+    <meta name="twitter:description" content="Unidos contra el abuso de autoridad. Estrategia para la soberanía ciudadana en México.">
+    <meta name="twitter:image" content="https://rcpn.me/assets/img/arturo-morales.webp">
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preload" href="css/estilos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/estilos.css"></noscript>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#0d1b2a">
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
     <header class="main-header">
         <div class="container flex-header">
@@ -27,7 +35,7 @@
                 </a>
             </div>
             <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">☰</button>
-            <nav class="main-nav" id="nav-menu">
+            <nav class="main-nav" id="nav-menu" aria-label="Navegación principal">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="#monitor-ruta">Monitor</a></li>
@@ -39,7 +47,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="hero" class="hero-section">
             <div class="container">
                 <h1>Soberanía y Justicia Ciudadana en México</h1>
@@ -102,22 +110,45 @@
                     <div class="movie-info">
                         <h3>Canoa (1976)</h3>
                         <p>Una pieza maestra del cine mexicano que retrata el fanatismo y la injusticia social. Indispensable para entender la importancia de la verdad y la organización civil.</p>
-                        <a href="https://www.youtube.com/results?search_query=Canoa+trailer" class="btn-trailer" target="_blank" rel="noopener">Ver Trailer Oficial</a>
+                        <a href="https://www.youtube.com/results?search_query=Canoa+trailer" class="btn-trailer" target="_blank" rel="noopener noreferrer" aria-label="Ver trailer oficial de Canoa (1976) en YouTube">Ver Trailer Oficial</a>
+                    </div>
+                </article>
+                <article class="movie-card">
+                    <div class="movie-info">
+                        <h3>Presunto Culpable (2011)</h3>
+                        <p>Documental mexicano dirigido por Roberto Hernández y Geoffrey Smith que documenta el caso real de José Antonio Zúñiga, un joven trabajador condenado a veinte años de prisión sin pruebas suficientes y sin una defensa adecuada. La cinta expone con rigor las fallas estructurales del sistema de justicia penal en México: la fabricación de culpables, la presión institucional sobre testigos y la vulneración sistemática del derecho a la defensa. Su estreno en 2011 generó un debate nacional que contribuyó a impulsar la reforma al sistema penal acusatorio. Una obra imprescindible para comprender por qué la defensa jurídica ciudadana no es opcional, sino una necesidad constitucional.</p>
+                        <a href="https://www.youtube.com/results?search_query=Presunto+Culpable+documental+trailer" class="btn-trailer" target="_blank" rel="noopener noreferrer" aria-label="Ver trailer oficial de Presunto Culpable (2011) en YouTube">Ver Trailer Oficial</a>
+                    </div>
+                </article>
+                <article class="movie-card">
+                    <div class="movie-info">
+                        <h3>También la Lluvia (2010)</h3>
+                        <p>Película dirigida por Icíar Bollaín que narra, en dos planos simultáneos, la resistencia del pueblo boliviano frente a la privatización del agua durante la llamada Guerra del Agua en Cochabamba (2000) y el rodaje de una película sobre la conquista española. La obra explora con profundidad los mecanismos de la resistencia civil pacífica frente al poder económico y estatal, y la forma en que la organización colectiva puede revertir decisiones que afectan derechos fundamentales. Protagonizada por Luis Tosar y Gael García Bernal, es un retrato vivo de que la lucha por los derechos no reconoce fronteras y que el ciudadano organizado tiene la capacidad real de transformar la realidad institucional.</p>
+                        <a href="https://www.youtube.com/results?search_query=También+la+lluvia+trailer+oficial" class="btn-trailer" target="_blank" rel="noopener noreferrer" aria-label="Ver trailer oficial de También la Lluvia (2010) en YouTube">Ver Trailer Oficial</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section id="nosotros" class="bg-dark section-padding">
-            <div class="container grid-profile">
-                <div class="profile-image">
-                    <img src="assets/img/arturo-morales.webp" alt="Arturo Morales Camargo" loading="lazy">
-                </div>
-                <div class="profile-text">
+        <section id="nosotros" class="nosotros-section section-padding">
+            <div class="container">
+                <article class="arturo-card" aria-labelledby="arturo-nombre">
+                    <img
+                        class="arturo-card__avatar"
+                        src="assets/img/arturo-morales.webp"
+                        alt="Arturo Morales Camargo, Coordinador Nacional de Resistencia Civil Pacífica Nacional"
+                        width="96" height="96"
+                        loading="eager"
+                    />
                     <span class="badge">Estrategia Nacional</span>
-                    <h2>Arturo Morales Camargo</h2>
-                    <p class="emotional-text">Liderando con fe inquebrantable en la justicia social de México y el respeto absoluto a la soberanía del ciudadano común ante cualquier forma de opresión.</p>
-                </div>
+                    <h2 id="arturo-nombre" class="arturo-card__nombre">Arturo Morales Camargo</h2>
+                    <p class="arturo-card__cargo">Coordinador Nacional · Resistencia Civil Pacífica Nacional</p>
+                    <div class="arturo-card__bio">
+                        <p>Arturo Morales Camargo emergió como figura central del activismo jurídico-ciudadano a partir de su profunda convicción de que el ciudadano mexicano tiene el derecho y la obligación de conocer y ejercer sus garantías constitucionales. Su formación se forjó en la trinchera de la acción directa: documentando abusos de autoridad, acompañando jurídicamente a ciudadanos vulnerados en sus derechos y construyendo redes de solidaridad civil en todo el territorio nacional. Desde sus inicios, comprendió que la ignorancia de la ley no solo protege al infractor, sino que desarma al ciudadano frente al poder arbitrario.</p>
+                        <p>Entre sus contribuciones más significativas destaca la sistematización de estrategias legales para enfrentar revisiones vehiculares arbitrarias a la luz del Artículo 16 Constitucional, que exige mandamiento escrito fundado y motivado para toda molestia a personas o posesiones. Bajo su coordinación, la RCPN ha documentado y denunciado centenares de irregularidades ante la Comisión Nacional de los Derechos Humanos, consolidando un expediente nacional que evidencia patrones sistemáticos de exceso policial. Su trabajo ha sido referente para organizaciones civiles, abogados independientes y ciudadanos que buscan hacer valer sus derechos frente a corporaciones de seguridad pública y privada.</p>
+                        <p>La visión de Arturo Morales para la Resistencia Civil Pacífica Nacional trasciende la coyuntura: construir una ciudadanía permanentemente informada, organizada y capaz de ejercer resistencia no violenta ante cualquier forma de opresión institucional. Trabajamos para consolidar una plataforma nacional de inteligencia jurídica que conecte a ciudadanos, defensores de derechos humanos y operadores legales en tiempo real. Nuestra meta es que ningún mexicano enfrente solo el abuso de autoridad: la fuerza de la ley, ejercida colectivamente, es la herramienta más poderosa de transformación social.</p>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
