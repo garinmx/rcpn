@@ -137,5 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    console.log("RCPN v4.4: Despliegue de JavaScript exitoso.");
 });

@@ -87,6 +87,22 @@ body {
 
 .section-header p { color: var(--text-secondary); }
 
+/* Botón menú móvil */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: var(--blanco);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    transition: border-color 0.2s ease;
+}
+.menu-toggle:hover { border-color: var(--dorado-ley); }
+.menu-toggle:focus { outline: 2px solid var(--dorado-ley); outline-offset: 2px; }
+
 /* Header y Navegacion */
 .main-header {
     background: var(--azul-autoridad);
@@ -105,6 +121,7 @@ body {
 }
 
 .logo-text {
+    display: block;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 800;
@@ -137,6 +154,18 @@ body {
 
 .main-nav a:hover {
     color: var(--dorado-ley);
+}
+
+/* Enlace destacado en nav */
+.btn-emergency {
+    background: var(--accent-green);
+    color: var(--blanco) !important;
+    border-radius: 4px;
+    padding: 6px 14px !important;
+}
+.btn-emergency:hover {
+    background: var(--accent-green-light) !important;
+    color: var(--blanco) !important;
 }
 
 /* Hero Section */
@@ -228,6 +257,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .pulse { animation: none; }
     .news-card, .movie-card, .btn-trailer { transition: none; }
+}
+
+/* Loading state del radar */
+.loading-news {
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 40px;
+    text-align: center;
+    grid-column: 1 / -1;
 }
 
 /* Grillas de Contenido */
@@ -364,16 +402,17 @@ body {
 
 /* Footer */
 .main-footer {
-    background: #050a0f;
-    color: #888888;
+    background: var(--bg-base);
+    color: var(--text-muted);
     padding: 40px 0;
     text-align: center;
     font-size: 0.85rem;
-    border-top: 1px solid #1a2a3a;
+    border-top: 1px solid var(--bg-elevated);
 }
 
 /* Media Queries */
 @media (max-width: 900px) {
+    .menu-toggle { display: block; }
     .main-nav {
         display: none;
         position: absolute;

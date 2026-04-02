@@ -28,17 +28,17 @@
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-    <header class="main-header">
+    <header class="main-header" role="banner">
         <div class="container flex-header">
             <div class="logo">
-                <a href="index.html">
-                    <p class="logo-text">RESISTENCIA CIVIL <span>PACÍFICA NACIONAL</span></p>
+                <a href="/" aria-label="Inicio — Resistencia Civil Pacífica Nacional">
+                    <span class="logo-text">RESISTENCIA CIVIL <span>PACÍFICA NACIONAL</span></span>
                 </a>
             </div>
             <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">☰</button>
             <nav class="main-nav" id="nav-menu" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="/">Inicio</a></li>
                     <li><a href="#monitor-ruta">Monitor</a></li>
                     <li><a href="#noticias">Radar Jurídico</a></li>
                     <li><a href="#nosotros">Arturo Morales C.</a></li>
@@ -154,11 +154,12 @@
         </section>
     </main>
 
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2026 RCPN | www.rcpn.me | Defendiendo la Soberanía Ciudadana</p>
+            <p>&copy; <span id="footer-year"></span> RCPN | rcpn.me | Defendiendo la Soberanía Ciudadana</p>
         </div>
     </footer>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
     <script src="js/main.js" defer></script>
 </body>
