@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('tabindex', '0');
             card.setAttribute('aria-label', item.title);
             card.innerHTML = `
-                <span class="date">${item.pubDate}</span>
+                <span class="date" aria-hidden="true">${item.pubDate}</span>
                 <h3>${item.title}</h3>
                 <p>${item.description}</p>
                 <span class="btn-read" aria-hidden="true">LEER DETALLES</span>
