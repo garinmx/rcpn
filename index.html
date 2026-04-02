@@ -18,6 +18,31 @@
     <meta name="twitter:description" content="Unidos contra el abuso de autoridad. Estrategia para la soberanía ciudadana en México.">
     <meta name="twitter:image" content="https://rcpn.me/assets/img/arturo-morales.webp">
 
+    <!-- Preload hero para LCP discovery temprano -->
+    <link rel="preload" href="assets/img/hero-bg.webp" as="image" type="image/webp">
+
+    <!-- Critical CSS inline — elimina CLS del body -->
+    <style>
+:root{--azul-autoridad:#0d1b2a;--dorado-ley:#c5a059;--blanco:#ffffff;--bg-base:#0d0d0d;--bg-surface:#1a1a1a;--bg-elevated:#242424;--accent-green:#2d572c;--text-primary:#f0f0f0;--text-secondary:#a0a0a0;--text-muted:#666666;--neu-shadow-dark:#111111;--neu-shadow-light:#232323}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:var(--text-primary);overflow-x:hidden;background-color:var(--bg-base)}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--dorado-ley);color:var(--azul-autoridad);padding:10px 20px;font-weight:800;font-size:.85rem;text-decoration:none;border-radius:0 0 8px 8px;z-index:9999}
+.skip-link:focus{top:0}
+.main-header{background:var(--azul-autoridad);color:var(--blanco);padding:15px 0;position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--dorado-ley)}
+.flex-header{display:flex;justify-content:space-between;align-items:center}
+.logo-text{display:block;font-size:1rem;text-transform:uppercase;font-weight:800;color:var(--blanco);margin:0;text-decoration:none}
+.logo-text span{color:var(--dorado-ley);display:block;font-size:.8rem;font-weight:400}
+.menu-toggle{display:none;background:none;border:2px solid rgba(255,255,255,.2);color:var(--blanco);font-size:1.4rem;cursor:pointer;padding:4px 10px;border-radius:6px;line-height:1}
+.main-nav ul{display:flex;list-style:none}
+.main-nav a{color:var(--blanco);text-decoration:none;padding:8px 15px;font-size:.75rem;font-weight:700;text-transform:uppercase}
+.hero-section{background:linear-gradient(rgba(13,27,42,.85),rgba(13,27,42,.85)),url('assets/img/hero-bg.webp') no-repeat center center/cover;color:var(--blanco);padding:100px 0;text-align:center}
+.hero-section h1{font-size:3rem;margin-bottom:20px;letter-spacing:1px}
+.hero-section p{font-size:1.1rem;max-width:700px;margin:0 auto}
+@media(max-width:900px){.menu-toggle{display:block}.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--azul-autoridad);border-top:1px solid var(--dorado-ley);padding:16px 0;z-index:999}.hero-section h1{font-size:2.2rem}}
+@media(max-width:600px){.hero-section h1{font-size:1.8rem}}
+    </style>
+
     <link rel="preload" href="css/estilos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/estilos.css"></noscript>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -136,7 +161,7 @@
                 <article class="arturo-card" aria-labelledby="arturo-nombre">
                     <img
                         class="arturo-card__avatar"
-                        src="assets/img/arturo-morales.webp"
+                        src="assets/img/arturo-morales-96.webp"
                         alt="Arturo Morales Camargo, Coordinador Nacional de Resistencia Civil Pacífica Nacional"
                         width="96" height="96"
                         loading="eager"
