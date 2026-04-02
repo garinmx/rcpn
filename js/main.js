@@ -50,20 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Funcion de Renderizado - Asegura contenido en el Radar
     function renderizar(items) {
         if(!newsContainer) return;
-        newsContainer.innerHTML = ''; 
-        
-        items.forEach((item, index) => {
+        newsContainer.innerHTML = '';
+
+        items.forEach((item) => {
             const card = document.createElement('div');
             card.className = 'news-card';
-            card.setAttribute('role', 'button');
-            card.setAttribute('tabindex', '0');
-            const titleId = `news-title-${index}`;
-            card.setAttribute('aria-labelledby', titleId);
             card.innerHTML = `
                 <span class="date" aria-hidden="true">${item.pubDate}</span>
-                <h3 id="${titleId}">${item.title}</h3>
+                <h3>${item.title}</h3>
                 <p>${item.description}</p>
-                <span class="btn-read" aria-hidden="true">LEER DETALLES</span>
+                <button class="btn-read" type="button" aria-label="Leer detalles: ${item.title}">LEER DETALLES</button>
             `;
 
             function abrirModal() {
@@ -77,13 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             card.addEventListener('click', abrirModal);
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    abrirModal();
-                }
-            });
-            
+
             newsContainer.appendChild(card);
         });
     }
