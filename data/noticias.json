@@ -1,6 +1,20 @@
 {
-  "updated": "2026-04-27",
+  "updated": "2026-04-28",
   "noticias": [
+    {
+      "title": "CIA en Chihuahua: Sheinbaum Exige Respeto a la Soberanía Nacional",
+      "description": "La presidenta Sheinbaum envió nota diplomática al embajador Johnson tras detectarse agentes de la CIA en un operativo en Chihuahua, cuestionando la injerencia extranjera en territorio nacional.",
+      "pubDate": "28 ABR 2026",
+      "link": "https://www.jornada.com.mx/2026/04/28/politica/003n1pol",
+      "content": "El 28 de abril, Claudia Sheinbaum confirmó el envío de una nota diplomática al embajador Ronald Johnson por la presencia de agentes de la CIA en un operativo realizado en Chihuahua. El gobierno mexicano calificó el hecho como excepcional y exigió que no se repita. La RCPN recuerda que cualquier acción de cuerpos de seguridad en territorio nacional —ya sea de fuerzas nacionales o extranjeras— debe respetar el Artículo 16 Constitucional y los derechos de toda persona en el territorio. La soberanía es un derecho colectivo; su defensa comienza con ciudadanos informados y organizados."
+    },
+    {
+      "title": "EU Lanza Campaña contra Presuntos Narcofuncionarios Mexicanos",
+      "description": "El embajador Johnson anunció medidas contra funcionarios con nexos con el crimen, reabriendo el debate sobre soberanía nacional y el derecho a la presunción de inocencia.",
+      "pubDate": "27 ABR 2026",
+      "link": "https://www.jornada.com.mx/2026/04/27/politica/011n1pol",
+      "content": "El embajador de Estados Unidos Ronald Johnson anunció una campaña que incluiría la publicación de nombres y sanciones unilaterales contra funcionarios mexicanos con presuntos vínculos con el narcotráfico. La RCPN advierte que toda persona —incluido un servidor público— conserva su presunción de inocencia mientras no exista sentencia firme (Artículo 20 Constitucional). La presión extranjera no sustituye ni puede saltarse el proceso legal legítimo. La ciudadanía tiene derecho a exigir pruebas y procesos transparentes, no señalamientos sin resolución judicial."
+    },
     {
       "title": "SCJN: Plazo para Apelar Corre desde que Recibes el Texto de tu Sentencia",
       "description": "La Suprema Corte protegió el derecho a apelar de cualquier mexicano condenado: el plazo para impugnar solo comienza cuando el acusado tiene en sus manos el escrito de la resolución.",
@@ -37,25 +51,11 @@
       "content": "La CNDH emitió una recomendación formal contra la Fiscalía General de la República por violaciones graves a los derechos humanos documentadas durante procedimientos de investigación. Este pronunciamiento refuerza que las facultades de investigación de la FGR están acotadas por los derechos constitucionales de toda persona detenida o investigada. La RCPN advierte que ninguna autoridad, incluida la Fiscalía, puede actuar fuera del marco constitucional. Todo ciudadano tiene derecho a conocer los cargos en su contra, a designar defensor y a no ser incomunicado."
     },
     {
-      "title": "Guardia Nacional bajo Mando Militar: Lo que Debes Saber en un Retén",
-      "description": "Desde julio de 2025 la Guardia Nacional opera bajo la Secretaría de la Defensa Nacional. Tus derechos constitucionales frente a sus operativos carreteros no han cambiado.",
-      "pubDate": "01 ABR 2026",
-      "link": "https://www.gob.mx/guardianacional",
-      "content": "La reforma a la Ley de la Guardia Nacional vigente desde julio de 2025 transfirió el mando de esta corporación a la Secretaría de la Defensa Nacional, reforzando su carácter militar en operativos de carretera y retenes. La RCPN advierte que el Artículo 16 Constitucional es plenamente aplicable frente a cualquier corporación, civil o militar: nadie puede ser detenido o revisado sin mandamiento escrito fundado y motivado. Ante un retén, tienes derecho a conocer el fundamento legal del operativo, a no descender del vehículo sin orden judicial y a documentar el procedimiento con tu teléfono celular."
-    },
-    {
-      "title": "Victoria en Querétaro: Retén Arbitrario Anulado por Amparo Ciudadano",
-      "description": "La RCPN acompañó jurídicamente a un grupo de 8 conductores detenidos sin causa razonable en la caseta de Tepotzotlán, logrando un amparo indirecto que obligó a la Guardia Nacional a liberarlos en menos de 4 horas.",
-      "pubDate": "28 MAR 2026",
-      "link": "https://sjf2.scjn.gob.mx/",
-      "content": "Este caso demuestra que la organización ciudadana y el conocimiento jurídico son las herramientas más eficaces frente al abuso de autoridad. La RCPN documentó cada paso del procedimiento, desde la detención arbitraria hasta la resolución judicial, y pone este expediente a disposición de cualquier ciudadano que enfrente una situación similar en las vías generales de comunicación de la República Mexicana."
-    },
-    {
-      "title": "RCPN Protege a 14 Conductores Retenidos Ilegalmente en la México-Puebla",
-      "description": "Integrantes de la RCPN respondieron al reporte de 14 conductores de carga retenidos por más de 6 horas en el tramo Río Frío de la autopista México-Puebla, sin que mediara orden de autoridad competente.",
-      "pubDate": "20 MAR 2026",
-      "link": "https://www.cndh.org.mx/",
-      "content": "El derecho a circular libremente por las vías generales de comunicación está garantizado por el Artículo 11 Constitucional. Toda restricción a este derecho exige fundamento legal expreso y motivación suficiente. La RCPN reitera que cualquier ciudadano tiene derecho a conocer los motivos de cualquier detención y a comunicarse con un abogado o familiar desde el primer momento."
+      "title": "Guardia Nacional Despliega 20 mil Elementos en Carreteras de 4 Estados",
+      "description": "La GN intensificó la vigilancia en autopistas de cuatro entidades con más de 20 mil elementos bajo la estrategia 'Cero Robo a Carreteras', incrementando los puntos de revisión.",
+      "pubDate": "14 ABR 2026",
+      "link": "https://www.razon.com.mx/mexico/2026/04/14/guardia-nacional-refuerza-seguridad-en-carreteras-de-cuatro-estados/",
+      "content": "La Guardia Nacional desplegó más de 20 mil elementos en puntos estratégicos de autopistas en cuatro estados del país como parte del operativo 'Cero Robo a Carreteras'. Si bien el operativo tiene un objetivo de seguridad legítimo, la RCPN recuerda que todo punto de revisión está acotado por el Artículo 16 Constitucional: nadie puede ser detenido ni su vehículo revisado sin causa razonable individualizada. La presencia masiva de elementos no justifica revisiones generalizadas. Si eres detenido sin fundamento, exige el número de operativo, documenta el procedimiento y comunícate con un defensor."
     }
   ]
 }

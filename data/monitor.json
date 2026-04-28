@@ -1,12 +1,6 @@
 {
-  "updated": "2026-04-27",
+  "updated": "2026-04-28",
   "reportes": [
-    {
-      "ubicacion": "Carretera Celaya-Juventino Rosas, Guanajuato",
-      "corporacion": "Policía Estatal / Fuerzas Federales",
-      "riesgo": "ALTO",
-      "fecha": "20 ABR 2026"
-    },
     {
       "ubicacion": "Caseta Tepotzotlán, Mex-Qro",
       "corporacion": "Guardia Nacional",
@@ -14,10 +8,16 @@
       "fecha": "27 ABR 2026"
     },
     {
-      "ubicacion": "Carretera México-Cuernavaca, puntos estratégicos",
-      "corporacion": "Guardia Nacional / CAPUFE",
+      "ubicacion": "Carretera Celaya-Juventino Rosas, Guanajuato",
+      "corporacion": "Policía Estatal / Fuerzas Federales",
+      "riesgo": "ALTO",
+      "fecha": "20 ABR 2026"
+    },
+    {
+      "ubicacion": "Autopistas federales — operativo nacional en cuatro estados",
+      "corporacion": "Guardia Nacional",
       "riesgo": "MEDIO",
-      "fecha": "19 ABR 2026"
+      "fecha": "14 ABR 2026"
     }
   ]
 }
