@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function abrirModal() {
                 if (modal) {
-                    const mTitle = document.getElementById('modal-title');
-                    const mBody = document.getElementById('modal-body');
-                    if (mTitle) mTitle.innerText = item.title;
-                    if (mBody) mBody.innerText = item.content;
-                    modal.style.display = 'block';
+                    document.getElementById('modal-title').innerText = item.title;
+                    document.getElementById('modal-body').innerText  = item.content;
+                    document.getElementById('modal-link').href        = item.link;
+                    modal.classList.add('is-open');
+                    modal.focus();
                 }
             }
 
@@ -116,16 +116,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cierre de Modal seguro
-    const closeBtn = document.querySelector('.close-modal');
-    if(closeBtn && modal) {
-        closeBtn.onclick = () => { modal.style.display = "none"; };
+    // Cierre de Modal
+    function cerrarModal() {
+        if (modal) modal.classList.remove('is-open');
     }
 
-    window.onclick = (event) => {
-        if (modal && event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
+    const closeBtn = document.querySelector('.close-modal');
+    if (closeBtn) closeBtn.addEventListener('click', cerrarModal);
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) cerrarModal();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') cerrarModal();
+    });
 
 });
