@@ -3,10 +3,10 @@
   "noticias": [
     {
       "title": "SCJN: Plazo para Apelar Corre desde que Recibes el Texto de tu Sentencia",
-      "description": "La Suprema Corte protegió hoy el derecho a apelar de cualquier mexicano condenado: el plazo para impugnar solo comienza cuando el acusado tiene en sus manos el escrito de la resolución.",
+      "description": "La Suprema Corte protegió el derecho a apelar de cualquier mexicano condenado: el plazo para impugnar solo comienza cuando el acusado tiene en sus manos el escrito de la resolución.",
       "pubDate": "27 ABR 2026",
       "link": "https://www.elimparcial.com/mexico/2026/04/27/la-suprema-corte-protegio-el-derecho-a-apelar-de-cualquier-mexicano-condenado-en-juicio-penal-y-determino-que-el-plazo-para-impugnar-solo-corre-cuando-el-acusado-tiene-el-texto-de-la-sentencia-en-sus-manos/",
-      "content": "En resolución publicada hoy, la SCJN determinó que ningún ciudadano puede perder su derecho a apelar por un plazo que comenzó a correr sin que tuviera acceso real al texto de la sentencia. La Corte fundamentó su decisión en tres principios constitucionales: tutela judicial efectiva, acceso a la justicia y debido proceso. La RCPN documenta este criterio como herramienta esencial para toda persona condenada sin haber recibido copia física de la resolución. Si te encuentras en esa situación, el plazo para impugnar puede aún estar vigente — consulta a un defensor jurídico de inmediato."
+      "content": "En resolución publicada el 27 de abril, la SCJN determinó que ningún ciudadano puede perder su derecho a apelar por un plazo que comenzó a correr sin que tuviera acceso real al texto de la sentencia. La Corte fundamentó su decisión en tres principios constitucionales: tutela judicial efectiva, acceso a la justicia y debido proceso. La RCPN documenta este criterio como herramienta esencial para toda persona condenada sin haber recibido copia física de la resolución. Si te encuentras en esa situación, el plazo para impugnar puede aún estar vigente — consulta a un defensor jurídico de inmediato."
     },
     {
       "title": "CNDH Sanciona a Guardia Nacional por Uso Excesivo de la Fuerza en Zacatecas",
@@ -16,11 +16,25 @@
       "content": "La Recomendación 195VG de la CNDH documenta violaciones al derecho a la vida de 14 víctimas por uso excesivo de la fuerza e ilegítimo uso de armas de fuego por elementos de la Defensa y Policía Estatal en Zacatecas. Este pronunciamiento reafirma que toda corporación de seguridad está sujeta al principio de proporcionalidad y que cualquier exceso constituye violación grave a los derechos humanos. La RCPN exige que los responsables sean sancionados conforme a derecho. Todo ciudadano víctima de uso excesivo de la fuerza tiene derecho a presentar queja formal ante la CNDH sin costo alguno."
     },
     {
-      "title": "SCJN Publica Tesis y Precedentes Clave de Enero 2026 para la Defensa Ciudadana",
-      "description": "La Suprema Corte difundió su compilación mensual de criterios jurisprudenciales obligatorios, que incluye tesis aplicables directamente a detenciones arbitrarias y revisiones vehiculares.",
-      "pubDate": "12 FEB 2026",
-      "link": "https://www.scjn.gob.mx/sites/default/files/comunicacion_digital/2026-02/Precedentes_y_tesis_relevantes-ENERO_2026.pdf",
-      "content": "El Pleno de la SCJN publicó los precedentes y tesis relevantes de enero de 2026, documentos de observancia obligatoria para todos los tribunales del país. Estos criterios consolidan el marco jurídico más actualizado para la defensa de derechos fundamentales frente a actos arbitrarios de la autoridad. La RCPN analiza estas tesis e identifica los criterios más relevantes en materia de revisiones vehiculares, libre tránsito y derecho a la información. Consultamos este compendio de forma permanente para fortalecer nuestra estrategia de defensa ciudadana."
+      "title": "Guanajuato: Civiles Bloquean Carretera por Detenciones Arbitrarias en Operativo",
+      "description": "Habitantes de San Antonio de las Maravillas cerraron la carretera Celaya-Juventino Rosas al denunciar que elementos policiales detuvieron a dos personas sin orden y saquearon su domicilio.",
+      "pubDate": "20 ABR 2026",
+      "link": "https://oem.com.mx/elsoldelbajio/local/bloquean-carretera-celaya-juventino-rosas-tras-operativo-civiles-senalan-detenciones-arbitrarias-29586795",
+      "content": "El 20 de abril, vecinos bloquearon la carretera Celaya-Juventino Rosas en Guanajuato para exigir información sobre un trabajador y un estudiante detenidos durante un operativo policial sin orden de autoridad competente. Los familiares acudieron a la Fiscalía sin obtener razón clara sobre su paradero ni su situación legal. La RCPN documenta este caso como patrón recurrente: la autoridad no puede ingresar a domicilios ni detener personas sin orden judicial escrita. Si eres testigo de una detención irregular, documenta, exige el número de queja y contacta de inmediato a un defensor de derechos humanos."
+    },
+    {
+      "title": "Operativo en México-Cuernavaca: Revisiones Aleatorias cada Domingo",
+      "description": "Desde el 19 de abril el gobierno federal desplegó un operativo especial en la carretera México-Cuernavaca con revisiones aleatorias de vehículos en puntos estratégicos los domingos.",
+      "pubDate": "19 ABR 2026",
+      "link": "https://www.infobae.com/mexico/2026/04/15/gobierno-implementa-operativo-en-importante-carretera-que-conecta-a-la-capital-a-partir-del-domingo-19-de-abril/",
+      "content": "El gobierno federal implementó un operativo especial en la carretera México-Cuernavaca con participación de CAPUFE y la Guardia Nacional en puntos estratégicos, operando los domingos con revisiones aleatorias de vehículos. La RCPN recuerda que aun dentro de un operativo oficial, toda revisión debe fundarse en sospecha razonable individualizada conforme al Artículo 16 Constitucional. Si eres detenido en este operativo, tienes derecho a conocer el fundamento legal de la revisión, a no abrir cajuela sin orden escrita y a documentar el procedimiento con tu celular."
+    },
+    {
+      "title": "CNDH Emite Recomendación contra la Fiscalía General por Violaciones Graves",
+      "description": "La Comisión Nacional de Derechos Humanos emitió una recomendación contra la FGR por violaciones graves a derechos humanos documentadas durante procedimientos de investigación.",
+      "pubDate": "15 ABR 2026",
+      "link": "https://www.cndh.org.mx/documento/cndh-emite-recomendacion-la-fiscalia-general-de-la-republica-por-violaciones-graves-de",
+      "content": "La CNDH emitió una recomendación formal contra la Fiscalía General de la República por violaciones graves a los derechos humanos documentadas durante procedimientos de investigación. Este pronunciamiento refuerza que las facultades de investigación de la FGR están acotadas por los derechos constitucionales de toda persona detenida o investigada. La RCPN advierte que ninguna autoridad, incluida la Fiscalía, puede actuar fuera del marco constitucional. Todo ciudadano tiene derecho a conocer los cargos en su contra, a designar defensor y a no ser incomunicado."
     },
     {
       "title": "Guardia Nacional bajo Mando Militar: Lo que Debes Saber en un Retén",
@@ -30,29 +44,15 @@
       "content": "La reforma a la Ley de la Guardia Nacional vigente desde julio de 2025 transfirió el mando de esta corporación a la Secretaría de la Defensa Nacional, reforzando su carácter militar en operativos de carretera y retenes. La RCPN advierte que el Artículo 16 Constitucional es plenamente aplicable frente a cualquier corporación, civil o militar: nadie puede ser detenido o revisado sin mandamiento escrito fundado y motivado. Ante un retén, tienes derecho a conocer el fundamento legal del operativo, a no descender del vehículo sin orden judicial y a documentar el procedimiento con tu teléfono celular."
     },
     {
-      "title": "Tesis Jurisprudencial: Inspecciones vehiculares",
-      "description": "La SCJN determina que la autoridad debe acreditar sospecha razonable antes de una revisión.",
-      "pubDate": "10 MAR 2026",
-      "link": "https://sjf2.scjn.gob.mx/",
-      "content": "Nadie puede ser molestado en su persona o posesiones sin un mandamiento escrito que funde y motive la causa legal del procedimiento. La RCPN vigila el cumplimiento del Artículo 16."
-    },
-    {
-      "title": "Derecho a Documentar con Celular",
-      "description": "La CNDH ratifica que grabar servidores públicos es un ejercicio legítimo de transparencia.",
-      "pubDate": "09 MAR 2026",
-      "link": "https://www.cndh.org.mx/",
-      "content": "Documentar el actuar de la autoridad es un derecho. No constituye delito ni falta administrativa siempre que no se obstruya físicamente la labor policial."
-    },
-    {
       "title": "Victoria en Querétaro: Retén Arbitrario Anulado por Amparo Ciudadano",
-      "description": "La RCPN acompañó jurídicamente a un grupo de 8 conductores detenidos sin causa razonable en la caseta de Tepotzotlán, logrando la interposición de un amparo indirecto que obligó a la Guardia Nacional a liberar a las personas retenidas en menos de 4 horas.",
+      "description": "La RCPN acompañó jurídicamente a un grupo de 8 conductores detenidos sin causa razonable en la caseta de Tepotzotlán, logrando un amparo indirecto que obligó a la Guardia Nacional a liberarlos en menos de 4 horas.",
       "pubDate": "28 MAR 2026",
       "link": "https://sjf2.scjn.gob.mx/",
       "content": "Este caso demuestra que la organización ciudadana y el conocimiento jurídico son las herramientas más eficaces frente al abuso de autoridad. La RCPN documentó cada paso del procedimiento, desde la detención arbitraria hasta la resolución judicial, y pone este expediente a disposición de cualquier ciudadano que enfrente una situación similar en las vías generales de comunicación de la República Mexicana."
     },
     {
       "title": "RCPN Protege a 14 Conductores Retenidos Ilegalmente en la México-Puebla",
-      "description": "En un operativo coordinado desde nuestra red de alertas en tiempo real, integrantes de la RCPN respondieron al reporte de 14 conductores de carga retenidos por más de 6 horas en el tramo Río Frío de la autopista México-Puebla, sin que mediara orden de autoridad competente.",
+      "description": "Integrantes de la RCPN respondieron al reporte de 14 conductores de carga retenidos por más de 6 horas en el tramo Río Frío de la autopista México-Puebla, sin que mediara orden de autoridad competente.",
       "pubDate": "20 MAR 2026",
       "link": "https://www.cndh.org.mx/",
       "content": "El derecho a circular libremente por las vías generales de comunicación está garantizado por el Artículo 11 Constitucional. Toda restricción a este derecho exige fundamento legal expreso y motivación suficiente. La RCPN reitera que cualquier ciudadano tiene derecho a conocer los motivos de cualquier detención y a comunicarse con un abogado o familiar desde el primer momento."
