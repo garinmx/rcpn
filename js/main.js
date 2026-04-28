@@ -8,6 +8,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const modal = document.getElementById('news-modal');
 
+    // ── Resistencia en Tinta: Caricaturas ──
+    function renderizarCaricaturas(items) {
+        const container = document.getElementById('caricaturas-container');
+        if (!container) return;
+        container.innerHTML = '';
+
+        items.forEach(item => {
+            const card = document.createElement('article');
+            card.className = 'caricatura-card';
+
+            const imgHTML = item.imagen
+                ? `<img src="${item.imagen}"
+                        alt="${item.titulo} — ${item.autor}"
+                        class="caricatura-card__img"
+                        loading="lazy" decoding="async"
+                        onerror="this.style.display='none'">`
+                : '';
+
+            card.innerHTML = `
+                <a href="${item.fuente}" target="_blank" rel="noopener noreferrer"
+                   aria-label="Ver caricatura: ${item.titulo} de ${item.autor}">
+                    <div class="caricatura-card__img-wrap">
+                        ${imgHTML}
+                        <div class="caricatura-card__placeholder" aria-hidden="true">
+                            ✏️<span>${item.publicacion}</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="caricatura-card__body">
+                    <div class="caricatura-card__meta">
+                        <span class="caricatura-card__autor">${item.autor}</span>
+                        <span class="caricatura-card__pub">${item.publicacion}</span>
+                        <span class="date" aria-hidden="true">${item.fecha}</span>
+                    </div>
+                    <h3 class="caricatura-card__titulo">${item.titulo}</h3>
+                    <p class="caricatura-card__desc">${item.descripcion}</p>
+                    <a href="${item.fuente}" target="_blank" rel="noopener noreferrer"
+                       class="caricatura-card__link-label"
+                       aria-label="Ver original de ${item.titulo}">Ver original →</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    fetch('data/caricaturas.json?v=' + Date.now(), { cache: 'no-cache' })
+        .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+        .then(data => renderizarCaricaturas(data.caricaturas))
+        .catch(() => {
+            const c = document.getElementById('caricaturas-container');
+            if (c) c.innerHTML = '<div class="loading-news">No se pudieron cargar las caricaturas.</div>';
+        });
+
     // ── Monitor de Avistamientos ──
     function renderizarMonitor(reportes) {
         const tbody  = document.getElementById('monitor-tbody');

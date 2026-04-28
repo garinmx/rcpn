@@ -1,0 +1,32 @@
+{
+  "updated": "2026-04-27",
+  "caricaturas": [
+    {
+      "titulo": "El Precio de la Impunidad",
+      "autor": "El Fisgón",
+      "publicacion": "La Jornada",
+      "fecha": "25 ABR 2026",
+      "imagen": "https://www.jornada.com.mx/imgs/2026/04/25/fisgon.jpg",
+      "fuente": "https://www.jornada.com.mx/caricatura/fisgon",
+      "descripcion": "Crítica a la complicidad institucional frente a la corrupción sistémica en México."
+    },
+    {
+      "titulo": "Artículo 16: Letra Muerta",
+      "autor": "Hernández",
+      "publicacion": "La Jornada",
+      "fecha": "22 ABR 2026",
+      "imagen": "https://www.jornada.com.mx/imgs/2026/04/22/hernandez.jpg",
+      "fuente": "https://www.jornada.com.mx/caricatura/hernandez",
+      "descripcion": "La brecha entre el texto constitucional y la realidad de los retenes arbitrarios."
+    },
+    {
+      "titulo": "Democracia de Mostrador",
+      "autor": "Helguera",
+      "publicacion": "La Jornada",
+      "fecha": "20 ABR 2026",
+      "imagen": "https://www.jornada.com.mx/imgs/2026/04/20/helguera.jpg",
+      "fuente": "https://www.jornada.com.mx/caricatura/helguera",
+      "descripcion": "El ciudadano frente al poder: derechos vendidos al mejor postor."
+    }
+  ]
+}
