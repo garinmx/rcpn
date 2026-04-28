@@ -23,24 +23,34 @@
 
     <!-- Critical CSS inline — elimina CLS del body -->
     <style>
-:root{--azul-autoridad:#0d1b2a;--dorado-ley:#c5a059;--blanco:#ffffff;--bg-base:#0d0d0d;--bg-surface:#1a1a1a;--bg-elevated:#242424;--accent-green:#2d572c;--text-primary:#f0f0f0;--text-secondary:#a0a0a0;--text-muted:#666666;--neu-shadow-dark:#111111;--neu-shadow-light:#232323}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:var(--text-primary);overflow-x:hidden;background-color:var(--bg-base)}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
+:root{--azul-autoridad:#0d1b2a;--dorado-ley:#c5a059;--dorado-hover:#d4b068;--blanco:#ffffff;--bg-base:#0d0d0d;--bg-surface:#1a1a1a;--bg-elevated:#242424;--accent-green:#2d572c;--text-primary:#f0f0f0;--text-secondary:#a0a0a0;--text-muted:#666666;--neu-shadow-dark:#111111;--neu-shadow-light:#232323;--shadow-gold:0 8px 32px rgba(197,160,89,0.25);--font-heading:'Montserrat','Segoe UI',sans-serif;--font-body:'Inter','Segoe UI',sans-serif}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);overflow-x:hidden;background-color:var(--bg-base)}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
 .skip-link{position:absolute;top:-100%;left:16px;background:var(--dorado-ley);color:var(--azul-autoridad);padding:10px 20px;font-weight:800;font-size:.85rem;text-decoration:none;border-radius:0 0 8px 8px;z-index:9999}
 .skip-link:focus{top:0}
-.main-header{background:var(--azul-autoridad);color:var(--blanco);padding:15px 0;position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--dorado-ley)}
+.main-header{background:var(--azul-autoridad);color:var(--blanco);padding:14px 0;position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--dorado-ley)}
 .flex-header{display:flex;justify-content:space-between;align-items:center}
-.logo-text{display:block;font-size:1rem;text-transform:uppercase;font-weight:800;color:var(--blanco);margin:0;text-decoration:none}
-.logo-text span{color:var(--dorado-ley);display:block;font-size:.8rem;font-weight:400}
-.menu-toggle{display:none;background:none;border:2px solid rgba(255,255,255,.2);color:var(--blanco);font-size:1.4rem;cursor:pointer;padding:4px 10px;border-radius:6px;line-height:1}
+.logo-text{display:block;font-family:var(--font-heading);font-size:clamp(.8rem,2.2vw,1rem);text-transform:uppercase;font-weight:800;color:var(--blanco);margin:0;text-decoration:none;letter-spacing:.05em}
+.logo-text span{color:var(--dorado-ley);display:block;font-size:.72rem;font-weight:500;letter-spacing:.08em}
+.menu-toggle{display:none;background:none;border:2px solid rgba(255,255,255,.2);color:var(--blanco);font-size:1.4rem;cursor:pointer;padding:4px 10px;border-radius:6px;line-height:1;min-width:44px;min-height:44px}
 .main-nav ul{display:flex;list-style:none}
-.main-nav a{color:var(--blanco);text-decoration:none;padding:8px 15px;font-size:.75rem;font-weight:700;text-transform:uppercase}
-.hero-section{background:linear-gradient(rgba(13,27,42,.85),rgba(13,27,42,.85)),url('assets/img/hero-bg.webp') no-repeat center center/cover;color:var(--blanco);padding:100px 0;text-align:center}
-.hero-section h1{font-size:3rem;margin-bottom:20px;letter-spacing:1px}
-.hero-section p{font-size:1.1rem;max-width:700px;margin:0 auto}
-@media(max-width:900px){.menu-toggle{display:block}.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--azul-autoridad);border-top:1px solid var(--dorado-ley);padding:16px 0;z-index:999}.hero-section h1{font-size:2.2rem}}
-@media(max-width:600px){.hero-section h1{font-size:1.8rem}}
+.main-nav a{color:var(--blanco);text-decoration:none;padding:8px 14px;font-family:var(--font-heading);font-size:.72rem;font-weight:700;text-transform:uppercase;display:block}
+.hero-section{position:relative;min-height:100svh;display:flex;align-items:center;text-align:center;background:linear-gradient(160deg,rgba(13,27,42,.96) 0%,rgba(13,27,42,.72) 55%,rgba(45,87,44,.35) 100%),url('assets/img/hero-bg.webp') no-repeat center center/cover;color:var(--blanco);padding:64px 0 calc(64px + 50px)}
+.hero-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:var(--bg-base);clip-path:ellipse(60% 100% at 50% 100%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 16px}
+.hero-eyebrow{display:inline-block;background:rgba(197,160,89,.12);border:1px solid rgba(197,160,89,.35);color:var(--dorado-ley);font-family:var(--font-heading);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;padding:6px 18px;border-radius:100px;margin-bottom:16px}
+.hero-section h1{font-family:var(--font-heading);font-size:clamp(2rem,6.5vw,3.8rem);font-weight:800;line-height:1.12;margin-bottom:16px;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.hero-section h1 em{font-style:normal;color:var(--dorado-ley)}
+.hero-content>p{font-size:clamp(.95rem,2.5vw,1.15rem);max-width:600px;margin:0 auto 32px;color:rgba(240,240,240,.85);line-height:1.75}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--dorado-ley);color:var(--azul-autoridad);font-family:var(--font-heading);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;padding:16px 36px;border-radius:100px;box-shadow:var(--shadow-gold);min-height:52px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.hero-cta:hover{background:var(--dorado-hover);transform:translateY(-3px);box-shadow:0 14px 44px rgba(197,160,89,.45)}
+.hero-cta:focus{outline:3px solid var(--dorado-ley);outline-offset:4px}
+.hero-cta-pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--azul-autoridad);animation:hero-pulse 2s infinite}
+@keyframes hero-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+@media(max-width:900px){.menu-toggle{display:block}.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--azul-autoridad);border-top:1px solid rgba(197,160,89,.3);padding:16px 0;z-index:999}}
+@media(min-width:768px){.hero-section{min-height:88vh}}
     </style>
 
     <link rel="preload" href="css/estilos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -76,8 +86,15 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;col
     <main id="main-content">
         <section id="hero" class="hero-section">
             <div class="container">
-                <h1>Soberanía y Justicia Ciudadana en México</h1>
-                <p>La RCPN es un movimiento de resistencia civil nacional dedicado a la vigilancia del Estado de Derecho y la protección ante el abuso de autoridad.</p>
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Resistencia Civil Pacífica Nacional</span>
+                    <h1>Soberanía y <em>Justicia Ciudadana</em> en México</h1>
+                    <p>La RCPN es un movimiento de resistencia civil nacional dedicado a la vigilancia del Estado de Derecho y la protección ante el abuso de autoridad.</p>
+                    <a href="#nosotros" class="hero-cta">
+                        <span class="hero-cta-pulse" aria-hidden="true"></span>
+                        Conocer la Misión
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -111,6 +128,16 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;col
                         </tr>
                     </tbody>
                 </table>
+                <!-- Vista tarjeta para móvil -->
+                <div class="monitor-cards-mobile">
+                    <div class="monitor-card-item">
+                        <div class="monitor-card-item__info">
+                            <span class="monitor-card-item__loc">Caseta Tepotzotlán, Mex-Qro</span>
+                            <span class="monitor-card-item__corp">Guardia Nacional</span>
+                        </div>
+                        <span class="risk-badge pulse">ALTO</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -120,8 +147,10 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;col
                     <h2>Radar de Derechos Humanos y Jurisprudencia</h2>
                     <p>Mantente al día con las últimas resoluciones de la SCJN y recomendaciones de la CNDH que protegen tu integridad y posesiones.</p>
                 </header>
-                <div id="news-container" class="grid-noticias">
-                    <div class="loading-news">Sincronizando bases de datos legales...</div>
+                <div class="grid-scroll-wrapper">
+                    <div id="news-container" class="grid-noticias">
+                        <div class="loading-news">Sincronizando bases de datos legales...</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -131,7 +160,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;col
                 <h2>Cine de Resistencia y Conciencia Social</h2>
                 <p>Obras fundamentales para entender la historia de la lucha social en México y el mundo, fomentando un pensamiento crítico y participativo.</p>
             </header>
-            <div class="grid-cine">
+            <div class="grid-scroll-wrapper"><div class="grid-cine">
                 <article class="movie-card">
                     <div class="movie-info">
                         <h3>Canoa (1976)</h3>
@@ -153,7 +182,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;col
                         <a href="https://www.youtube.com/results?search_query=También+la+lluvia+trailer+oficial" class="btn-trailer" target="_blank" rel="noopener noreferrer" aria-label="Ver trailer oficial de También la Lluvia (2010) en YouTube">Ver Trailer Oficial</a>
                     </div>
                 </article>
-            </div>
+            </div></div>
         </section>
 
         <section id="nosotros" class="nosotros-section section-padding">
@@ -163,7 +192,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;col
                         class="arturo-card__avatar"
                         src="assets/img/arturo-morales-96.webp"
                         alt="Arturo Morales Camargo, Coordinador Nacional de Resistencia Civil Pacífica Nacional"
-                        width="96" height="96"
+                        width="128" height="128"
                         loading="eager"
                     />
                     <span class="badge">Estrategia Nacional</span>
