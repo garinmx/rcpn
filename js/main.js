@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Carga noticias desde JSON; fallback a array vacío si falla
-    fetch('data/noticias.json')
+    fetch('data/noticias.json?v=' + Date.now(), { cache: 'no-cache' })
         .then(r => { if (!r.ok) throw new Error(); return r.json(); })
         .then(data => renderizar(data.noticias))
         .catch(() => {
