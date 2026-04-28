@@ -118,26 +118,14 @@ body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);over
                             <th scope="col">Ubicación</th>
                             <th scope="col">Corporación</th>
                             <th scope="col">Riesgo</th>
+                            <th scope="col">Fecha</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Caseta Tepotzotlán, Mex-Qro</td>
-                            <td>Guardia Nacional</td>
-                            <td><span class="risk-badge red pulse">ALTO</span></td>
-                        </tr>
+                    <tbody id="monitor-tbody">
+                        <tr><td colspan="4" style="color:var(--text-muted);font-style:italic;padding:20px 12px">Cargando reportes...</td></tr>
                     </tbody>
                 </table>
-                <!-- Vista tarjeta para móvil -->
-                <div class="monitor-cards-mobile">
-                    <div class="monitor-card-item">
-                        <div class="monitor-card-item__info">
-                            <span class="monitor-card-item__loc">Caseta Tepotzotlán, Mex-Qro</span>
-                            <span class="monitor-card-item__corp">Guardia Nacional</span>
-                        </div>
-                        <span class="risk-badge pulse">ALTO</span>
-                    </div>
-                </div>
+                <div class="monitor-cards-mobile" id="monitor-cards-mobile"></div>
             </div>
         </section>
 

@@ -256,8 +256,12 @@ body {
 .risk-badge {
     padding: 6px 14px; border-radius: 4px;
     font-family: var(--font-heading); font-weight: 800; font-size: 0.7rem;
-    background: var(--accent-red); color: var(--blanco); white-space: nowrap;
+    color: var(--blanco); white-space: nowrap;
+    background: var(--accent-red);
 }
+.risk-badge.alto  { background: var(--accent-red); }
+.risk-badge.medio { background: #b87900; }
+.risk-badge.bajo  { background: var(--accent-green); }
 .pulse { animation: pulse-animation 2s infinite; }
 @keyframes pulse-animation {
     0%   { box-shadow: 0 0 0 0 rgba(178,34,34,0.7); }

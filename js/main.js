@@ -8,7 +8,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const modal = document.getElementById('news-modal');
 
-    // Función de Renderizado
+    // ── Monitor de Avistamientos ──
+    function renderizarMonitor(reportes) {
+        const tbody  = document.getElementById('monitor-tbody');
+        const mobile = document.getElementById('monitor-cards-mobile');
+        if (!tbody || !mobile) return;
+
+        tbody.innerHTML  = '';
+        mobile.innerHTML = '';
+
+        if (!reportes || reportes.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" style="color:var(--text-muted);font-style:italic;padding:20px 12px">Sin reportes activos en este momento.</td></tr>';
+            return;
+        }
+
+        reportes.forEach(r => {
+            const nivel = (r.riesgo || 'ALTO').toLowerCase();
+            const pulse = nivel === 'alto' ? 'pulse' : '';
+
+            // Fila de tabla (desktop)
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${r.ubicacion}</td>
+                <td>${r.corporacion}</td>
+                <td><span class="risk-badge ${nivel} ${pulse}">${r.riesgo}</span></td>
+                <td style="font-size:.8rem;color:var(--text-muted)">${r.fecha || ''}</td>
+            `;
+            tbody.appendChild(tr);
+
+            // Tarjeta (móvil)
+            const card = document.createElement('div');
+            card.className = 'monitor-card-item';
+            card.innerHTML = `
+                <div class="monitor-card-item__info">
+                    <span class="monitor-card-item__loc">${r.ubicacion}</span>
+                    <span class="monitor-card-item__corp">${r.corporacion} · ${r.fecha || ''}</span>
+                </div>
+                <span class="risk-badge ${nivel} ${pulse}">${r.riesgo}</span>
+            `;
+            mobile.appendChild(card);
+        });
+    }
+
+    fetch('data/monitor.json?v=' + Date.now(), { cache: 'no-cache' })
+        .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+        .then(data => renderizarMonitor(data.reportes))
+        .catch(() => renderizarMonitor([]));
+
+    // ── Radar de Noticias ──
     function renderizar(items) {
         if(!newsContainer) return;
         newsContainer.innerHTML = '';
