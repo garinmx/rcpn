@@ -76,6 +76,7 @@ body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);over
                     <li><a href="/">Inicio</a></li>
                     <li><a href="#monitor-ruta">Monitor</a></li>
                     <li><a href="#noticias">Radar Jurídico</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
                     <li><a href="#nosotros">Arturo Morales C.</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#cine" class="btn-emergency">Cine de Lucha</a></li>
@@ -140,6 +141,44 @@ body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);over
                     <div id="news-container" class="grid-noticias">
                         <div class="loading-news">Sincronizando bases de datos legales...</div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="quiz-section section-padding">
+            <div class="container">
+                <!-- Pantalla de inicio -->
+                <div id="quiz-start" class="quiz-card">
+                    <span class="quiz-eyebrow">Test Ciudadano · RCPN</span>
+                    <h2 class="quiz-titulo">¿Conoces tus Derechos?</h2>
+                    <p class="quiz-subtitulo">10 preguntas sobre la Constitución, los principios de la Resistencia Civil Pacífica Nacional y cómo defenderte del abuso de autoridad.</p>
+                    <div class="quiz-start-meta">
+                        <span>10 preguntas</span>
+                        <span>·</span>
+                        <span>~3 minutos</span>
+                        <span>·</span>
+                        <span>Sin registro</span>
+                    </div>
+                    <button id="quiz-btn-start" class="quiz-btn-primary">Comenzar el test →</button>
+                </div>
+                <!-- Pantalla de juego -->
+                <div id="quiz-game" class="quiz-card" hidden>
+                    <div class="quiz-progress-wrap">
+                        <div class="quiz-progress-bar"><div id="quiz-bar-fill" class="quiz-bar-fill"></div></div>
+                        <span id="quiz-counter" class="quiz-counter">Pregunta 1 de 10</span>
+                    </div>
+                    <p id="quiz-question" class="quiz-question-text"></p>
+                    <div id="quiz-options" class="quiz-options"></div>
+                    <div id="quiz-feedback" class="quiz-feedback" hidden></div>
+                    <button id="quiz-btn-next" class="quiz-btn-primary" hidden>Siguiente →</button>
+                </div>
+                <!-- Pantalla de resultado -->
+                <div id="quiz-result" class="quiz-card" hidden>
+                    <div id="quiz-result-badge" class="quiz-result-badge"></div>
+                    <p id="quiz-result-score" class="quiz-result-score"></p>
+                    <p id="quiz-result-nivel" class="quiz-result-nivel"></p>
+                    <p id="quiz-result-msg" class="quiz-result-msg"></p>
+                    <button id="quiz-btn-retry" class="quiz-btn-primary">Intentar de nuevo</button>
                 </div>
             </div>
         </section>
