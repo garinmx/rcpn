@@ -77,7 +77,7 @@ body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);over
                     <li><a href="#monitor-ruta">Monitor</a></li>
                     <li><a href="#noticias">Radar Jurídico</a></li>
                     <li><a href="#nosotros">Arturo Morales C.</a></li>
-                    <li><a href="#caricaturas">En Tinta</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#cine" class="btn-emergency">Cine de Lucha</a></li>
                 </ul>
             </nav>
@@ -144,16 +144,47 @@ body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);over
             </div>
         </section>
 
-        <section id="caricaturas" class="bg-light section-padding">
+        <section id="contacto" class="contacto-section section-padding">
             <div class="container">
-                <header class="section-header">
-                    <h2>Resistencia en Tinta</h2>
-                    <p>La caricatura política como arma de denuncia: corrupción, abuso de poder y derechos humanos bajo la lupa del trazo crítico.</p>
-                </header>
-                <div class="grid-scroll-wrapper">
-                    <div id="caricaturas-container" class="grid-caricaturas">
-                        <div class="loading-news">Cargando caricaturas...</div>
+                <div class="contacto-hero">
+                    <span class="contacto-badge">Línea Directa Ciudadana</span>
+                    <h2 class="contacto-titulo">Escríbele directamente a<br><strong>Arturo Morales Camargo</strong></h2>
+                    <p class="contacto-subtitulo">El presidente de la Resistencia Civil Pacífica Nacional se compromete personalmente a leer tu mensaje y a ponerse en contacto contigo por el medio que tú elijas.</p>
+                </div>
+                <form class="contacto-form" id="contacto-form" novalidate>
+                    <div class="contacto-form__grid">
+                        <div class="contacto-form__group">
+                            <label for="cf-nombre">Tu nombre completo</label>
+                            <input type="text" id="cf-nombre" name="nombre" placeholder="¿Cómo te llamas?" required autocomplete="name">
+                        </div>
+                        <div class="contacto-form__group">
+                            <label for="cf-contacto">Correo electrónico o teléfono</label>
+                            <input type="text" id="cf-contacto" name="contacto" placeholder="Para que Arturo pueda responderte" required>
+                        </div>
                     </div>
+                    <div class="contacto-form__group">
+                        <label for="cf-canal">¿Cómo prefieres que te contacten?</label>
+                        <select id="cf-canal" name="canal_preferido">
+                            <option value="Correo electrónico">Correo electrónico</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="Llamada telefónica">Llamada telefónica</option>
+                            <option value="Sin preferencia">Sin preferencia — cualquier medio</option>
+                        </select>
+                    </div>
+                    <div class="contacto-form__group">
+                        <label for="cf-mensaje">Tu mensaje</label>
+                        <textarea id="cf-mensaje" name="mensaje" rows="5" placeholder="Cuéntanos tu situación, haz tu pregunta o comparte tu testimonio. Toda comunicación es estrictamente confidencial." required></textarea>
+                    </div>
+                    <button type="submit" class="contacto-form__submit" id="cf-submit">
+                        <span class="cf-submit-text">Enviar mensaje a Arturo Morales →</span>
+                        <span class="cf-submit-loading" hidden>Enviando...</span>
+                    </button>
+                    <p class="contacto-form__aviso">Tu mensaje es confidencial. Arturo Morales se compromete a responderte personalmente.</p>
+                </form>
+                <div id="contacto-success" class="contacto-success" hidden>
+                    <div class="contacto-success__icon">✓</div>
+                    <h3>Mensaje recibido</h3>
+                    <p>Arturo Morales ha recibido tu mensaje y se pondrá en contacto contigo a la brevedad posible.</p>
                 </div>
             </div>
         </section>
@@ -236,7 +267,7 @@ body{font-family:var(--font-body);line-height:1.6;color:var(--text-primary);over
             <span class="modal-badge">Radar Jurídico · RCPN</span>
             <h2 id="modal-title" class="modal-title"></h2>
             <p id="modal-body" class="modal-body"></p>
-            <a id="modal-link" class="modal-link" href="#" target="_blank" rel="noopener noreferrer">
+            <a id="modal-link" class="modal-link" href="" target="_blank" rel="noopener noreferrer">
                 Ver fuente oficial →
             </a>
         </div>

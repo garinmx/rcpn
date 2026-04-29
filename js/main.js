@@ -8,58 +8,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const modal = document.getElementById('news-modal');
 
-    // ── Resistencia en Tinta: Caricaturas ──
-    function renderizarCaricaturas(items) {
-        const container = document.getElementById('caricaturas-container');
-        if (!container) return;
-        container.innerHTML = '';
+    // ── Formulario de Contacto ──
+    const contactoForm = document.getElementById('contacto-form');
+    if (contactoForm) {
+        contactoForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('cf-submit');
+            const submitText = submitBtn.querySelector('.cf-submit-text');
+            const submitLoading = submitBtn.querySelector('.cf-submit-loading');
 
-        items.forEach(item => {
-            const card = document.createElement('article');
-            card.className = 'caricatura-card';
+            submitBtn.disabled = true;
+            submitText.hidden = true;
+            submitLoading.hidden = false;
 
-            const imgHTML = item.imagen
-                ? `<img src="${item.imagen}"
-                        alt="${item.titulo} — ${item.autor}"
-                        class="caricatura-card__img"
-                        loading="lazy" decoding="async"
-                        onerror="this.style.display='none'">`
-                : '';
+            const data = new FormData(contactoForm);
 
-            card.innerHTML = `
-                <a href="${item.fuente}" target="_blank" rel="noopener noreferrer"
-                   aria-label="Ver caricatura: ${item.titulo} de ${item.autor}">
-                    <div class="caricatura-card__img-wrap">
-                        ${imgHTML}
-                        <div class="caricatura-card__placeholder" aria-hidden="true">
-                            ✏️<span>${item.publicacion}</span>
-                        </div>
-                    </div>
-                </a>
-                <div class="caricatura-card__body">
-                    <div class="caricatura-card__meta">
-                        <span class="caricatura-card__autor">${item.autor}</span>
-                        <span class="caricatura-card__pub">${item.publicacion}</span>
-                        <span class="date" aria-hidden="true">${item.fecha}</span>
-                    </div>
-                    <h3 class="caricatura-card__titulo">${item.titulo}</h3>
-                    <p class="caricatura-card__desc">${item.descripcion}</p>
-                    <a href="${item.fuente}" target="_blank" rel="noopener noreferrer"
-                       class="caricatura-card__link-label"
-                       aria-label="Ver original de ${item.titulo}">Ver original →</a>
-                </div>
-            `;
-            container.appendChild(card);
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/psp.edo.mex@gmail.com', {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!res.ok) throw new Error();
+                contactoForm.hidden = true;
+                document.getElementById('contacto-success').hidden = false;
+            } catch {
+                submitBtn.disabled = false;
+                submitText.hidden = false;
+                submitLoading.hidden = true;
+                alert('Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a psp.edo.mex@gmail.com');
+            }
         });
     }
-
-    fetch('data/caricaturas.json?v=' + Date.now(), { cache: 'no-cache' })
-        .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-        .then(data => renderizarCaricaturas(data.caricaturas))
-        .catch(() => {
-            const c = document.getElementById('caricaturas-container');
-            if (c) c.innerHTML = '<div class="loading-news">No se pudieron cargar las caricaturas.</div>';
-        });
 
     // ── Monitor de Avistamientos ──
     function renderizarMonitor(reportes) {
@@ -172,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navegación Fluida Blindada
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Navegación Fluida Blindada — solo enlaces del nav
+    document.querySelectorAll('#nav-menu a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
