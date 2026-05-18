@@ -1,6 +1,24 @@
 {
-  "updated": "2026-04-28",
+  "updated": "2026-05-18",
   "caricaturas": [
+    {
+      "titulo": "Santuario de Cartón",
+      "autor": "Hernández",
+      "publicacion": "La Jornada",
+      "fecha": "17 MAY 2026",
+      "imagen": "",
+      "fuente": "https://www.jornada.com.mx/categoria/cartones",
+      "descripcion": "Crítica a la contradicción entre el discurso de 'ciudad santuario' de la CDMX y las redadas militares contra migrantes en preparación para el Mundial 2026."
+    },
+    {
+      "titulo": "Transformación con los Mismos Vicios",
+      "autor": "El Fisgón",
+      "publicacion": "La Jornada",
+      "fecha": "15 MAY 2026",
+      "imagen": "",
+      "fuente": "https://www.jornada.com.mx/categoria/cartones",
+      "descripcion": "Alusión a la denuncia interna de corrupción e impunidad dentro de Morena: el partido que prometió transformar México replica los vicios del pasado."
+    },
     {
       "titulo": "El Precio de la Impunidad",
       "autor": "El Fisgón",

@@ -1,23 +1,23 @@
 {
-  "updated": "2026-04-28",
+  "updated": "2026-05-18",
   "reportes": [
     {
-      "ubicacion": "Caseta Tepotzotlán, Mex-Qro",
-      "corporacion": "Guardia Nacional",
+      "ubicacion": "CDMX — Centro Histórico, Tepito y zonas de migrantes",
+      "corporacion": "Guardia Nacional / Ejército / Marina",
       "riesgo": "ALTO",
-      "fecha": "27 ABR 2026"
+      "fecha": "16 MAY 2026"
+    },
+    {
+      "ubicacion": "Carreteras nacionales — Operativo Acamoto 2026",
+      "corporacion": "Guardia Nacional / Ejército / Policía Estatal",
+      "riesgo": "MEDIO",
+      "fecha": "13 MAY 2026"
     },
     {
       "ubicacion": "Carretera Celaya-Juventino Rosas, Guanajuato",
       "corporacion": "Policía Estatal / Fuerzas Federales",
       "riesgo": "ALTO",
       "fecha": "20 ABR 2026"
-    },
-    {
-      "ubicacion": "Autopistas federales — operativo nacional en cuatro estados",
-      "corporacion": "Guardia Nacional",
-      "riesgo": "MEDIO",
-      "fecha": "14 ABR 2026"
     }
   ]
 }
